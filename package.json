@@ -8,7 +8,10 @@
   "scripts": {
     "build": "tsup src/index.ts --dts --format esm --clean",
     "dev": "tsup src/index.ts --watch --onSuccess \"node dist/index.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier -w ./src",
+    "version-package": "changeset version && pnpm format",
+    "release": "pnpm build && changeset publish"
   },
   "files": [
     "dist"
@@ -31,7 +34,8 @@
     "@cuppachino/type-space": "^1.13.2",
     "@types/node": "^18.15.3",
     "@types/ws": "^8.5.4",
-    "tsup": "^6.6.3",
+    "prettier": "^2.8.4",
+    "tsup": "^6.7.0",
     "typescript": "^5.0.2"
   },
   "dependencies": {

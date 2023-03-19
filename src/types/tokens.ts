@@ -5,7 +5,7 @@ import type { AUTH_TOKENS } from 'hexgate/modules/auth/tokens.js'
 /**
  * A union of token IDs that are required for authentication.
  */
-export type AuthToken = typeof AUTH_TOKENS[number]
+export type AuthToken = (typeof AUTH_TOKENS)[number]
 
 /**
  * The tokens extracted from the client process.
