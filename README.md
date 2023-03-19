@@ -2,9 +2,11 @@
 
 [Hexgate](https://www.npmjs.com/package/hexgate) is a work-in-progress LCU suite. It is **not** endorsed by Riot Games. You can find out more about what that means [here](https://www.riotgames.com/en/legal). Thank you Riot ❤️ for providing a public API for us to play with.
 
-<!-- ## Scope
+## Scope
 
-todo: add more info -->
+Hexgate is currently ESM-only and it's not intended for use in browsers (the LoL client does not allow browser connections). If CJS support is important to you, please open an issue. I am aware electron still lacks ESM support.
+
+<!-- todo: add more info -->
 
 ## Installation
 

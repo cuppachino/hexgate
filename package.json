@@ -3,18 +3,11 @@
   "version": "0.1.0",
   "description": "API wrapper for the League of Legends LCU",
   "type": "module",
-  "main": "dist/main.js",
-  "types": "dist/main.d.ts",
-  "exports": {
-    ".": {
-      "import": "./dist/main.js",
-      "require": "./dist/main.cjs",
-      "types": "./dist/main.d.ts"
-    }
-  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/main.ts --dts --format cjs,esm --clean",
-    "dev": "tsup src/main.ts --watch --onSuccess \"node dist/main.cjs\"",
+    "build": "tsup src/index.ts --dts --format esm --clean",
+    "dev": "tsup src/index.ts --watch --onSuccess \"node dist/index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
