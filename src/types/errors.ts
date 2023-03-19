@@ -1,1 +1,1 @@
-export type ErrorKind = 'invalid' | 'missing'
+export type ErrorKind = 'invalid' | 'missing' | 'timeout' | 'unknown'
