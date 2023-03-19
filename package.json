@@ -1,6 +1,11 @@
 {
   "name": "hexgate",
   "version": "0.1.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "description": "API wrapper for the League of Legends LCU",
   "type": "module",
   "main": "dist/index.js",
