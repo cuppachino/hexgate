@@ -1,0 +1,35 @@
+{
+  "name": "hexgate",
+  "version": "0.1.0",
+  "description": "API wrapper for the League of Legends LCU",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.js",
+      "types": "./dist/main.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/main.ts --dts --format cjs,esm --clean",
+    "dev": "tsup src/main.ts --watch --onSuccess \"node dist/main.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Jacob Bergholtz <cuppachino.dev@gmail.com>",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "@types/ws": "^8.5.4",
+    "node-fetch": "^3.3.1",
+    "tsup": "^6.6.3",
+    "ws": "^8.13.0"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.7"
+  }
+}
