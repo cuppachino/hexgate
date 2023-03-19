@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@cuppachino/type-space': ^1.13.2
   '@types/node': ^18.15.3
   '@types/ws': ^8.5.4
   bufferutil: ^4.0.7
@@ -17,12 +18,17 @@ optionalDependencies:
   bufferutil: 4.0.7
 
 devDependencies:
+  '@cuppachino/type-space': 1.13.2
   '@types/node': 18.15.3
   '@types/ws': 8.5.4
   tsup: 6.6.3_typescript@5.0.2
   typescript: 5.0.2
 
 packages:
+
+  /@cuppachino/type-space/1.13.2:
+    resolution: {integrity: sha512-e8OCQ3N8BTdgNVPDcRtLgTxaXH2/HrMHfC2wnFhgMnSE8Y9CoJu2UJycTjowc/YKysMTQbXoJEWuu1eUmXPKTw==}
+    dev: true
 
   /@esbuild/android-arm/0.17.12:
     resolution: {integrity: sha512-E/sgkvwoIfj4aMAPL2e35VnUJspzVYl7+M1B2cqeubdBhADV4uPon0KCc8p2G+LqSJ6i8ocYPCqY3A4GGq0zkQ==}

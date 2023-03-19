@@ -21,6 +21,7 @@
   "author": "Jacob Bergholtz <cuppachino.dev@gmail.com>",
   "license": "GPL-3.0",
   "devDependencies": {
+    "@cuppachino/type-space": "^1.13.2",
     "@types/node": "^18.15.3",
     "@types/ws": "^8.5.4",
     "tsup": "^6.6.3",
