@@ -10,11 +10,24 @@
     "dev": "tsup src/index.ts --watch --onSuccess \"node dist/index.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "files": ["dist"],
-  "keywords": [],
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "hexgate",
+    "league of legends",
+    "league",
+    "lol",
+    "lcu",
+    "api",
+    "wrapper",
+    "websocket",
+    "typescript"
+  ],
   "author": "Jacob Bergholtz <cuppachino.dev@gmail.com>",
   "license": "GPL-3.0",
   "devDependencies": {
+    "@changesets/cli": "^2.26.0",
     "@cuppachino/type-space": "^1.13.2",
     "@types/node": "^18.15.3",
     "@types/ws": "^8.5.4",
