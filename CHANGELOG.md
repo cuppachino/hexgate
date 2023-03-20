@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.2.2
+
+### Patch Changes
+
+- 1bbdfc1: Create LICENSE
+
 ## 0.2.1
 
 ### Patch Changes
