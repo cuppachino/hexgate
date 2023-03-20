@@ -6,7 +6,6 @@
 ![npm (scoped)](https://img.shields.io/npm/v/hexgate?color=%23fb3e44)
 ![npm](https://img.shields.io/npm/dw/hexgate)
 
-
 [Hexgate](https://www.npmjs.com/package/hexgate) is a work-in-progress LCU suite. It is **not** endorsed by Riot Games. You can find out more about what that means [here](https://www.riotgames.com/en/legal). Thank you Riot ❤️ for providing a public API for us to play with. If you have any questions, feel free to join the [cuppachino discord](https://discord.gg/HEd72YnzVq).
 
 ## Scope
@@ -31,14 +30,6 @@ npm i hexgate
 yarn add hexgate
 ```
 
-## Development
-
-This package uses [pnpm](https://pnpm.io) to manage dependencies. If you don't have pnpm, it can be installed globally using `npm`, `yarn`, `brew`, or `scoop`, as well as some other options. Check out the [pnpm documentation](https://pnpm.io/installation) for more information.
-
-```ps1
-pnpm i
-```
-
 ## Usage
 
 ### Authentication
@@ -59,4 +50,12 @@ import { auth } from "hexgate"
 
 // This throws if the client isn't running.
 const unsafeCredentials = await auth({ certificate: undefined })
+```
+
+## Development
+
+This package uses [pnpm](https://pnpm.io) to manage dependencies. If you don't have pnpm, it can be installed globally using `npm`, `yarn`, `brew`, or `scoop`, as well as some other options. Check out the [pnpm documentation](https://pnpm.io/installation) for more information.
+
+```ps1
+pnpm i
 ```
