@@ -13,10 +13,10 @@
   "scripts": {
     "build": "tsc -b --clean && tsc -p ./tsconfig.json",
     "dev": "tsup src/index.ts --watch --onSuccess \"node dist/index.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tsc --noEmit",
     "format": "prettier -w ./src",
     "version-package": "changeset version && pnpm format",
-    "release": "pnpm build && changeset publish"
+    "release": "pnpm test && pnpm build && changeset publish"
   },
   "files": [
     "dist"
