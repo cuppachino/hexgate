@@ -1,5 +1,5 @@
-import { CERTIFICATE } from 'hexgate/constants/certificate.js'
-import type { AuthOptions } from 'hexgate/types/tokens.js'
+import { CERTIFICATE } from '../../constants/certificate.js'
+import type { AuthOptions } from '../../types/tokens.js'
 import { getTokens } from './tokens.js'
 
 /**

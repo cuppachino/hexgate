@@ -1,6 +1,6 @@
 import type { PartialSome } from '@cuppachino/type-space'
-import type { CERTIFICATE } from 'hexgate/constants/certificate.js'
-import type { AUTH_TOKENS } from 'hexgate/modules/auth/tokens.js'
+import type { CERTIFICATE } from '../constants/certificate.js'
+import type { AUTH_TOKENS } from '../constants/tokens.js'
 
 /**
  * A union of token IDs that are required for authentication.

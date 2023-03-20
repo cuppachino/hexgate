@@ -1,14 +1,10 @@
 import type { Combine } from '@cuppachino/type-space'
-import { InvalidPlatformError } from 'hexgate/errors/invalid-platform.js'
-import { MissingClientError } from 'hexgate/errors/missing-client.js'
-import type { AuthTokens, Credentials } from 'hexgate/types/tokens.js'
-import { execPromise } from 'hexgate/utils/exec-promise.js'
-import { stripWhitespace } from 'hexgate/utils/strip-whitespace.js'
-
-/**
- * The tokens extracted from the client process to be used for authentication.
- */
-export const AUTH_TOKENS = ['appPid', 'appPort', 'remotingAuthToken', 'certificate'] as const
+import { AUTH_TOKENS } from '../../constants/tokens.js'
+import { InvalidPlatformError } from '../../errors/invalid-platform.js'
+import { MissingClientError } from '../../errors/missing-client.js'
+import type { AuthTokens, Credentials } from '../../types/tokens.js'
+import { execPromise } from '../../utils/exec-promise.js'
+import { stripWhitespace } from '../../utils/strip-whitespace.js'
 
 /**
  * Asserts that all required tokens are present.
