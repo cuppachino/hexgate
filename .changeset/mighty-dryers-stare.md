@@ -1,5 +1,0 @@
----
-"hexgate": patch
----
-
-Create LICENSE
