@@ -34,11 +34,10 @@ yarn add hexgate
 
 ### Authentication
 
-Wait for the client by passing the [`auth`](https://github.com/cuppachino/hexgate/blob/main/src/modules/auth/index.ts) function to the [`poll`](https://github.com/cuppachino/hexgate/blob/1e35a420382523bf1b0bf60267aa8314fce7a457/src/utils/poll.ts) util.
+Wait for the client by passing the [`auth`](https://github.com/cuppachino/hexgate/blob/main/src/modules/auth/index.ts) function to the [`poll`](https://github.com/cuppachino/hexgate/blob/1e35a420382523bf1b0bf60267aa8314fce7a457/src/utils/poll.ts) utility.
 
 ```ts
-import { auth } from "hexgate"
-import { poll } from "hexgate/utils"
+import { auth, poll } from "hexgate"
 
 const credentials = await poll(auth)
 ```

@@ -1,4 +1,4 @@
-import { PollTimeoutError } from 'hexgate/errors/poll-timeout.js'
+import { PollTimeoutError } from '../errors/poll-timeout.js'
 
 /**
  * Retry a function until an error is not thrown.

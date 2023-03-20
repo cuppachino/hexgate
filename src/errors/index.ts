@@ -1,4 +1,4 @@
-import type { ErrorKind } from 'hexgate/types/errors.js'
+import type { ErrorKind } from '../types/errors.js'
 
 export class HexgateError extends Error {
   public kind: ErrorKind
