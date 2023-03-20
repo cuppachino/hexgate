@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.2.3
+
+### Patch Changes
+
+- ba3f1fa: fix export resolution
+
 ## 0.2.2
 
 ### Patch Changes
