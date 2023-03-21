@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.2.4
+
+### Patch Changes
+
+- 70ae06a: Update README.md badge links
+
 ## 0.2.3
 
 ### Patch Changes
