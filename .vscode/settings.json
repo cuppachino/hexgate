@@ -6,7 +6,12 @@
     }
   ],
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "unifiedjs.vscode-remark",
+    "editor.formatOnSave": true
   },
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }

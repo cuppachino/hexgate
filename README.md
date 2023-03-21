@@ -1,6 +1,6 @@
 # Hexgate
 
-![Discord](https://img.shields.io/discord/1080840305441525766?color=5865f2&label=&logo=discord&logoColor=ffffff)
+[![Discord](https://img.shields.io/discord/1080840305441525766?color=5865f2\&label=\&logo=discord\&logoColor=ffffff)](https://discord.gg/HEd72YnzVq)
 [![Release](https://github.com/cuppachino/hexgate/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/cuppachino/hexgate/actions/workflows/release.yml)
 ![License](https://img.shields.io/github/license/cuppachino/hexgate?color=ffca4a)
 ![npm (scoped)](https://img.shields.io/npm/v/hexgate?color=%23fb3e44)

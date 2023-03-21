@@ -14,7 +14,7 @@
     "build": "tsc -b --clean && tsc -p ./tsconfig.json",
     "dev": "tsup src/index.ts --watch --onSuccess \"node dist/index.js\"",
     "test": "tsc --noEmit",
-    "format": "prettier -w ./src",
+    "format": "prettier -w ./src && remark . --quiet --frail --output",
     "version-package": "changeset version && pnpm format",
     "release": "pnpm test && pnpm build && changeset publish"
   },
@@ -40,6 +40,13 @@
     "@types/node": "^18.15.3",
     "@types/ws": "^8.5.4",
     "prettier": "^2.8.4",
+    "remark": "^14.0.2",
+    "remark-cli": "^11.0.0",
+    "remark-lint-emphasis-marker": "^3.1.1",
+    "remark-lint-list-item-indent": "^3.1.1",
+    "remark-lint-strong-marker": "^3.1.1",
+    "remark-preset-lint-consistent": "^5.1.1",
+    "remark-preset-lint-recommended": "^6.1.2",
     "typescript": "^5.0.2"
   },
   "dependencies": {
@@ -49,5 +56,23 @@
   },
   "optionalDependencies": {
     "bufferutil": "^4.0.7"
+  },
+  "remarkConfig": {
+    "settings": {
+      "emphasis": "*",
+      "strong": "*"
+    },
+    "plugins": [
+      "remark-preset-lint-consistent",
+      "remark-preset-lint-recommended",
+      [
+        "remark-lint-emphasis-marker",
+        "*"
+      ],
+      [
+        "remark-lint-strong-marker",
+        "*"
+      ]
+    ]
   }
 }
