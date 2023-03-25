@@ -11,7 +11,9 @@
 
 ## Scope
 
-Hexgate is currently ESM-only and it's not intended for use in browsers (the LoL client does not allow browser connections). If CJS support is important to you, please open an issue. I am aware electron still lacks ESM support.
+Please refer to the [wiki](https://github.com/cuppachino/hexgate/wiki) until the documentation website is live and Hexgate is feature complete.
+
+Hexgate is currently ESM-only and it's not intended for use in browsers. If CJS support is important to you, please open an issue. I am aware electron still lacks ESM support.
 
 <!-- todo: add more info -->
 
