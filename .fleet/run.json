@@ -1,0 +1,13 @@
+{
+  "configurations": [
+    {
+      "type": "command",
+      "name": "Command configuration",
+      "program": "pnpm",
+      "args": [
+        "tsx",
+        "$FILE$"
+      ]
+    }
+  ]
+}
