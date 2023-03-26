@@ -119,3 +119,5 @@ logs
 # misc
 .DS_Store
 *.pem
+
+schema/

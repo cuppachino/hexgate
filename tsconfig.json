@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "NodeNext",
+    "target": "ES2022",
+    "module": "nodenext",
     "moduleResolution": "nodenext",
     "outDir": "dist",
     "esModuleInterop": true,
@@ -9,7 +9,12 @@
     "strict": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
-    "declaration": true
+    "declaration": true,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "baseUrl": ".",
+    "rootDir": "src",
   },
-  "include": ["src/**/*"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "schema"]
 }
