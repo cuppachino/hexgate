@@ -1,10 +1,20 @@
 # hexgate
 
+## 0.3.0
+
+### Minor Changes
+
+*   584ebf8: Type the LCU api.
+
+### Patch Changes
+
+*   a5f4e73: fix blocking lint script
+
 ## 0.2.4
 
 ### Patch Changes
 
-- 70ae06a: Update README.md badge links
+*   70ae06a: Update README.md badge links
 
 ## 0.2.3
 
