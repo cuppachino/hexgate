@@ -1,16 +1,19 @@
 # Hexgate
 
 [![Discord](https://img.shields.io/discord/1080840305441525766?color=5865f2\&label=\&logo=discord\&logoColor=ffffff)](https://discord.gg/HEd72YnzVq)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f9cec6d6f8cf407fb2ef8a4ab82af87c)](https://app.codacy.com/gh/cuppachino/hexgate?utm_source=github.com&utm_medium=referral&utm_content=cuppachino/hexgate&utm_campaign=Badge_Grade)
 [![Release](https://github.com/cuppachino/hexgate/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/cuppachino/hexgate/actions/workflows/release.yml)
-![License](https://img.shields.io/github/license/cuppachino/hexgate?color=ffca4a)
-![npm (scoped)](https://img.shields.io/npm/v/hexgate?color=%23fb3e44)
-![npm](https://img.shields.io/npm/dw/hexgate)
+[![License](https://img.shields.io/github/license/cuppachino/hexgate?color=ffca4a)](https://github.com/cuppachino/hexgate/blob/528f647166eddef82e0ceb15ac8feafb56e97773/LICENSE)
+[![npm (scoped)](https://img.shields.io/npm/v/hexgate?color=%23fb3e44)](https://www.npmjs.com/package/hexgate)
+[![npm](https://img.shields.io/npm/dw/hexgate)](https://www.npmjs.com/package/hexgate)
 
 [Hexgate](https://www.npmjs.com/package/hexgate) is a work-in-progress LCU suite. It is **not** endorsed by Riot Games. You can find out more about what that means [here](https://www.riotgames.com/en/legal). Thank you Riot ❤️ for providing a public API for us to play with. If you have any questions, feel free to join the [cuppachino discord](https://discord.gg/HEd72YnzVq).
 
 ## Scope
 
-Hexgate is currently ESM-only and it's not intended for use in browsers (the LoL client does not allow browser connections). If CJS support is important to you, please open an issue. I am aware electron still lacks ESM support.
+Please refer to the [wiki](https://github.com/cuppachino/hexgate/wiki) until the documentation website is live and Hexgate is feature complete.
+
+Hexgate is currently ESM-only and it's not intended for use in browsers. If CJS support is important to you, please open an issue. I am aware electron still lacks ESM support.
 
 <!-- todo: add more info -->
 
