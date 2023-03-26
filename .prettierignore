@@ -120,4 +120,5 @@ logs
 .DS_Store
 *.pem
 
-schema/
+.prettierignore
+.prettierrc

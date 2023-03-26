@@ -1,0 +1,7 @@
+{
+  "recommendations": [
+    "unifiedjs.vscode-remark",
+    "esbenp.prettier-vscode",
+    "orta.vscode-twoslash-queries"
+  ]
+}
