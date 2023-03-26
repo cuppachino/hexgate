@@ -15,7 +15,7 @@
     "build": "tsc -b --clean && tsc -p ./tsconfig.json",
     "dev": "tsx watch src/index.ts",
     "test": "tsc --noEmit",
-    "format": "prettier -w ./src && remark . --quiet --frail --output",
+    "format": "prettier -w ./src && remark . --quiet --output",
     "version-package": "changeset version && pnpm format",
     "release": "pnpm test && pnpm build && changeset publish",
     "clean:win": "powershell Remove-Item -Path dist/ -Recurse -Force",
@@ -68,10 +68,6 @@
     "bufferutil": "^4.0.7"
   },
   "remarkConfig": {
-    "settings": {
-      "emphasis": "*",
-      "strong": "*"
-    },
     "plugins": [
       "remark-preset-lint-consistent",
       "remark-preset-lint-recommended",
