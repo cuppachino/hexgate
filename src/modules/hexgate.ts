@@ -9,13 +9,14 @@ export class Hexgate {
     const { appPort: port } = credentials
 
     this.baseUrl = `https://127.0.0.1:${port}`
+    this.fetcher = Fetcher.for<LcuPaths>()
     this.fetcher.configure({
       baseUrl: this.baseUrl,
       init: createRequestInit(credentials)
     })
   }
   public baseUrl: `https://127.0.0.1:${Credentials['appPort']}`
-  private fetcher = Fetcher.for<LcuPaths>()
+  protected fetcher = Fetcher.for<LcuPaths>()
 
   /** */
   public use(mw: Middleware) {

@@ -64,7 +64,7 @@
     "vitest": "^0.29.7"
   },
   "dependencies": {
-    "@cuppachino/openapi-fetch": "^2.1.1",
+    "@cuppachino/openapi-fetch": "^2.1.2",
     "@cuppachino/type-space": "^1.16.0",
     "@type-challenges/utils": "^0.1.1",
     "colorix": "^2.0.2",
