@@ -8,16 +8,14 @@ export const execPromise = promisify(exec)
 
 const PS1 = `
 Dir ./dist/cjs/*.js -Recurse | Rename-Item -NewName { [io.path]::ChangeExtension($_.Name,"cjs") };
-Copy-Item -Path ./dist/esm -Filter *.d.ts -Recurse -Container:$false -Destination ./dist/types;
 `
+// Copy-Item -Path ./dist/esm -Filter *.d.ts -Recurse -Container:$false -Destination ./dist/types;
 // Copy-Item ./dist/esm/index.d.ts ./dist/index.d.ts;
 
 const BASH = `
-for file in dist/cjs/**/*.js; do
-mv "$file" "\${file%.js}.cjs"
-done;
-mkdir -p ./dist/types; cp -R ./dist/esm/ ./dist/types; find ./dist/types/ ! -name '*.d.ts' -type f -delete
+find ./dist/cjs/ -depth -name "*.js" -exec sh -c 'mv "$1" "\${1%.js}.cjs"' _ {} \\;
 `
+// mkdir -p ./dist/types; cp -R ./dist/esm/ ./dist/types; find ./dist/types/ ! -name '*.d.ts' -type f -delete
 // cp dist/esm/index.d.ts ./dist/index.d.ts
 
 /*
