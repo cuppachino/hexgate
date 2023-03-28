@@ -32,8 +32,6 @@ export type LcuOperationsLens<Prop extends 'responses' | 'parameters' | 'request
   PickInner<LcuOperations, Prop>
 >
 
-type testLcuReqBody = LcuOperationsLens<'requestBody'>
-
 /**
  * Extract the inner response type from an LCU operation. If the response is `never`, it is coerced to `undefined`.
  *
@@ -71,9 +69,9 @@ export type UnwrapResponse<T extends keyof LcuOperationsLens<'responses'>> = {
 }[keyof LcuOperations[T]['responses']]
 
 /**
- * @internal
- * @ignore
+ * @internal test cases
  */
+/* @ts-ignore */
 type _unwrap_response_cases = [
   Expect<Equal<LcuOperations['PostRiotclientUxShow']['responses']['204'], never>>,
   Expect<Equal<UnwrapResponse<'PostRiotclientUxShow'>, undefined>>,
@@ -112,6 +110,10 @@ type _unwrap_response_cases = [
 export type UnwrapParameters<T extends keyof LcuOperationsLens<'parameters'>> =
   LcuOperations[T]['parameters'] extends { path: infer U } ? U : never
 
+/**
+ * @internal test cases
+ */
+/* @ts-ignore */
 type _unwrap_parameters_cases = [
   Expect<
     Equal<

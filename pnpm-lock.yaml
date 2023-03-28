@@ -10,7 +10,7 @@ specifiers:
   '@types/ws': ^8.5.4
   bufferutil: ^4.0.7
   colorix: ^2.0.2
-  node-fetch: ^3.3.1
+  node-fetch-commonjs: ^3.2.4
   prettier: ^2.8.7
   remark: ^14.0.2
   remark-cli: ^11.0.0
@@ -20,6 +20,7 @@ specifiers:
   remark-preset-lint-consistent: ^5.1.1
   remark-preset-lint-recommended: ^6.1.2
   rimraf: ^4.4.1
+  tslib: ^2.5.0
   tsx: ^3.12.6
   typescript: ^5.0.2
   vitest: ^0.29.7
@@ -30,7 +31,7 @@ dependencies:
   '@cuppachino/type-space': 1.16.0
   '@type-challenges/utils': 0.1.1
   colorix: 2.0.2
-  node-fetch: 3.3.1
+  node-fetch-commonjs: 3.2.4
   ws: 8.13.0_bufferutil@4.0.7
 
 optionalDependencies:
@@ -50,6 +51,7 @@ devDependencies:
   remark-preset-lint-consistent: 5.1.1
   remark-preset-lint-recommended: 6.1.2
   rimraf: 4.4.1
+  tslib: 2.5.0
   tsx: 3.12.6
   typescript: 5.0.2
   vitest: 0.29.7
@@ -1052,11 +1054,6 @@ packages:
       csv-stringify: 5.6.5
       stream-transform: 2.1.3
     dev: true
-
-  /data-uri-to-buffer/4.0.1:
-    resolution: {integrity: sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==}
-    engines: {node: '>= 12'}
-    dev: false
 
   /debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
@@ -2265,13 +2262,12 @@ packages:
     engines: {node: '>=10.5.0'}
     dev: false
 
-  /node-fetch/3.3.1:
-    resolution: {integrity: sha512-cRVc/kyto/7E5shrWca1Wsea4y6tL9iYJE5FBCius3JQfb/4P4I295PfhgbJQBLTx6lATE4z+wK0rPM4VS2uow==}
+  /node-fetch-commonjs/3.2.4:
+    resolution: {integrity: sha512-bZW7+ldcuuMPLTJk8DufhT6qHDRdljYD0jqBjmrYfcInaYcReX5kK42SQsu/jvtit/tER28yYjnk63PEEmNPtg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
-      data-uri-to-buffer: 4.0.1
-      fetch-blob: 3.2.0
       formdata-polyfill: 4.0.10
+      web-streams-polyfill: 3.2.1
     dev: false
 
   /node-gyp-build/4.6.0:
@@ -3347,6 +3343,10 @@ packages:
 
   /trough/2.1.0:
     resolution: {integrity: sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==}
+    dev: true
+
+  /tslib/2.5.0:
+    resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
     dev: true
 
   /tsx/3.12.6:

@@ -10,6 +10,13 @@
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.cjs",
+    "browser": "./dist/esm/index.js",
+    "default": "./dist/cjs/index.cjs"
+  },
   "scripts": {
     "schema": "tsx schema/index.mts",
     "build": "tsc -b --clean && tsc -p ./tsconfig.json",
@@ -52,6 +59,7 @@
     "remark-preset-lint-consistent": "^5.1.1",
     "remark-preset-lint-recommended": "^6.1.2",
     "rimraf": "^4.4.1",
+    "tslib": "^2.5.0",
     "tsx": "^3.12.6",
     "typescript": "^5.0.2",
     "vitest": "^0.29.7"
@@ -61,7 +69,7 @@
     "@cuppachino/type-space": "^1.16.0",
     "@type-challenges/utils": "^0.1.1",
     "colorix": "^2.0.2",
-    "node-fetch": "^3.3.1",
+    "node-fetch-commonjs": "^3.2.4",
     "ws": "^8.13.0"
   },
   "optionalDependencies": {

@@ -1,5 +1,5 @@
 import type { CreateFetch } from '@cuppachino/openapi-fetch'
-import type { RequestInit } from 'node-fetch'
+import type { RequestInit } from 'node-fetch-commonjs'
 import type { LcuPaths } from './openapi/paths.js'
 
 export type HexgatePath<P extends keyof LcuPaths> = ReturnType<

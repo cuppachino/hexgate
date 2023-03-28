@@ -1,5 +1,5 @@
 import type { Combine } from '@cuppachino/type-space'
-import { type RequestInit } from 'node-fetch'
+import { type RequestInit } from 'node-fetch-commonjs'
 import type { Credentials } from '../../index.js'
 import { createHeaders } from '../auth/headers.js'
 import { HttpsAgent } from './agent.js'
