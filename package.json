@@ -8,13 +8,12 @@
   },
   "description": "API wrapper for the League of Legends LCU",
   "type": "module",
-  "main": "dist/index.js",
-  "types": "dist/types/index.d.ts",
+  "main": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "exports": {
-    "types": "./dist/index.d.ts",
+    "types": "./dist/esm/index.d.ts",
     "import": "./dist/esm/index.js",
     "require": "./dist/cjs/index.cjs",
-    "browser": "./dist/esm/index.js",
     "default": "./dist/cjs/index.cjs"
   },
   "scripts": {
