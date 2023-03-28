@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.5.3
+
+### Patch Changes
+
+*   d3d61e0: fix: bash build script
+
 ## 0.5.1
 
 ### Patch Changes
