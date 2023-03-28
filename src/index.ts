@@ -31,6 +31,13 @@ export type { AuthOptions, AuthToken, Credentials } from './types/tokens.js'
 /// Error Types
 export type { ErrorKind } from './types/errors.js'
 
+/// Game Constant Types
+export type * from './types/game-constants/gameModes.js'
+export type * from './types/game-constants/gameTypes.js'
+export type * from './types/game-constants/maps.js'
+export type * from './types/game-constants/queues.js'
+export type * from './types/game-constants/seasons.js'
+
 /// OpenAPI Types
 export type {
   LcuComponents,
@@ -38,5 +45,8 @@ export type {
   LcuOperationsLens,
   LcuPaths,
   LcuResponseCode,
-  UnwrapResponse
+  UnwrapResponse,
+  UnwrapRequestBody,
+  UnwrapParameters,
+  UnwrapRequest
 } from './types/openapi/index.js'

@@ -32,7 +32,7 @@ export type Maybe<T = undefined | null> = T | undefined | null
  * ```
  */
 export type PickInner<T, P extends KeyOf<T[KeyOf<T>]>> = {
-  [K in keyof T as T[K] extends { [K2 in P]: any } ? K : never]: T[K]
+  [K in keyof T as T[K] extends { [K2 in P]?: any } ? K : never]: T[K]
 }
 
 /**
