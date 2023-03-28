@@ -18,7 +18,8 @@
     "default": "./dist/cjs/index.cjs"
   },
   "scripts": {
-    "build": "pnpm test && pnpm format && pnpm clean && pnpm tsc -p ./tsconfig.json && pnpm tsc -p ./tsconfig.cjs.json && pnpm tsx ./scripts/cjs-resolver.ts",
+    "build": "pnpm test && pnpm format && pnpm clean && pnpm tsc -p ./tsconfig.json && pnpm tsc -p ./tsconfig.cjs.json && pnpm postbuild",
+    "postbuild": "tsx ./scripts/cjs-resolver.ts -d",
     "dev": "tsx watch src/index.ts",
     "test": "tsc --noEmit",
     "format": "prettier -w ./src && remark . --quiet --output",
