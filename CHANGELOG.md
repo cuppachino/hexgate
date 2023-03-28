@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.5.0
+
+### Minor Changes
+
+*   9dfec98: Added support for cjs
+
 ## 0.4.0
 
 ### Minor Changes
