@@ -1,5 +1,12 @@
 # hexgate
 
+## 0.5.1
+
+### Patch Changes
+
+*   9752d6b: Update README.md
+*   f4f7d45: bugfix: correct dirs in package.json
+
 ## 0.5.0
 
 ### Minor Changes
