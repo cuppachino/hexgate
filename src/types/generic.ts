@@ -3,7 +3,9 @@ import type { Assert, Flat, KeyOf, Split } from '@cuppachino/type-space'
 /**
  * Exclude all properties from `T` where `T[K]` is `never`.
  */
-export type ExcludeNever<T> = { [K in keyof T as T[K] extends never ? never : K]: T[K] }
+export type ExcludeNever<T> = {
+  [K in keyof T as T[K] extends never ? never : K]: T[K]
+}
 
 /**
  * A type that is either `T` or `undefined` or `null`.
@@ -37,7 +39,9 @@ export type PickInner<T, P extends KeyOf<T[KeyOf<T>]>> = {
  * Uppercases the first letter of each string in an array of strings.
  * @internal
  */
-export type CapitalizeEach<T extends string[]> = { [K in keyof T]: Capitalize<T[K]> }
+export type CapitalizeEach<T extends string[]> = {
+  [K in keyof T]: Capitalize<T[K]>
+}
 
 /**
  * Splits a string literal at each "/" and "-" character into a tuple of strings.

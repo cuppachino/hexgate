@@ -4,7 +4,7 @@ import type { Credentials } from '../../index.js'
 import { createHeaders } from '../auth/headers.js'
 import { HttpsAgent } from './agent.js'
 
-export function createRequestOptions<
+export function createRequestInit<
   PartialCredentials extends Combine<Pick<Credentials, 'certificate' | 'remotingAuthToken'>>
 >({ remotingAuthToken: password, certificate }: PartialCredentials) {
   return {

@@ -1,17 +1,32 @@
-/// Public Modules
+/// --- Polyfills
+/// Fetch (node-fetch)
+import './utils/pollyfills/fetch.js'
+export * from './utils/pollyfills/fetch.js'
+
+/// --- Public Modules
+/// Authentication
+export { createHeaders } from './modules/auth/headers.js'
 export { auth } from './modules/auth/index.js'
 
-/// Public Utils
-export { poll } from './utils/poll.js'
+/// Hexgate
+export * from './modules/hexgate.js'
 
-/// Authentication Types
-export type { AuthOptions, AuthToken, Credentials } from './types/tokens.js'
+/// HTTPS
+export { HttpsAgent } from './modules/https/agent.js'
+export { createRequestInit } from './modules/https/request-init.js'
+
+/// Utilities
+export { poll } from './utils/poll.js'
 
 /// Errors
 export { HexgateError } from './errors/index.js'
 export { InvalidPlatformError } from './errors/invalid-platform.js'
 export { MissingClientError } from './errors/missing-client.js'
 export { PollTimeoutError } from './errors/poll-timeout.js'
+
+/// --- Public Types
+/// Authentication Types
+export type { AuthOptions, AuthToken, Credentials } from './types/tokens.js'
 
 /// Error Types
 export type { ErrorKind } from './types/errors.js'
