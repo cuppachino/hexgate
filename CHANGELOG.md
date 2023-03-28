@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.5.4
+
+### Patch Changes
+
+*   406ef09: deps: update @cuppachino/openapi-fetch
+
 ## 0.5.3
 
 ### Patch Changes
