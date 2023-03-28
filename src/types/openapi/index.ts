@@ -25,7 +25,10 @@ export type LcuResponseCode = KeyOf<
  * type LcuOperationsWithParemeters = LcuOperationsLens<'parameters'>
  * ```
  */
-export type LcuOperationsLens<Prop extends 'responses' | 'parameters'> = Combine<
+// export type LcuOperationsLens<Prop extends 'responses' | 'parameters'> = Combine<
+//   PickInner<LcuOperations, Prop>
+// >
+export type LcuOperationsLens<Prop extends 'responses' | 'parameters' | 'requestBody'> = Combine<
   PickInner<LcuOperations, Prop>
 >
 
@@ -39,6 +42,7 @@ export type LcuOperationsLens<Prop extends 'responses' | 'parameters'> = Combine
  *   Expect<Equal<UnwrapResponse<'PostRiotclientUxShow'>, undefined>>,
  *   Expect<
  *     Equal<
+ *       /// { canStartActivity?: boolean; gameConfig?: { ... }; ... }
  *       UnwrapResponse<'PostLolLobbyV2Lobby'>,
  *       LcuOperations['PostLolLobbyV2Lobby']['responses']['200']['content']['application/json']
  *     >
@@ -65,14 +69,15 @@ export type UnwrapResponse<T extends keyof LcuOperationsLens<'responses'>> = {
 }[keyof LcuOperations[T]['responses']]
 
 /**
- * @internal
- * @ignore
+ * @internal test cases
  */
+/* @ts-ignore */
 type _unwrap_response_cases = [
   Expect<Equal<LcuOperations['PostRiotclientUxShow']['responses']['204'], never>>,
   Expect<Equal<UnwrapResponse<'PostRiotclientUxShow'>, undefined>>,
   Expect<
     Equal<
+      /// { canStartActivity?: boolean; chatRoomName?: string; chatRoomPassword?: string; gameConfig?: { ... }; ... }
       UnwrapResponse<'PostLolLobbyV2Lobby'>,
       LcuOperations['PostLolLobbyV2Lobby']['responses']['200']['content']['application/json']
     >
@@ -87,12 +92,14 @@ type _unwrap_response_cases = [
  * type _unwrap_parameters_cases = [
  *   Expect<
  *     Equal<
+ *       /// { summonerId: string; }
  *       UnwrapParameters<'PostLolLobbyV2LobbyMembersBySummonerIdGrantInvite'>,
  *       LcuOperations['PostLolLobbyV2LobbyMembersBySummonerIdGrantInvite']['parameters']['path']
  *     >
  *   >,
  *   Expect<
  *     Equal<
+ *       /// { messageId: string; }
  *       UnwrapParameters<'DeleteLolSimpleDialogMessagesV1MessagesByMessageId'>,
  *       LcuOperations['DeleteLolSimpleDialogMessagesV1MessagesByMessageId']['parameters']['path']
  *     >
@@ -100,20 +107,70 @@ type _unwrap_response_cases = [
  * ]
  * ```
  */
-type UnwrapParameters<T extends keyof LcuOperationsLens<'parameters'>> =
+export type UnwrapParameters<T extends keyof LcuOperationsLens<'parameters'>> =
   LcuOperations[T]['parameters'] extends { path: infer U } ? U : never
 
+/**
+ * @internal test cases
+ */
+/* @ts-ignore */
 type _unwrap_parameters_cases = [
   Expect<
     Equal<
+      /// { summonerId: string; }
       UnwrapParameters<'PostLolLobbyV2LobbyMembersBySummonerIdGrantInvite'>,
       LcuOperations['PostLolLobbyV2LobbyMembersBySummonerIdGrantInvite']['parameters']['path']
     >
   >,
   Expect<
     Equal<
+      /// { messageId: string; }
       UnwrapParameters<'DeleteLolSimpleDialogMessagesV1MessagesByMessageId'>,
       LcuOperations['DeleteLolSimpleDialogMessagesV1MessagesByMessageId']['parameters']['path']
     >
   >
 ]
+
+/**
+ * Extract the inner request body type from an LCU operation.
+ *
+ */
+export type UnwrapRequestBody<T extends keyof LcuOperations> = LcuOperations[T] extends {
+  requestBody?: {
+    content: {
+      'application/json': infer R
+    }
+  }
+}
+  ? R
+  : never
+
+/**
+ * @example
+ * ```ts
+ * type HextechProxy<T> = T &
+ *   UnwrapRequest<"getLobby", "GetLolLobbyV2Lobby"> &
+ *   UnwrapRequest<"setLobby", "PostLolLobbyV2Lobby"> &
+ *   UnwrapRequest<"getNameIsAvailable", "GetLolSummonerV1CheckNameAvailabilityByName">;
+ * // =>
+ * type HexgateProxy<T> = T & {
+ *   getLobby: () => Promise<UnwrapResponse<'GetLolLobbyV2Lobby'>>,
+ *   setLobby: (arg: UnwrapRequestBody<'PostLolLobbyV2Lobby'>) => Promise<UnwrapResponse<'PostLolLobbyV2Lobby'>>,
+ *   getNameIsAvailable: (arg: UnwrapParameters<'GetLolSummonerV1CheckNameAvailabilityByName'>) => Promise<UnwrapResponse<'GetLolSummonerV1CheckNameAvailabilityByName'>>,
+ * }
+ * ```
+ */
+export type UnwrapRequest<
+  Alias extends string,
+  Op extends keyof LcuOperations
+> = Op extends keyof LcuOperationsLens<'parameters'>
+  ? {
+      [K in Alias]: UnwrapParameters<Op> extends never
+        ? () => Promise<UnwrapResponse<Op>>
+        : (arg: UnwrapParameters<Op>) => Promise<UnwrapResponse<Op>>
+    }
+  : {
+      [K in Alias]: UnwrapRequestBody<Op> extends never
+        ? () => Promise<UnwrapResponse<Op>>
+        : (arg: UnwrapRequestBody<Op>) => Promise<UnwrapResponse<Op>>
+    }

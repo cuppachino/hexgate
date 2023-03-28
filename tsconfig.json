@@ -3,19 +3,34 @@
     "target": "ES2022",
     "module": "nodenext",
     "moduleResolution": "nodenext",
-    "lib": ["ES2022"],
-    "outDir": "dist",
+    "lib": [
+      "ES2022"
+    ],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "verbatimModuleSyntax": true,
+    // "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": false,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
     "skipLibCheck": true,
     "declaration": true,
     "resolveJsonModule": true,
     "importHelpers": true,
+    "useDefineForClassFields": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "baseUrl": ".",
     "rootDir": "src",
+    "outDir": "dist/esm",
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist", "schema"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "schema"
+  ]
 }

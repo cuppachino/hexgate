@@ -122,3 +122,5 @@ logs
 
 .prettierignore
 .prettierrc
+
+*.json
