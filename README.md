@@ -35,6 +35,20 @@ yarn add hexgate
 
 ## Usage
 
+### ESM
+
+```ts
+import { ... } from "hexgate"
+```
+
+### CJS
+
+```ts
+(async () => {
+  const { ... } = await import("hexgate")
+})()
+```
+
 ### Authentication
 
 Wait for the client by passing the [`auth`](https://github.com/cuppachino/hexgate/blob/main/src/modules/auth/index.ts) function to the [`poll`](https://github.com/cuppachino/hexgate/blob/1e35a420382523bf1b0bf60267aa8314fce7a457/src/utils/poll.ts) utility.
