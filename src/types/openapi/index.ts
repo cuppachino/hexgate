@@ -25,7 +25,7 @@ export type LcuResponseCode = KeyOf<
  * type LcuOperationsWithParemeters = LcuOperationsLens<'parameters'>
  * ```
  */
-export type LcuOperationsLens<Prop extends 'responses' | 'parameters' | 'requestBody'> = Combine<
+export type LcuOperationsLens<Prop extends 'responses' | 'parameters'> = Combine<
   PickInner<LcuOperations, Prop>
 >
 

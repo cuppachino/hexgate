@@ -13,7 +13,7 @@ export class HttpsAgent<Cert extends Subset<Credentials, 'certificate'>> extends
     const certificate = typeof credential === 'string' ? credential : credential?.certificate
     super({
       keepAlive: true,
-      maxSockets: 25,
+      maxSockets: 1,
       ...options,
       rejectUnauthorized: !!certificate,
       ca: options?.ca ?? certificate
