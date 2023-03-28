@@ -1,5 +1,4 @@
 import cx, { Color } from 'colorix'
-
 import fs from 'fs'
 import path from 'path'
 
@@ -9,19 +8,11 @@ const matchesExt = (string: string, ext: string, ...colors: Color[]) => {
   return `${string.slice(0, i)}${cx(...colors)(ext)}${string.slice(i + ext.length)}`
 }
 
-export function replaceExtInOutput(content: string) {
-  const matches = content.match(/\.cjs"\)/g)
-  const count = matches?.[0] === null ? 0 : matches?.length
-  if (count) {
-    return content.replace(/\.cjs"\)/g, `${cx('cyan')('.cjs"')})`)
-  }
-}
-
 export function traverseDir(
   dir: string,
   fn: (filePath: string) => void,
   ext = '',
-  log: (((...args) => void) & { count?: (arg) => void }) | undefined = undefined,
+  log: (((...args: any[]) => void) & { count?: (arg: any) => void }) | undefined = undefined,
   acc = [],
   count = 0
 ) {
@@ -36,7 +27,7 @@ export function traverseDir(
           traverseDir(filePath, fn, ext, log, acc, inc())
         } else {
           if (filePath.endsWith(ext)) {
-            log?.(matchesExt(filePath, ext, 'yellow'))
+            log?.(matchesExt(filePath, ext, 'green', 'italic'))
             fn(filePath)
           } else {
             log?.(ignored(filePath))

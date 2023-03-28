@@ -11,9 +11,9 @@
 
 ## Scope
 
-Please refer to the [wiki](https://github.com/cuppachino/hexgate/wiki) until the documentation website is live and Hexgate is feature complete.
+*   As of #19, Hexgate can be used in both ESM and CJS node environments. If you have any problems, please open an issue. Thanks!
 
-Hexgate is currently ESM-only and it's not intended for use in browsers. If CJS support is important to you, please open an issue. I am aware electron still lacks ESM support.
+Please refer to the [wiki](https://github.com/cuppachino/hexgate/wiki) until Hexgate is more mature. I am planning a website for Hexgate, but at the moment I am focused on what Hexgate should become.
 
 <!-- todo: add more info -->
 

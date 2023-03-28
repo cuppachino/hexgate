@@ -3,7 +3,6 @@ import { promisify } from 'node:util'
 import { traverseDir } from './traverse-dir'
 import { readFile, writeFile } from 'node:fs'
 import { log } from './log'
-import cx from 'colorix'
 
 export const execPromise = promisify(exec)
 
@@ -53,7 +52,6 @@ execTokens(PS1, BASH).then(() =>
         let result = data.replace(/\.js"\)/g, '.cjs")')
         writeFile(filePath, result, 'utf8', (err) => {
           if (err) throw err
-          log?.count(cx('greenBright', 'italic')('OK'))
         })
       })
     },
