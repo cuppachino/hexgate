@@ -6,7 +6,7 @@ globalThis.Request = Request
 globalThis.Response = Response
 
 declare global {
-  module globalThis {
+  export module globalThis {
     /**
      * `node-fetch-commonjs` pollyfill.
      * @see {@link Headers | declaration}
