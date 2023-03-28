@@ -8,15 +8,17 @@ export const execPromise = promisify(exec)
 
 const PS1 = `
 Dir ./dist/cjs/*.js -Recurse | Rename-Item -NewName { [io.path]::ChangeExtension($_.Name,"cjs") };
-Copy-Item ./dist/esm/index.d.ts ./dist/index.d.ts;
+Copy-Item -Path ./dist/esm -Filter *.d.ts -Recurse -Container:$false -Destination ./dist/types;
 `
+// Copy-Item ./dist/esm/index.d.ts ./dist/index.d.ts;
 
 const BASH = `
-for file in dist/cjs/*.js; do
+for file in dist/cjs/**/*.js; do
 mv "$file" "\${file%.js}.cjs"
 done;
-cp dist/esm/index.d.ts ./dist/index.d.ts
+mkdir -p ./dist/types; cp -R ./dist/esm/ ./dist/types; find ./dist/types/ ! -name '*.d.ts' -type f -delete
 `
+// cp dist/esm/index.d.ts ./dist/index.d.ts
 
 /*
   ? Wonder if we can get away with only 1 instead of 3
@@ -31,8 +33,6 @@ cp dist/esm/index.d.ts ./dist/index.d.ts
 async function execTokens(ps1: string, bash: string) {
   const args: Parameters<typeof execPromise> =
     process.platform === 'win32' ? [ps1, { shell: 'powershell' }] : [bash]
-
-  log?.table([process.platform, args[0]])
 
   try {
     await execPromise(...args)

@@ -9,7 +9,7 @@
   "description": "API wrapper for the League of Legends LCU",
   "type": "module",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "exports": {
     "types": "./dist/index.d.ts",
     "import": "./dist/esm/index.js",
