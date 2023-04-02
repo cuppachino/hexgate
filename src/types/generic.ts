@@ -62,3 +62,13 @@ export type SplitDashesAndSlashes<T extends string> = Flat<
 > extends infer F extends string[]
   ? F
   : never
+
+/** Boolean - true if `A` extends `B` extends `A` */
+export type Exact<A, B> = Extract<A, B> extends never
+  ? false
+  : Extract<B, A> extends never
+  ? false
+  : true
+
+/** Boolean - true if `A` extends `B` */
+export type Extends<A, B> = Extract<A, B> extends never ? false : true
