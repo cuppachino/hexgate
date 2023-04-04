@@ -38,6 +38,9 @@ export type * from './types/game-constants/maps.js'
 export type * from './types/game-constants/queues.js'
 export type * from './types/game-constants/seasons.js'
 
+/// DTO Types
+export type * from './types/dto/game-server-region.js'
+
 /// OpenAPI Types
 export type {
   LcuComponents,
