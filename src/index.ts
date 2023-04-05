@@ -1,15 +1,15 @@
-/// --- Polyfills
+/// --- Polyfills ---------------------------------------------------------------
 /// Fetch (node-fetch)
 import './utils/pollyfills/fetch.js'
 export * from './utils/pollyfills/fetch.js'
 
-/// --- Public Modules
+/// --- Public Modules ----------------------------------------------------------
 /// Authentication
 export { createHeaders } from './modules/auth/headers.js'
 export { auth } from './modules/auth/index.js'
 
 /// Hexgate
-export * from './modules/hexgate.js'
+export * from './modules/hexgate/index.js'
 
 /// HTTPS
 export { HttpsAgent } from './modules/https/agent.js'
@@ -24,12 +24,21 @@ export { InvalidPlatformError } from './errors/invalid-platform.js'
 export { MissingClientError } from './errors/missing-client.js'
 export { PollTimeoutError } from './errors/poll-timeout.js'
 
-/// --- Public Types
+/// --- Public Types ------------------------------------------------------------
 /// Authentication Types
 export type { AuthOptions, AuthToken, Credentials } from './types/tokens.js'
 
 /// Error Types
 export type { ErrorKind } from './types/errors.js'
+
+/// Hexgate Types
+export type {
+  OptionalEmptyArg,
+  RequiredEmptyArg,
+  HexgateBuild,
+  HexgateFetcher,
+  HexgateCreate
+} from './types/hexgate/fetcher.js'
 
 /// Game Constant Types
 export type * from './types/game-constants/gameModes.js'

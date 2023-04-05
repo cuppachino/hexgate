@@ -1,6 +1,11 @@
 import type { Assert, Flat, KeyOf, Split } from '@cuppachino/type-space'
 
 /**
+ * A type representing any function.
+ */
+export type UnknownFunction = (...args: any[]) => any
+
+/**
  * Exclude all properties from `T` where `T[K]` is `never`.
  */
 export type ExcludeNever<T> = {
