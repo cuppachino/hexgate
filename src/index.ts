@@ -12,7 +12,10 @@ export { auth } from './modules/auth/index.js'
 export { Hexgate } from './modules/hexgate/index.js'
 export { createHexgate } from './modules/hexgate/create.js'
 export { createRecipe } from './modules/hexgate/recipe.js'
-export { extractHexgateSymbol, hexgateSymbol } from './modules/hexgate/symbol.js'
+export {
+  extractHexgateSymbol,
+  hexgateSymbol
+} from './modules/hexgate/symbol.js'
 
 /// HTTPS
 export { HttpsAgent } from './modules/https/agent.js'

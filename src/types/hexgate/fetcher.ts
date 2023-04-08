@@ -10,31 +10,32 @@ import type { RequestInit } from 'node-fetch-commonjs'
  * is not included in package's type declarations.
  * @internal
  */
-export type OptionalEmptyArg<T extends (arg: any, ...rest: unknown[]) => unknown> = (
-  arg?: Parameters<T>[0],
-  init?: RequestInit
-) => ReturnType<T>
+export type OptionalEmptyArg<
+  T extends (arg: any, ...rest: unknown[]) => unknown
+> = (arg?: Parameters<T>[0], init?: RequestInit) => ReturnType<T>
 
 /**
  * Inverse of `OptionalEmptyArg`.
  * @internal
  * @see {@link OptionalEmptyArg}
  */
-export type RequiredEmptyArg<T extends (arg: any, ...rest: unknown[]) => unknown> = (
-  arg: Parameters<T>[0],
-  init?: RequestInit
-) => ReturnType<T>
+export type RequiredEmptyArg<
+  T extends (arg: any, ...rest: unknown[]) => unknown
+> = (arg: Parameters<T>[0], init?: RequestInit) => ReturnType<T>
 
 /**
  * The signature of a request builder's `create` function. Returns a request function.
  * @internal
  */
-export type HexgateCreate<T, M> = Parameters<ReturnType<CreateFetch<M, T>>>[0] extends Record<
-  string,
-  never
-> // if the first parameter is an empty object
-  ? (...args: Parameters<CreateFetch<M, T>>) => OptionalEmptyArg<ReturnType<CreateFetch<M, T>>>
-  : (...args: Parameters<CreateFetch<M, T>>) => RequiredEmptyArg<ReturnType<CreateFetch<M, T>>>
+export type HexgateCreate<T, M> = Parameters<
+  ReturnType<CreateFetch<M, T>>
+>[0] extends Record<string, never> // if the first parameter is an empty object
+  ? (
+      ...args: Parameters<CreateFetch<M, T>>
+    ) => OptionalEmptyArg<ReturnType<CreateFetch<M, T>>>
+  : (
+      ...args: Parameters<CreateFetch<M, T>>
+    ) => RequiredEmptyArg<ReturnType<CreateFetch<M, T>>>
 
 /**
  * The function signature of an LCU request builder.

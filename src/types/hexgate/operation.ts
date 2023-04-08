@@ -57,5 +57,11 @@ export type OperationResponses<Op extends keyof LcuOperations> =
  */
 export type Operation<Alias extends keyof LcuOperations> =
   OperationParameters<Alias> extends Record<string, never>
-    ? (arg?: OperationParameters<Alias>, init?: RequestInit) => Promise<OperationResponses<Alias>>
-    : (arg: OperationParameters<Alias>, init?: RequestInit) => Promise<OperationResponses<Alias>>
+    ? (
+        arg?: OperationParameters<Alias>,
+        init?: RequestInit
+      ) => Promise<OperationResponses<Alias>>
+    : (
+        arg: OperationParameters<Alias>,
+        init?: RequestInit
+      ) => Promise<OperationResponses<Alias>>

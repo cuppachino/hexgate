@@ -4,7 +4,11 @@
 /* ------------------ DO NOT EDIT ---------------- */
 /* ----------------------------------------------- */
 
-import type { UnionLiteral, NumberLike, IntoNumber } from '@cuppachino/type-space'
+import type {
+  UnionLiteral,
+  NumberLike,
+  IntoNumber
+} from '@cuppachino/type-space'
 
 export namespace Season {
   /* --------------------- PUBLIC ------------------ */
@@ -61,7 +65,9 @@ export namespace Season {
    * ```
    */
   export type BySeason<T extends Season> = {
-    [I in keyof Seasons]: Seasons[I] extends Props<infer _Id, T> ? Seasons[I] : never
+    [I in keyof Seasons]: Seasons[I] extends Props<infer _Id, T>
+      ? Seasons[I]
+      : never
   }[keyof Seasons]
 
   /* -------------------- INTERNAL ----------------- */

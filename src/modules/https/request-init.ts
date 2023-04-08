@@ -5,7 +5,9 @@ import { createHeaders } from '../auth/headers.js'
 import { HttpsAgent } from './agent.js'
 
 export function createRequestInit<
-  PartialCredentials extends Combine<Pick<Credentials, 'certificate' | 'remotingAuthToken'>>
+  PartialCredentials extends Combine<
+    Pick<Credentials, 'certificate' | 'remotingAuthToken'>
+  >
 >({ remotingAuthToken: password, certificate }: PartialCredentials) {
   return {
     agent: new HttpsAgent(certificate),

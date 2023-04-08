@@ -4,7 +4,11 @@
 /* ------------------ DO NOT EDIT ---------------- */
 /* ----------------------------------------------- */
 
-import type { UnionLiteral, NumberLike, IntoNumber } from '@cuppachino/type-space'
+import type {
+  UnionLiteral,
+  NumberLike,
+  IntoNumber
+} from '@cuppachino/type-space'
 
 export namespace Queue {
   /* --------------------- PUBLIC ------------------ */
@@ -101,7 +105,12 @@ export namespace Queue {
    * ```
    */
   export type ByDescription<T extends Description> = {
-    [I in keyof Queues]: Queues[I] extends Props<infer _QueueId, infer _Map, T, infer _Notes>
+    [I in keyof Queues]: Queues[I] extends Props<
+      infer _QueueId,
+      infer _Map,
+      T,
+      infer _Notes
+    >
       ? Queues[I]
       : never
   }[keyof Queues]
@@ -117,7 +126,12 @@ export namespace Queue {
    * ```
    */
   export type ByNotes<T extends Notes> = {
-    [I in keyof Queues]: Queues[I] extends Props<infer _QueueId, infer _Map, infer _Description, T>
+    [I in keyof Queues]: Queues[I] extends Props<
+      infer _QueueId,
+      infer _Map,
+      infer _Description,
+      T
+    >
       ? Queues[I]
       : never
   }[keyof Queues]
@@ -133,9 +147,24 @@ export namespace Queue {
       '5v5 Blind Pick games',
       'Deprecated in patch 7.19 in favor of queueId 430'
     >,
-    Props<4, "Summoner's Rift", '5v5 Ranked Solo games', 'Deprecated in favor of queueId 420'>,
-    Props<6, "Summoner's Rift", '5v5 Ranked Premade games', 'Game mode deprecated'>,
-    Props<7, "Summoner's Rift", 'Co-op vs AI games', 'Deprecated in favor of queueId 32 and 33'>,
+    Props<
+      4,
+      "Summoner's Rift",
+      '5v5 Ranked Solo games',
+      'Deprecated in favor of queueId 420'
+    >,
+    Props<
+      6,
+      "Summoner's Rift",
+      '5v5 Ranked Premade games',
+      'Game mode deprecated'
+    >,
+    Props<
+      7,
+      "Summoner's Rift",
+      'Co-op vs AI games',
+      'Deprecated in favor of queueId 32 and 33'
+    >,
     Props<
       8,
       'Twisted Treeline',
@@ -148,10 +177,30 @@ export namespace Queue {
       '3v3 Ranked Flex games',
       'Deprecated in patch 7.19 in favor of queueId 470'
     >,
-    Props<14, "Summoner's Rift", '5v5 Draft Pick games', 'Deprecated in favor of queueId 400'>,
-    Props<16, 'Crystal Scar', '5v5 Dominion Blind Pick games', 'Game mode deprecated'>,
-    Props<17, 'Crystal Scar', '5v5 Dominion Draft Pick games', 'Game mode deprecated'>,
-    Props<25, 'Crystal Scar', 'Dominion Co-op vs AI games', 'Game mode deprecated'>,
+    Props<
+      14,
+      "Summoner's Rift",
+      '5v5 Draft Pick games',
+      'Deprecated in favor of queueId 400'
+    >,
+    Props<
+      16,
+      'Crystal Scar',
+      '5v5 Dominion Blind Pick games',
+      'Game mode deprecated'
+    >,
+    Props<
+      17,
+      'Crystal Scar',
+      '5v5 Dominion Draft Pick games',
+      'Game mode deprecated'
+    >,
+    Props<
+      25,
+      'Crystal Scar',
+      'Dominion Co-op vs AI games',
+      'Game mode deprecated'
+    >,
     Props<
       31,
       "Summoner's Rift",
@@ -170,22 +219,42 @@ export namespace Queue {
       'Co-op vs AI Intermediate Bot games',
       'Deprecated in patch 7.19 in favor of queueId 850'
     >,
-    Props<41, 'Twisted Treeline', '3v3 Ranked Team games', 'Game mode deprecated'>,
-    Props<42, "Summoner's Rift", '5v5 Ranked Team games', 'Game mode deprecated'>,
+    Props<
+      41,
+      'Twisted Treeline',
+      '3v3 Ranked Team games',
+      'Game mode deprecated'
+    >,
+    Props<
+      42,
+      "Summoner's Rift",
+      '5v5 Ranked Team games',
+      'Game mode deprecated'
+    >,
     Props<
       52,
       'Twisted Treeline',
       'Co-op vs AI games',
       'Deprecated in patch 7.19 in favor of queueId 800'
     >,
-    Props<61, "Summoner's Rift", '5v5 Team Builder games', 'Game mode deprecated'>,
+    Props<
+      61,
+      "Summoner's Rift",
+      '5v5 Team Builder games',
+      'Game mode deprecated'
+    >,
     Props<
       65,
       'Howling Abyss',
       '5v5 ARAM games',
       'Deprecated in patch 7.19 in favor of queueId 450'
     >,
-    Props<67, 'Howling Abyss', 'ARAM Co-op vs AI games', 'Game mode deprecated'>,
+    Props<
+      67,
+      'Howling Abyss',
+      'ARAM Co-op vs AI games',
+      'Game mode deprecated'
+    >,
     Props<
       70,
       "Summoner's Rift",
@@ -247,13 +316,28 @@ export namespace Queue {
     >,
     Props<325, "Summoner's Rift", 'All Random games', null>,
     Props<400, "Summoner's Rift", '5v5 Draft Pick games', null>,
-    Props<410, "Summoner's Rift", '5v5 Ranked Dynamic games', 'Game mode deprecated in patch 6.22'>,
+    Props<
+      410,
+      "Summoner's Rift",
+      '5v5 Ranked Dynamic games',
+      'Game mode deprecated in patch 6.22'
+    >,
     Props<420, "Summoner's Rift", '5v5 Ranked Solo games', null>,
     Props<430, "Summoner's Rift", '5v5 Blind Pick games', null>,
     Props<440, "Summoner's Rift", '5v5 Ranked Flex games', null>,
     Props<450, 'Howling Abyss', '5v5 ARAM games', null>,
-    Props<460, 'Twisted Treeline', '3v3 Blind Pick games', 'Deprecated in patch 9.23'>,
-    Props<470, 'Twisted Treeline', '3v3 Ranked Flex games', 'Deprecated in patch 9.23'>,
+    Props<
+      460,
+      'Twisted Treeline',
+      '3v3 Blind Pick games',
+      'Deprecated in patch 9.23'
+    >,
+    Props<
+      470,
+      'Twisted Treeline',
+      '3v3 Ranked Flex games',
+      'Deprecated in patch 9.23'
+    >,
     Props<600, "Summoner's Rift", 'Blood Hunt Assassin games', null>,
     Props<610, 'Cosmic Ruins', 'Dark Star: Singularity games', null>,
     Props<700, "Summoner's Rift", "Summoner's Rift Clash games", null>,
@@ -264,7 +348,12 @@ export namespace Queue {
       'Co-op vs. AI Intermediate Bot games',
       'Deprecated in patch 9.23'
     >,
-    Props<810, 'Twisted Treeline', 'Co-op vs. AI Intro Bot games', 'Deprecated in patch 9.23'>,
+    Props<
+      810,
+      'Twisted Treeline',
+      'Co-op vs. AI Intro Bot games',
+      'Deprecated in patch 9.23'
+    >,
     Props<820, 'Twisted Treeline', 'Co-op vs. AI Beginner Bot games', null>,
     Props<830, "Summoner's Rift", 'Co-op vs. AI Intro Bot games', null>,
     Props<840, "Summoner's Rift", 'Co-op vs. AI Beginner Bot games', null>,
@@ -275,8 +364,18 @@ export namespace Queue {
     Props<940, "Summoner's Rift", 'Nexus Siege games', null>,
     Props<950, "Summoner's Rift", 'Doom Bots Voting games', null>,
     Props<960, "Summoner's Rift", 'Doom Bots Standard games', null>,
-    Props<980, 'Valoran City Park', 'Star Guardian Invasion: Normal games', null>,
-    Props<990, 'Valoran City Park', 'Star Guardian Invasion: Onslaught games', null>,
+    Props<
+      980,
+      'Valoran City Park',
+      'Star Guardian Invasion: Normal games',
+      null
+    >,
+    Props<
+      990,
+      'Valoran City Park',
+      'Star Guardian Invasion: Onslaught games',
+      null
+    >,
     Props<1000, 'Overcharge', 'PROJECT: Hunters games', null>,
     Props<1010, "Summoner's Rift", 'Snow ARURF games', null>,
     Props<1020, "Summoner's Rift", 'One for All games', null>,

@@ -29,7 +29,10 @@ export namespace GameType {
   /**
    * `Description` attribute of `GameType.Props`
    */
-  export type Description = UnionLiteral<GameTypes[number]['description'], string>
+  export type Description = UnionLiteral<
+    GameTypes[number]['description'],
+    string
+  >
 
   /* -------------------- HELPERS ------------------ */
   /* ----------------------------------------------- */
@@ -45,7 +48,9 @@ export namespace GameType {
    * ```
    */
   export type ByGametype<T extends Gametype> = {
-    [I in keyof GameTypes]: GameTypes[I] extends Props<T, infer _Description> ? GameTypes[I] : never
+    [I in keyof GameTypes]: GameTypes[I] extends Props<T, infer _Description>
+      ? GameTypes[I]
+      : never
   }[keyof GameTypes]
 
   /**
@@ -59,7 +64,9 @@ export namespace GameType {
    * ```
    */
   export type ByDescription<T extends Description> = {
-    [I in keyof GameTypes]: GameTypes[I] extends Props<infer _Gametype, T> ? GameTypes[I] : never
+    [I in keyof GameTypes]: GameTypes[I] extends Props<infer _Gametype, T>
+      ? GameTypes[I]
+      : never
   }[keyof GameTypes]
 
   /* -------------------- INTERNAL ----------------- */

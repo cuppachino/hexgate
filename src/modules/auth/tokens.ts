@@ -11,7 +11,9 @@ import { stripWhitespace } from '../../utils/strip-whitespace.js'
  * @param tokens The tokens to check.
  * @throws An error if any required token is missing.
  */
-function assertTokens(tokens: Partial<AuthTokens>): asserts tokens is AuthTokens {
+function assertTokens(
+  tokens: Partial<AuthTokens>
+): asserts tokens is AuthTokens {
   for (const token of AUTH_TOKENS) {
     if (token === 'certificate') continue
     if (!tokens[token]) throw new MissingClientError()

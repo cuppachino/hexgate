@@ -17,5 +17,7 @@ import type { LcuOperations } from '../openapi/operations.js'
  * ```
  */
 export type LcuResponseCode = KeyOf<
-  LcuOperations[keyof LcuOperations]['responses'] extends infer U ? NonNullable<U> : never
+  LcuOperations[keyof LcuOperations]['responses'] extends infer U
+    ? NonNullable<U>
+    : never
 >

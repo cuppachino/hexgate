@@ -83,4 +83,6 @@ export type Extends<A, B> = Extract<A, B> extends never ? false : true
  */
 export type Anyhow<A extends any[] = any[], R = any> = (...args: A) => R
 
-export type AsyncFn<A extends any[] = any[], R = any> = (...args: A) => Promise<R>
+export type AsyncFn<A extends any[] = any[], R = any> = (
+  ...args: A
+) => Promise<R>

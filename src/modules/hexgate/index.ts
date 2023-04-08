@@ -1,6 +1,9 @@
 import type { Middleware } from '@cuppachino/openapi-fetch'
 import { Fetcher } from '@cuppachino/openapi-fetch'
-import type { HexgateBuild, HexgateFetcher } from '../../types/hexgate/fetcher.js'
+import type {
+  HexgateBuild,
+  HexgateFetcher
+} from '../../types/hexgate/fetcher.js'
 import type { LcuPaths } from '../../types/openapi/paths.js'
 import type { Credentials } from '../../types/tokens.js'
 import { baseUrl } from '../../utils/base-url.js'

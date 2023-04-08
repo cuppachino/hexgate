@@ -83,7 +83,13 @@ export type LcuComponents = ExcludeNever<{
      * @description Possible states of an asynchronous operation.
      * @enum {string}
      */
-    'BindingAsyncState': 'None' | 'Running' | 'Cancelling' | 'Cancelled' | 'Succeeded' | 'Failed'
+    'BindingAsyncState':
+      | 'None'
+      | 'Running'
+      | 'Cancelling'
+      | 'Cancelled'
+      | 'Succeeded'
+      | 'Failed'
     /** @description Represents the parameters of a call to a provided callback. */
     'BindingCallbackEvent': {
       /**
@@ -443,7 +449,14 @@ export type LcuComponents = ExcludeNever<{
     /** @enum {string} */
     'ClashRewardTime': 'NONE' | 'EOG' | 'EOB' | 'EOT'
     /** @enum {string} */
-    'ClashRewardType': 'TROPHY' | 'FLAG' | 'FRAME' | 'LOGO' | 'LOOT' | 'VP' | 'TOC'
+    'ClashRewardType':
+      | 'TROPHY'
+      | 'FLAG'
+      | 'FRAME'
+      | 'LOGO'
+      | 'LOOT'
+      | 'VP'
+      | 'TOC'
     'ClashSeasonRewardResult': {
       banned?: boolean
       eligible?: boolean
@@ -532,7 +545,10 @@ export type LcuComponents = ExcludeNever<{
       EntitlementsUpdateType?: LcuComponents['schemas']['ClientConfigDepInjectorEntitlementsUpdateType']
     }
     /** @enum {string} */
-    'ClientConfigDepInjectorEntitlementsUpdateType': 'Create' | 'Update' | 'Delete'
+    'ClientConfigDepInjectorEntitlementsUpdateType':
+      | 'Create'
+      | 'Update'
+      | 'Delete'
     'ClientConfigEntitlements': {
       accessToken?: string
       entitlements?: string[]
@@ -1377,7 +1393,11 @@ export type LcuComponents = ExcludeNever<{
       username?: string
     }
     /** @enum {string} */
-    'LolAccountVerificationLoginSessionState': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolAccountVerificationLoginSessionState':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolAccountVerificationSendTokenRequest': {
       device?: string
       locale?: string
@@ -1488,7 +1508,9 @@ export type LcuComponents = ExcludeNever<{
     'LolBannersLoadout': {
       id?: string
       loadout?: {
-        [key: string]: LcuComponents['schemas']['LolBannersLoadoutsSlot'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolBannersLoadoutsSlot']
+          | undefined
       }
       name?: string
       scope?: string
@@ -1650,7 +1672,9 @@ export type LcuComponents = ExcludeNever<{
       itemInstanceId?: string
       itemRequirements?: LcuComponents['schemas']['LolCatalogItemKey'][]
       localizations?: {
-        [key: string]: LcuComponents['schemas']['LolCatalogItemLocalization'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolCatalogItemLocalization']
+          | undefined
       }
       metadata?: LcuComponents['schemas']['LolCatalogItemMetadataEntry'][]
       offerId?: string
@@ -1955,7 +1979,9 @@ export type LcuComponents = ExcludeNever<{
       /** Format: int64 */
       apexLaderUpdateTime?: number
       categoryPoints?: {
-        [key: string]: LcuComponents['schemas']['LolChallengesChallengePoints'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolChallengesChallengePoints']
+          | undefined
       }
       id?: string
       levelPoints?: {
@@ -2045,15 +2071,21 @@ export type LcuComponents = ExcludeNever<{
         [key: string]: string | undefined
       }
       thresholds?: {
-        [key: string]: LcuComponents['schemas']['LolChallengesChallengeThreshold'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolChallengesChallengeThreshold']
+          | undefined
       }
     }
     'LolChallengesGameDataChallengesData': {
       challenges?: {
-        [key: string]: LcuComponents['schemas']['LolChallengesGameDataChallengeConfig'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolChallengesGameDataChallengeConfig']
+          | undefined
       }
       titles?: {
-        [key: string]: LcuComponents['schemas']['LolChallengesGameDataChallengeTitle'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolChallengesGameDataChallengeTitle']
+          | undefined
       }
     }
     'LolChallengesGameDataChallengeTitle': {
@@ -2141,7 +2173,9 @@ export type LcuComponents = ExcludeNever<{
       previousValue?: number
       source?: string
       thresholds?: {
-        [key: string]: LcuComponents['schemas']['LolChallengesUIChallengeThreshold'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolChallengesUIChallengeThreshold']
+          | undefined
       }
       valueMapping?: string
     }
@@ -2456,7 +2490,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolChampionsLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolChampionsLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     /** @enum {string} */
     'LolChampionsLoyaltyStatus':
       | 'LEGACY'
@@ -3023,7 +3061,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolChampSelectLegacyLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolChampSelectLegacyLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolChampSelectLegacyPlayerStatus': {
       currentLobbyStatus?: LcuComponents['schemas']['LolChampSelectLegacyLobbyStatus']
       lastQueuedLobbyStatus?: LcuComponents['schemas']['LolChampSelectLegacyLobbyStatus']
@@ -3245,7 +3287,11 @@ export type LcuComponents = ExcludeNever<{
       username?: string
     }
     /** @enum {string} */
-    'LolChatChatPlatformLoginSessionState': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolChatChatPlatformLoginSessionState':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolChatChatServiceDynamicClientConfig': {
       ChatDomain?: LcuComponents['schemas']['LolChatChatDomainConfig']
       LcuSocial?: LcuComponents['schemas']['LolChatLcuSocialConfig']
@@ -3770,12 +3816,16 @@ export type LcuComponents = ExcludeNever<{
       id?: string
       name?: string
       patchlines?: {
-        [key: string]: LcuComponents['schemas']['LolChatPatchlineMetadata'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolChatPatchlineMetadata']
+          | undefined
       }
     }
     'LolChatProductMetadataMap': {
       products?: {
-        [key: string]: LcuComponents['schemas']['LolChatProductMetadata'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolChatProductMetadata']
+          | undefined
       }
     }
     'LolChatQueue': {
@@ -3849,7 +3899,12 @@ export type LcuComponents = ExcludeNever<{
       sessionState?: LcuComponents['schemas']['LolChatSessionState']
     }
     /** @enum {string} */
-    'LolChatSessionState': 'initializing' | 'connected' | 'loaded' | 'disconnected' | 'shuttingdown'
+    'LolChatSessionState':
+      | 'initializing'
+      | 'connected'
+      | 'loaded'
+      | 'disconnected'
+      | 'shuttingdown'
     'LolChatSettingsResource': {
       data?: {
         [key: string]: unknown | undefined
@@ -4116,7 +4171,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolClashLoginSessionState': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolClashLoginSessionState':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolClashMatchmakingDodgeData': {
       /** Format: int64 */
       dodgerId?: number
@@ -4379,9 +4438,17 @@ export type LcuComponents = ExcludeNever<{
       type?: string
     }
     /** @enum {string} */
-    'LolClashQueueAvailability': 'Available' | 'PlatformDisabled' | 'DoesntMeetRequirements'
+    'LolClashQueueAvailability':
+      | 'Available'
+      | 'PlatformDisabled'
+      | 'DoesntMeetRequirements'
     /** @enum {string} */
-    'LolClashQueueGameCategory': 'None' | 'Custom' | 'PvP' | 'VersusAi' | 'Alpha'
+    'LolClashQueueGameCategory':
+      | 'None'
+      | 'Custom'
+      | 'PvP'
+      | 'VersusAi'
+      | 'Alpha'
     'LolClashQueueGameTypeConfig': {
       advancedLearningQuests?: boolean
       allowTrades?: boolean
@@ -4548,7 +4615,12 @@ export type LcuComponents = ExcludeNever<{
       tier?: number
     }
     /** @enum {string} */
-    'LolClashRosterMemberState': 'DECLINED' | 'PENDING' | 'NOT_READY' | 'FORCED_NOT_READY' | 'READY'
+    'LolClashRosterMemberState':
+      | 'DECLINED'
+      | 'PENDING'
+      | 'NOT_READY'
+      | 'FORCED_NOT_READY'
+      | 'READY'
     /** @enum {string} */
     'LolClashRosterNotifyReason':
       | 'ROSTER_SET_TICKET'
@@ -4652,7 +4724,9 @@ export type LcuComponents = ExcludeNever<{
       endTimeMs?: number
       periodStats?: LcuComponents['schemas']['LolClashRosterPeriodAggregatedStats'][]
       playerStats?: {
-        [key: string]: LcuComponents['schemas']['LolClashRosterPlayerAggregatedStats'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolClashRosterPlayerAggregatedStats']
+          | undefined
       }
       /** Format: int32 */
       rosterIconColorId?: number
@@ -4871,7 +4945,13 @@ export type LcuComponents = ExcludeNever<{
       tournamentId?: number
     }
     /** @enum {string} */
-    'LolClashTournamentState': 'UPCOMING' | 'IDLE' | 'LOCK_IN' | 'SCOUTING' | 'IN_GAME' | 'RESULTS'
+    'LolClashTournamentState':
+      | 'UPCOMING'
+      | 'IDLE'
+      | 'LOCK_IN'
+      | 'SCOUTING'
+      | 'IN_GAME'
+      | 'RESULTS'
     'LolClashTournamentStateInfo': {
       /** Format: int64 */
       currentPhaseId?: number
@@ -5134,7 +5214,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolCollectionsLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolCollectionsLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolCollectionsNumberFormattingBehavior': {
       /** Format: int32 */
       digitsForThousandsSeperator?: number
@@ -5264,7 +5348,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolContentTargetingLoginSessionState': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolContentTargetingLoginSessionState':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolContentTargetingMission': {
       /** Format: int64 */
       completedDate?: number
@@ -5312,7 +5400,12 @@ export type LcuComponents = ExcludeNever<{
       mapId?: number
     }
     /** @enum {string} */
-    'LolContentTargetingQueueGameCategory': 'None' | 'Custom' | 'PvP' | 'VersusAi' | 'Alpha'
+    'LolContentTargetingQueueGameCategory':
+      | 'None'
+      | 'Custom'
+      | 'PvP'
+      | 'VersusAi'
+      | 'Alpha'
     /** @enum {string} */
     'LolContentTargetingRankedDivision': 'NA' | 'I' | 'II' | 'III' | 'IV' | 'V'
     /** @enum {string} */
@@ -5598,7 +5691,9 @@ export type LcuComponents = ExcludeNever<{
       /** Format: int32 */
       itemId?: number
       loadout?: {
-        [key: string]: LcuComponents['schemas']['LolCosmeticsLoadoutItem'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolCosmeticsLoadoutItem']
+          | undefined
       }
       name?: string
       scope?: string
@@ -5611,7 +5706,9 @@ export type LcuComponents = ExcludeNever<{
     }
     'LolCosmeticsLoadoutUpdateDto': {
       loadout?: {
-        [key: string]: LcuComponents['schemas']['LolCosmeticsLoadoutItem'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolCosmeticsLoadoutItem']
+          | undefined
       }
     }
     'LolCosmeticsTFTDamageSkinGroupedViewModel': {
@@ -6055,7 +6152,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolEndOfGameLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolEndOfGameLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolEndOfGameQueue': {
       /** Format: int32 */
       id?: number
@@ -6389,7 +6490,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolFeaturedModesLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolFeaturedModesLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolFeaturedModesMaps': {
       assets?: {
         [key: string]: string | undefined
@@ -6428,9 +6533,17 @@ export type LcuComponents = ExcludeNever<{
       queueAvailability?: LcuComponents['schemas']['LolFeaturedModesQueueAvailability']
     }
     /** @enum {string} */
-    'LolFeaturedModesQueueAvailability': 'Available' | 'PlatformDisabled' | 'DoesntMeetRequirements'
+    'LolFeaturedModesQueueAvailability':
+      | 'Available'
+      | 'PlatformDisabled'
+      | 'DoesntMeetRequirements'
     /** @enum {string} */
-    'LolFeaturedModesQueueGameCategory': 'None' | 'Custom' | 'PvP' | 'VersusAi' | 'Alpha'
+    'LolFeaturedModesQueueGameCategory':
+      | 'None'
+      | 'Custom'
+      | 'PvP'
+      | 'VersusAi'
+      | 'Alpha'
     'LolGameClientChatGameClientChatMessageResource': {
       body?: string
       fromSummonerName?: string
@@ -6512,10 +6625,14 @@ export type LcuComponents = ExcludeNever<{
       mapStringId?: string
       name?: string
       perPositionDisallowedSummonerSpells?: {
-        [key: string]: LcuComponents['schemas']['LolGameflowGameModeSpellList'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolGameflowGameModeSpellList']
+          | undefined
       }
       perPositionRequiredSummonerSpells?: {
-        [key: string]: LcuComponents['schemas']['LolGameflowGameModeSpellList'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolGameflowGameModeSpellList']
+          | undefined
       }
       platformId?: string
       platformName?: string
@@ -6586,7 +6703,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolGameflowLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolGameflowLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolGameflowPatcherProductState': {
       action?: LcuComponents['schemas']['LolGameflowPatcherProductStateAction']
       isCorrupted?: boolean
@@ -6652,7 +6773,10 @@ export type LcuComponents = ExcludeNever<{
       type?: string
     }
     /** @enum {string} */
-    'LolGameflowQueueAvailability': 'Available' | 'PlatformDisabled' | 'DoesntMeetRequirements'
+    'LolGameflowQueueAvailability':
+      | 'Available'
+      | 'PlatformDisabled'
+      | 'DoesntMeetRequirements'
     /** @enum {string} */
     'LolGameflowQueueCustomGameSpectatorPolicy':
       | 'NotAllowed'
@@ -6660,7 +6784,12 @@ export type LcuComponents = ExcludeNever<{
       | 'FriendsAllowed'
       | 'AllAllowed'
     /** @enum {string} */
-    'LolGameflowQueueGameCategory': 'None' | 'Custom' | 'PvP' | 'VersusAi' | 'Alpha'
+    'LolGameflowQueueGameCategory':
+      | 'None'
+      | 'Custom'
+      | 'PvP'
+      | 'VersusAi'
+      | 'Alpha'
     'LolGameflowQueueGameTypeConfig': {
       advancedLearningQuests?: boolean
       allowTrades?: boolean
@@ -6726,7 +6855,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolGameQueuesLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolGameQueuesLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolGameQueuesPlatformConfigEnabledMap': {
       /** Format: int32 */
       gameMapId?: number
@@ -6781,7 +6914,10 @@ export type LcuComponents = ExcludeNever<{
       type?: string
     }
     /** @enum {string} */
-    'LolGameQueuesQueueAvailability': 'Available' | 'PlatformDisabled' | 'DoesntMeetRequirements'
+    'LolGameQueuesQueueAvailability':
+      | 'Available'
+      | 'PlatformDisabled'
+      | 'DoesntMeetRequirements'
     'LolGameQueuesQueueCustomGame': {
       gameServerRegions?: string[]
       queueAvailability?: LcuComponents['schemas']['LolGameQueuesQueueAvailability']
@@ -6817,7 +6953,12 @@ export type LcuComponents = ExcludeNever<{
       queueAvailability?: LcuComponents['schemas']['LolGameQueuesQueueAvailability']
     }
     /** @enum {string} */
-    'LolGameQueuesQueueGameCategory': 'None' | 'Custom' | 'PvP' | 'VersusAi' | 'Alpha'
+    'LolGameQueuesQueueGameCategory':
+      | 'None'
+      | 'Custom'
+      | 'PvP'
+      | 'VersusAi'
+      | 'Alpha'
     'LolGameQueuesQueueGameTypeConfig': {
       advancedLearningQuests?: boolean
       allowTrades?: boolean
@@ -6877,7 +7018,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolGameSettingsLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolGameSettingsLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolGeoinfoGeoInfo': {
       city?: string
       country?: string
@@ -6901,7 +7046,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolGeoinfoLoginSessionState': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolGeoinfoLoginSessionState':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolGeoinfoWhereAmIRequest': {
       ipAddress?: string
     }
@@ -6918,7 +7067,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolHeartbeatLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolHeartbeatLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolHighlightsHighlight': {
       filepath?: string
       /** Format: int64 */
@@ -7255,12 +7408,16 @@ export type LcuComponents = ExcludeNever<{
       id?: string
       name?: string
       patchlines?: {
-        [key: string]: LcuComponents['schemas']['LolHovercardPatchlineMetadata'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolHovercardPatchlineMetadata']
+          | undefined
       }
     }
     'LolHovercardProductMetadataMap': {
       products?: {
-        [key: string]: LcuComponents['schemas']['LolHovercardProductMetadata'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolHovercardProductMetadata']
+          | undefined
       }
     }
     'LolHovercardSummoner': {
@@ -7414,7 +7571,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolInventoryLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolInventoryLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolInventoryLoyaltyRewards': {
       championIds?: number[]
       /** Format: int32 */
@@ -7555,7 +7716,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolItemSetsLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolItemSetsLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolItemSetsNameCheckPayload': {
       name?: string
       shard?: string
@@ -7588,7 +7753,11 @@ export type LcuComponents = ExcludeNever<{
       policyType?: LcuComponents['schemas']['LolKrShutdownLawPolicyType']
     }
     /** @enum {string} */
-    'LolKrShutdownLawPolicyType': 'shutdown' | 'playTime' | 'warningMessage' | 'disableMatchMaking'
+    'LolKrShutdownLawPolicyType':
+      | 'shutdown'
+      | 'playTime'
+      | 'warningMessage'
+      | 'disableMatchMaking'
     'LolKrShutdownLawQueueShutdownStatus': {
       isDisabled?: boolean
     }
@@ -7703,7 +7872,10 @@ export type LcuComponents = ExcludeNever<{
     /** @enum {string} */
     'LolLicenseAgreementLicenseAgreementType': 'PrivacyNotice' | 'TermsOfUse'
     /** @enum {string} */
-    'LolLicenseAgreementLicenseServeLocation': 'Preparing' | 'Local' | 'External'
+    'LolLicenseAgreementLicenseServeLocation':
+      | 'Preparing'
+      | 'Local'
+      | 'External'
     'LolLicenseAgreementPluginRegionLocaleChangedEvent': {
       locale?: string
       region?: string
@@ -7718,7 +7890,9 @@ export type LcuComponents = ExcludeNever<{
       /** Format: int32 */
       itemId?: number
       loadout?: {
-        [key: string]: LcuComponents['schemas']['LolLoadoutsItemKey'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolLoadoutsItemKey']
+          | undefined
       }
       name?: string
       refreshTime?: string
@@ -7856,7 +8030,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolLoadoutsLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolLoadoutsLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolLoadoutsQueue': {
       isTeamBuilderManaged?: boolean
     }
@@ -7865,7 +8043,9 @@ export type LcuComponents = ExcludeNever<{
       /** Format: int32 */
       itemId?: number
       loadout?: {
-        [key: string]: LcuComponents['schemas']['LolLoadoutsItemKey'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolLoadoutsItemKey']
+          | undefined
       }
       name?: string
       refreshTime?: string
@@ -7873,7 +8053,9 @@ export type LcuComponents = ExcludeNever<{
     }
     'LolLoadoutsSignGCORequestDTO': {
       loadout?: {
-        [key: string]: LcuComponents['schemas']['LolLoadoutsItemKey'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolLoadoutsItemKey']
+          | undefined
       }
       serviceToJwtsMap?: {
         [key: string]:
@@ -7886,7 +8068,9 @@ export type LcuComponents = ExcludeNever<{
     'LolLoadoutsUpdateLoadoutDTO': {
       id?: string
       loadout?: {
-        [key: string]: LcuComponents['schemas']['LolLoadoutsItemKey'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolLoadoutsItemKey']
+          | undefined
       }
       name?: string
     }
@@ -8605,9 +8789,16 @@ export type LcuComponents = ExcludeNever<{
       username?: string
     }
     /** @enum {string} */
-    'LolLobbyLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolLobbyLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     /** @enum {string} */
-    'LolLobbyMatchmakingDodgeState': 'Invalid' | 'PartyDodged' | 'StrangerDodged'
+    'LolLobbyMatchmakingDodgeState':
+      | 'Invalid'
+      | 'PartyDodged'
+      | 'StrangerDodged'
     'LolLobbyOpenPartyToggleAnalytics': {
       /** Format: int64 */
       elapsedTime?: number
@@ -8804,7 +8995,9 @@ export type LcuComponents = ExcludeNever<{
       commsEnabled?: boolean
       partyId?: string
       players?: {
-        [key: string]: LcuComponents['schemas']['LolLobbyPremadeMemberDto'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolLobbyPremadeMemberDto']
+          | undefined
       }
     }
     'LolLobbyPremadeRelationshipAnalytics': {
@@ -8869,7 +9062,10 @@ export type LcuComponents = ExcludeNever<{
       type?: string
     }
     /** @enum {string} */
-    'LolLobbyQueueAvailability': 'Available' | 'PlatformDisabled' | 'DoesntMeetRequirements'
+    'LolLobbyQueueAvailability':
+      | 'Available'
+      | 'PlatformDisabled'
+      | 'DoesntMeetRequirements'
     'LolLobbyQueueCustomGame': {
       queueAvailability?: LcuComponents['schemas']['LolLobbyQueueAvailability']
     }
@@ -8880,7 +9076,12 @@ export type LcuComponents = ExcludeNever<{
       | 'FriendsAllowed'
       | 'AllAllowed'
     /** @enum {string} */
-    'LolLobbyQueueGameCategory': 'None' | 'Custom' | 'PvP' | 'VersusAi' | 'Alpha'
+    'LolLobbyQueueGameCategory':
+      | 'None'
+      | 'Custom'
+      | 'PvP'
+      | 'VersusAi'
+      | 'Alpha'
     'LolLobbyQueueGameTypeConfig': {
       advancedLearningQuests?: boolean
       allowTrades?: boolean
@@ -9259,10 +9460,14 @@ export type LcuComponents = ExcludeNever<{
     }
     'LolLobbyTeamBuilderGameflowGameMap': {
       perPositionDisallowedSummonerSpells?: {
-        [key: string]: LcuComponents['schemas']['LolLobbyTeamBuilderGameModeSpellList'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolLobbyTeamBuilderGameModeSpellList']
+          | undefined
       }
       perPositionRequiredSummonerSpells?: {
-        [key: string]: LcuComponents['schemas']['LolLobbyTeamBuilderGameModeSpellList'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolLobbyTeamBuilderGameModeSpellList']
+          | undefined
       }
     }
     'LolLobbyTeamBuilderGameflowSession': {
@@ -9370,7 +9575,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolLobbyTeamBuilderLoginSessionState': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolLobbyTeamBuilderLoginSessionState':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolLobbyTeamBuilderMatchmakingDodgeData': {
       /** Format: int64 */
       dodgerId?: number
@@ -9401,7 +9610,10 @@ export type LcuComponents = ExcludeNever<{
       timer?: number
     }
     /** @enum {string} */
-    'LolLobbyTeamBuilderMatchmakingReadyCheckResponse': 'None' | 'Accepted' | 'Declined'
+    'LolLobbyTeamBuilderMatchmakingReadyCheckResponse':
+      | 'None'
+      | 'Accepted'
+      | 'Declined'
     /** @enum {string} */
     'LolLobbyTeamBuilderMatchmakingReadyCheckState':
       | 'Invalid'
@@ -9499,7 +9711,12 @@ export type LcuComponents = ExcludeNever<{
       | 'PlatformDisabled'
       | 'DoesntMeetRequirements'
     /** @enum {string} */
-    'LolLobbyTeamBuilderQueueGameCategory': 'None' | 'Custom' | 'PvP' | 'VersusAi' | 'Alpha'
+    'LolLobbyTeamBuilderQueueGameCategory':
+      | 'None'
+      | 'Custom'
+      | 'PvP'
+      | 'VersusAi'
+      | 'Alpha'
     'LolLobbyTeamBuilderQueueGameTypeConfig': {
       advancedLearningQuests?: boolean
       allowTrades?: boolean
@@ -9692,7 +9909,11 @@ export type LcuComponents = ExcludeNever<{
       token?: string
     }
     /** @enum {string} */
-    'LolLoginLoginConnectionMode': 'Preparing' | 'Legacy' | 'Partner' | 'RiotClient'
+    'LolLoginLoginConnectionMode':
+      | 'Preparing'
+      | 'Legacy'
+      | 'Partner'
+      | 'RiotClient'
     'LolLoginLoginConnectionState': {
       isPartnerRiotClient?: boolean
       isUsingDeveloperAuthToken?: boolean
@@ -9729,7 +9950,11 @@ export type LcuComponents = ExcludeNever<{
       username?: string
     }
     /** @enum {string} */
-    'LolLoginLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolLoginLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolLoginLoginSessionWallet': {
       /** Format: int64 */
       ip?: number
@@ -9889,7 +10114,11 @@ export type LcuComponents = ExcludeNever<{
       entityId?: string
     }
     /** @enum {string} */
-    'LolLootGrantStatus': 'PENDING_FULFILLMENT' | 'PENDING_SELECTION' | 'FULFILLED' | 'FAILED'
+    'LolLootGrantStatus':
+      | 'PENDING_FULFILLMENT'
+      | 'PENDING_SELECTION'
+      | 'FULFILLED'
+      | 'FAILED'
     'LolLootGroup': {
       counters?: LcuComponents['schemas']['LolLootCounter'][]
       id?: string
@@ -9943,7 +10172,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolLootLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolLootLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolLootLoginSimpleMessage': {
       /** Format: int64 */
       accountId?: number
@@ -10039,7 +10272,11 @@ export type LcuComponents = ExcludeNever<{
       threshold?: number
     }
     /** @enum {string} */
-    'LolLootLootMilestoneClaimStatus': 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETED' | 'FAILED'
+    'LolLootLootMilestoneClaimStatus':
+      | 'NOT_STARTED'
+      | 'IN_PROGRESS'
+      | 'COMPLETED'
+      | 'FAILED'
     'LolLootLootMilestoneRepeat': {
       /** Format: float */
       multiplier?: number
@@ -10110,7 +10347,12 @@ export type LcuComponents = ExcludeNever<{
       lootId?: string
     }
     /** @enum {string} */
-    'LolLootLootRarity': 'Default' | 'Epic' | 'Legendary' | 'Mythic' | 'Ultimate'
+    'LolLootLootRarity':
+      | 'Default'
+      | 'Epic'
+      | 'Legendary'
+      | 'Mythic'
+      | 'Ultimate'
     'LolLootLootRecipeGdsResource': {
       contextMenuText?: string
       description?: string
@@ -10469,7 +10711,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolLoyaltyLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolLoyaltyLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolLoyaltyLoyaltyRewards': {
       championIds?: number[]
       /** Format: int32 */
@@ -10539,10 +10785,14 @@ export type LcuComponents = ExcludeNever<{
       mapStringId?: string
       name?: string
       perPositionDisallowedSummonerSpells?: {
-        [key: string]: LcuComponents['schemas']['LolMapsGameModeSpellList'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolMapsGameModeSpellList']
+          | undefined
       }
       perPositionRequiredSummonerSpells?: {
-        [key: string]: LcuComponents['schemas']['LolMapsGameModeSpellList'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolMapsGameModeSpellList']
+          | undefined
       }
       platformId?: string
       platformName?: string
@@ -10598,7 +10848,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolMatchHistoryLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolMatchHistoryLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolMatchHistoryMatchHistoryEvent': {
       assistingParticipantIds?: number[]
       buildingType?: string
@@ -11077,7 +11331,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolMatchmakingLoginSessionState': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolMatchmakingLoginSessionState':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolMatchmakingMatchmakingDodgeData': {
       /** Format: int64 */
       dodgerId?: number
@@ -11110,7 +11368,10 @@ export type LcuComponents = ExcludeNever<{
       timer?: number
     }
     /** @enum {string} */
-    'LolMatchmakingMatchmakingReadyCheckResponse': 'None' | 'Accepted' | 'Declined'
+    'LolMatchmakingMatchmakingReadyCheckResponse':
+      | 'None'
+      | 'Accepted'
+      | 'Declined'
     /** @enum {string} */
     'LolMatchmakingMatchmakingReadyCheckState':
       | 'Invalid'
@@ -11223,7 +11484,10 @@ export type LcuComponents = ExcludeNever<{
       phase?: LcuComponents['schemas']['LolMissionsGameflowPhase']
     }
     /** @enum {string} */
-    'LolMissionsGrantStatus': 'PENDING_FULFILLMENT' | 'PENDING_SELECTION' | 'FULFILLED'
+    'LolMissionsGrantStatus':
+      | 'PENDING_FULFILLMENT'
+      | 'PENDING_SELECTION'
+      | 'FULFILLED'
     'LolMissionsInventoryItemWithPayload': {
       /** Format: int32 */
       itemId?: number
@@ -11444,7 +11708,9 @@ export type LcuComponents = ExcludeNever<{
     'LolModeProgressionLoadout': {
       id?: string
       loadout?: {
-        [key: string]: LcuComponents['schemas']['LolModeProgressionLoadoutsSlot'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolModeProgressionLoadoutsSlot']
+          | undefined
       }
       name?: string
       scope?: string
@@ -11894,7 +12160,9 @@ export type LcuComponents = ExcludeNever<{
     'LolPatchPatchSieveReleaseInfo': {
       id?: string
       labels?: {
-        [key: string]: LcuComponents['schemas']['LolPatchPatchSieveLabelValue'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolPatchPatchSieveLabelValue']
+          | undefined
       }
       product?: string
     }
@@ -12039,7 +12307,12 @@ export type LcuComponents = ExcludeNever<{
       state?: LcuComponents['schemas']['LolPerksChampSelectTradeState']
     }
     /** @enum {string} */
-    'LolPerksChampSelectTradeState': 'AVAILABLE' | 'BUSY' | 'INVALID' | 'RECEIVED' | 'SENT'
+    'LolPerksChampSelectTradeState':
+      | 'AVAILABLE'
+      | 'BUSY'
+      | 'INVALID'
+      | 'RECEIVED'
+      | 'SENT'
     /** @enum {string} */
     'LolPerksCustomizationLimits':
       | 'Locked'
@@ -12105,7 +12378,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolPerksLoginSessionState': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolPerksLoginSessionState':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolPerksNameCheckPayload': {
       name?: string
       shard?: string
@@ -12443,7 +12720,11 @@ export type LcuComponents = ExcludeNever<{
       state?: LcuComponents['schemas']['LolPftLoginSessionStates']
     }
     /** @enum {string} */
-    'LolPftLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolPftLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolPftPFTEndOfGamePlayer': {
       botPlayer?: boolean
       /** Format: int32 */
@@ -12707,7 +12988,11 @@ export type LcuComponents = ExcludeNever<{
       | 'EndOfGame'
       | 'TerminatedInError'
     /** @enum {string} */
-    'LolPlayerBehaviorNotificationSource': 'Invalid' | 'Login' | 'ForcedShutdown' | 'Message'
+    'LolPlayerBehaviorNotificationSource':
+      | 'Invalid'
+      | 'Login'
+      | 'ForcedShutdown'
+      | 'Message'
     'LolPlayerBehaviorPlayerBehavior_GameflowSessionResource': {
       phase?: LcuComponents['schemas']['LolPlayerBehaviorGameflowPhase']
     }
@@ -12854,7 +13139,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolPlayerLevelUpLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolPlayerLevelUpLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolPlayerLevelUpPlayerLevelUpEvent': {
       leveledUp?: boolean
       newQueues?: number[]
@@ -12927,7 +13216,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolPlayerPreferencesLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolPlayerPreferencesLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolPlayerPreferencesPlayerPreferences': {
       data?: string
       hash?: string
@@ -13106,7 +13399,9 @@ export type LcuComponents = ExcludeNever<{
       commsEnabled?: boolean
       partyId?: string
       players?: {
-        [key: string]: LcuComponents['schemas']['LolPremadeVoicePlayerDto'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolPremadeVoicePlayerDto']
+          | undefined
       }
     }
     /** @enum {string} */
@@ -13421,7 +13716,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolPurchaseWidgetLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolPurchaseWidgetLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolPurchaseWidgetOrderNotificationResource': {
       eventType?: string
       eventTypeId?: string
@@ -13455,7 +13754,11 @@ export type LcuComponents = ExcludeNever<{
       source?: string
     }
     /** @enum {string} */
-    'LolPurchaseWidgetPurchaseOfferOrderStates': 'NOT_STARTED' | 'IN_PROGRESS' | 'FAIL' | 'SUCCESS'
+    'LolPurchaseWidgetPurchaseOfferOrderStates':
+      | 'NOT_STARTED'
+      | 'IN_PROGRESS'
+      | 'FAIL'
+      | 'SUCCESS'
     'LolPurchaseWidgetPurchaseOfferOrderStatus': {
       message?: string
       orderState?: LcuComponents['schemas']['LolPurchaseWidgetPurchaseOfferOrderStates']
@@ -13638,7 +13941,10 @@ export type LcuComponents = ExcludeNever<{
       offsetTime3?: number
     }
     /** @enum {string} */
-    'LolRankedEosNotificationType': 'FIRST_WARNING' | 'SECOND_WARNING' | 'SEASON_ENDED'
+    'LolRankedEosNotificationType':
+      | 'FIRST_WARNING'
+      | 'SECOND_WARNING'
+      | 'SEASON_ENDED'
     'LolRankedEosRewardsConfig': {
       config?: LcuComponents['schemas']['LolRankedEosRewardsConfigEntry'][]
     }
@@ -13906,7 +14212,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolRankedLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolRankedLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     /** @enum {string} */
     'LolRankedMiniseries': 'W' | 'L' | 'N'
     /** @enum {string} */
@@ -14003,13 +14313,17 @@ export type LcuComponents = ExcludeNever<{
       highestRankedEntry?: LcuComponents['schemas']['LolRankedRankedQueueStats']
       highestRankedEntrySR?: LcuComponents['schemas']['LolRankedRankedQueueStats']
       queueMap?: {
-        [key: string]: LcuComponents['schemas']['LolRankedRankedQueueStats'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolRankedRankedQueueStats']
+          | undefined
       }
       queues?: LcuComponents['schemas']['LolRankedRankedQueueStats'][]
       /** Format: int32 */
       rankedRegaliaLevel?: number
       seasons?: {
-        [key: string]: LcuComponents['schemas']['LolRankedSeasonDTO'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolRankedSeasonDTO']
+          | undefined
       }
       splitsProgress?: {
         [key: string]: number | undefined
@@ -14023,7 +14337,9 @@ export type LcuComponents = ExcludeNever<{
       highestPreviousSeasonEndTier?: string
       queues?: LcuComponents['schemas']['LolRankedRankedQueueStatsDTO'][]
       seasons?: {
-        [key: string]: LcuComponents['schemas']['LolRankedSeasonDTO'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolRankedSeasonDTO']
+          | undefined
       }
       splitsProgress?: {
         [key: string]: number | undefined
@@ -14064,7 +14380,13 @@ export type LcuComponents = ExcludeNever<{
       wins?: number
     }
     /** @enum {string} */
-    'LolRankedRatedTier': 'NONE' | 'GRAY' | 'GREEN' | 'BLUE' | 'PURPLE' | 'ORANGE'
+    'LolRankedRatedTier':
+      | 'NONE'
+      | 'GRAY'
+      | 'GREEN'
+      | 'BLUE'
+      | 'PURPLE'
+      | 'ORANGE'
     'LolRankedRewardsInfo': {
       /** Format: int32 */
       currentSeasonId?: number
@@ -14072,7 +14394,9 @@ export type LcuComponents = ExcludeNever<{
       /** Format: int32 */
       currentSplitId?: number
       rewardInfoByRewardId?: {
-        [key: string]: LcuComponents['schemas']['LolRankedSplitReward'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolRankedSplitReward']
+          | undefined
       }
       splits?: LcuComponents['schemas']['LolRankedSeasonSplit'][]
     }
@@ -14122,7 +14446,9 @@ export type LcuComponents = ExcludeNever<{
       jwt?: string
       queues?: LcuComponents['schemas']['LolRankedRankedQueueStatsDTO'][]
       seasons?: {
-        [key: string]: LcuComponents['schemas']['LolRankedSeasonDTO'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolRankedSeasonDTO']
+          | undefined
       }
       splitsProgress?: {
         [key: string]: number | undefined
@@ -14493,7 +14819,11 @@ export type LcuComponents = ExcludeNever<{
       entityId?: string
     }
     /** @enum {string} */
-    'LolRewardsGrantStatus': 'PENDING_FULFILLMENT' | 'PENDING_SELECTION' | 'FULFILLED' | 'FAILED'
+    'LolRewardsGrantStatus':
+      | 'PENDING_FULFILLMENT'
+      | 'PENDING_SELECTION'
+      | 'FULFILLED'
+      | 'FAILED'
     'LolRewardsRegionLocale': {
       locale?: string
       region?: string
@@ -14712,7 +15042,10 @@ export type LcuComponents = ExcludeNever<{
       platformId?: string
     }
     /** @enum {string} */
-    'LolRsoAuthRSOAuthorizationTrustLevel': 'always_trusted' | 'trusted_device' | 'always_verify'
+    'LolRsoAuthRSOAuthorizationTrustLevel':
+      | 'always_trusted'
+      | 'trusted_device'
+      | 'always_verify'
     'LolRsoAuthRSOConfigReadyState': {
       ready?: boolean
     }
@@ -14832,7 +15165,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolSettingsLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolSettingsLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolSettingsSettingCategory': {
       data?: {
         [key: string]: unknown | undefined
@@ -14943,7 +15280,9 @@ export type LcuComponents = ExcludeNever<{
     }
     'LolSocialLeaderboardRankedStats': {
       queueMap?: {
-        [key: string]: LcuComponents['schemas']['LolSocialLeaderboardRankedQueueStats'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolSocialLeaderboardRankedQueueStats']
+          | undefined
       }
     }
     'LolSocialLeaderboardSocialLeaderboardData': {
@@ -15400,7 +15739,9 @@ export type LcuComponents = ExcludeNever<{
       itemInstanceId?: string
       itemRequirements?: LcuComponents['schemas']['LolStoreItemKey'][]
       localizations?: {
-        [key: string]: LcuComponents['schemas']['LolStoreItemLocalization'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolStoreItemLocalization']
+          | undefined
       }
       /** Format: int32 */
       maxQuantity?: number
@@ -15498,7 +15839,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolStoreLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolStoreLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolStoreNotification': {
       backgroundUrl?: string
       created?: string
@@ -15528,7 +15873,9 @@ export type LcuComponents = ExcludeNever<{
       catalog?: LcuComponents['schemas']['LolStoreCatalogItem'][]
       groupOrder?: string[]
       itemGroups?: {
-        [key: string]: LcuComponents['schemas']['LolStorePageGroupingDTO'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolStorePageGroupingDTO']
+          | undefined
       }
       Player?: LcuComponents['schemas']['LolStorePlayer']
     }
@@ -15730,7 +16077,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolSummonerLoginSessionStates': 'IN_PROGRESS' | 'SUCCEEDED' | 'LOGGING_OUT' | 'ERROR'
+    'LolSummonerLoginSessionStates':
+      | 'IN_PROGRESS'
+      | 'SUCCEEDED'
+      | 'LOGGING_OUT'
+      | 'ERROR'
     'LolSummonerProfilePrivacy': {
       enabledState?: LcuComponents['schemas']['LolSummonerProfilePrivacyEnabledState']
       setting?: LcuComponents['schemas']['LolSummonerProfilePrivacySetting']
@@ -15902,7 +16253,9 @@ export type LcuComponents = ExcludeNever<{
     'LolTrophiesLoadout': {
       id?: string
       loadout?: {
-        [key: string]: LcuComponents['schemas']['LolTrophiesLoadoutItem'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LolTrophiesLoadoutItem']
+          | undefined
       }
       name?: string
       scope?: string
@@ -15973,7 +16326,11 @@ export type LcuComponents = ExcludeNever<{
       uuid?: string
     }
     /** @enum {string} */
-    'LolWorldsTokenCardItemOwnershipType': 'OWNED' | 'RENTED' | 'LOYALTY' | 'F2P'
+    'LolWorldsTokenCardItemOwnershipType':
+      | 'OWNED'
+      | 'RENTED'
+      | 'LOYALTY'
+      | 'F2P'
     'LolWorldsTokenCardLootDataGdsResource': {
       LootTokenBankCards?: LcuComponents['schemas']['LolWorldsTokenCardLootTokenBankCardGdsResource'][]
     }
@@ -16017,7 +16374,10 @@ export type LcuComponents = ExcludeNever<{
       tooltipTitle?: string
     }
     /** @enum {string} */
-    'LolWorldsTokenCardTokenUpsellLockedType': 'UNASSIGNED' | 'UNLOCKED' | 'LOCKED'
+    'LolWorldsTokenCardTokenUpsellLockedType':
+      | 'UNASSIGNED'
+      | 'UNLOCKED'
+      | 'LOCKED'
     'LootItemClientDTO': {
       asset?: string
       displayCategories?: string
@@ -16094,7 +16454,9 @@ export type LcuComponents = ExcludeNever<{
       /** Format: int64 */
       lastUpdate?: number
       lootLedgerRecipeDTOMap?: {
-        [key: string]: LcuComponents['schemas']['LootLedgerRecipeConfiguration'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['LootLedgerRecipeConfiguration']
+          | undefined
       }
     }
     'LootLedgerRecipeConfiguration': {
@@ -16568,7 +16930,12 @@ export type LcuComponents = ExcludeNever<{
       tier?: number
     }
     /** @enum {string} */
-    'PendingRosterMemberState': 'NOT_READY' | 'FORCED_NOT_READY' | 'READY' | 'LEFT' | 'KICK'
+    'PendingRosterMemberState':
+      | 'NOT_READY'
+      | 'FORCED_NOT_READY'
+      | 'READY'
+      | 'LEFT'
+      | 'KICK'
     'PersonalizedOffersLcdsChampionDTO': {
       /** Format: int32 */
       championId?: number
@@ -16925,9 +17292,20 @@ export type LcuComponents = ExcludeNever<{
       uuid?: string
     }
     /** @enum {string} */
-    'PluginThreadingModel': 'dedicated' | 'sequential' | 'concurrent' | 'parallel'
+    'PluginThreadingModel':
+      | 'dedicated'
+      | 'sequential'
+      | 'concurrent'
+      | 'parallel'
     /** @enum {string} */
-    'Position': 'TOP' | 'MIDDLE' | 'BOTTOM' | 'JUNGLE' | 'UTILITY' | 'FILL' | 'UNSELECTED'
+    'Position':
+      | 'TOP'
+      | 'MIDDLE'
+      | 'BOTTOM'
+      | 'JUNGLE'
+      | 'UTILITY'
+      | 'FILL'
+      | 'UNSELECTED'
     'ProcessControlProcess': {
       /** Format: float */
       'restart-countdown-seconds'?: number
@@ -17040,7 +17418,12 @@ export type LcuComponents = ExcludeNever<{
       gameVersion?: string
     }
     /** @enum {string} */
-    'ReplayResponseStatus': 'OK' | 'NOT_FOUND' | 'EXPIRED' | 'BAD_REQUEST' | 'INTERNAL_SERVER_ERROR'
+    'ReplayResponseStatus':
+      | 'OK'
+      | 'NOT_FOUND'
+      | 'EXPIRED'
+      | 'BAD_REQUEST'
+      | 'INTERNAL_SERVER_ERROR'
     'RewardDetails': {
       /** Format: int64 */
       rosterId?: number
@@ -17079,7 +17462,11 @@ export type LcuComponents = ExcludeNever<{
       tokenType?: LcuComponents['schemas']['RiotMessagingServiceTokenType']
     }
     /** @enum {string} */
-    'RiotMessagingServiceState': 'Disconnecting' | 'Disconnected' | 'Connecting' | 'Connected'
+    'RiotMessagingServiceState':
+      | 'Disconnecting'
+      | 'Disconnected'
+      | 'Connecting'
+      | 'Connected'
     /** @enum {string} */
     'RiotMessagingServiceTokenType': 'Unavailable' | 'Access' | 'Identity'
     'RmsMessage': {
@@ -17097,7 +17484,9 @@ export type LcuComponents = ExcludeNever<{
     'RosterAggregatedStatsDTO': {
       periodStats?: LcuComponents['schemas']['RosterPeriodAggregatedStatsDTO'][]
       playerStats?: {
-        [key: string]: LcuComponents['schemas']['RosterPlayerAggregatedStatsDTO'] | undefined
+        [key: string]:
+          | LcuComponents['schemas']['RosterPlayerAggregatedStatsDTO']
+          | undefined
       }
     }
     'RosterDTO': {

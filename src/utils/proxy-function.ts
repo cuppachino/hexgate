@@ -46,39 +46,32 @@ export function proxyFunction<Fn extends UnknownFunction>(fn: Fn) {
     } = {
       to: identity
     }
-  ) =>
-    // from?: FromParams extends (...args: Parameters<Fn>) => Parameters<Fn>
-    //   ? FromParams
-    //   : FromParams extends (...args: any[]) => Parameters<Fn>
-    //   ? FromParams
-    //   : never,
-    // to: (result: ReturnType<Fn>) => ToReturn = identity
-    {
-      return new Proxy(
-        fn as FromParams extends undefined
-          ? (...args: Parameters<Fn>) => ToReturn
-          : FromParams extends (...args: Parameters<Fn>) => Parameters<Fn>
-          ? (...args: Parameters<FromParams>) => ToReturn
-          : FromParams extends (...args: any[]) => Parameters<Fn>
-          ? (...args: Parameters<FromParams>) => ToReturn
-          : Fn,
+  ) => {
+    return new Proxy(
+      fn as FromParams extends undefined
+        ? (...args: Parameters<Fn>) => ToReturn
+        : FromParams extends (...args: Parameters<Fn>) => Parameters<Fn>
+        ? (...args: Parameters<FromParams>) => ToReturn
+        : FromParams extends (...args: any[]) => Parameters<Fn>
+        ? (...args: Parameters<FromParams>) => ToReturn
+        : Fn,
 
-        {
-          apply: (
-            target,
-            thisArg,
-            args: FromParams extends undefined
-              ? Parameters<Fn>
-              : FromParams extends (...args: Parameters<Fn>) => Parameters<Fn>
-              ? Parameters<FromParams>
-              : FromParams extends (...args: any[]) => Parameters<Fn>
-              ? Parameters<FromParams>
-              : Parameters<Fn>
-          ) =>
-            Reflect.apply(to, thisArg, [
-              Reflect.apply(target, thisArg, from?.(...(args as any[])) ?? args)
-            ])
-        }
-      )
-    }
+      {
+        apply: (
+          target,
+          thisArg,
+          args: FromParams extends undefined
+            ? Parameters<Fn>
+            : FromParams extends (...args: Parameters<Fn>) => Parameters<Fn>
+            ? Parameters<FromParams>
+            : FromParams extends (...args: any[]) => Parameters<Fn>
+            ? Parameters<FromParams>
+            : Parameters<Fn>
+        ) =>
+          Reflect.apply(to, thisArg, [
+            Reflect.apply(target, thisArg, from?.(...(args as any[])) ?? args)
+          ])
+      }
+    )
+  }
 }

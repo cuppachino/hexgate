@@ -6,7 +6,9 @@ import type { AsyncFn } from 'src/types/generic.js'
  * The first time a property is accessed, the handler is called and the result is stored in the proxy.
  * Subsequent visits to the property will return the stored result, but note that the value will always be wrapped in a promise.
  */
-export const proxyFlyweight = <T extends Record<string, AsyncFn>>(handlers: T) => {
+export const proxyFlyweight = <T extends Record<string, AsyncFn>>(
+  handlers: T
+) => {
   return new Proxy(
     {} as {
       [K in keyof T & string]: ReturnType<T[K]>

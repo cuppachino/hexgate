@@ -44,9 +44,8 @@ export type OperationWith = {
  * You probably want to use {@link OperationParameters} instead.
  * @internal
  */
-export type ExtractRequestParams<T extends OperationWith['parameters']> = UnionToIntersection<
-  T['parameters'][keyof T['parameters']]
->
+export type ExtractRequestParams<T extends OperationWith['parameters']> =
+  UnionToIntersection<T['parameters'][keyof T['parameters']]>
 
 /**
  * Infer the request body type from an operation.
@@ -55,9 +54,8 @@ export type ExtractRequestParams<T extends OperationWith['parameters']> = UnionT
  * You probably want to use {@link OperationParameters} instead.
  * @internal
  */
-export type ExtractRequestBody<Op extends OperationWith['requestBody']> = NonNullable<
-  Op['requestBody']
->['content']['application/json']
+export type ExtractRequestBody<Op extends OperationWith['requestBody']> =
+  NonNullable<Op['requestBody']>['content']['application/json']
 
 /**
  * Infer the response type from an operation.
