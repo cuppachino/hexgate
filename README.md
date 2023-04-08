@@ -173,17 +173,14 @@ const summonersRecipe = createRecipe(({ build, wrap, unwrap }) => ({
    * (summonerIds: (number | `${number}`)[], init?: RequestInit | undefined) => Promise<ApiResponse<{...}>>
    */
   fromIds_parameters_can_be_overwritten: wrap(
-    build('/lol-summoner/v2/summoners')
-      .method('get')
-      .create()
+    build('/lol-summoner/v2/summoners').method('get').create()
   )({
     // The return type is constrained by the request function.
     // Here it must extend [{ ids?: string }, RequestInit | undefined]
     from(summonerIds: Array<`${number}` | number>, init?) {
       return [{ ids: JSON.stringify(summonerIds) }, init]
     }
-  }
-  )
+  }),
 
   /**
    * (arg: { ids?: string }, init?: RequestInit) => Promise<{...}>
