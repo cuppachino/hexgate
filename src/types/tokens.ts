@@ -21,9 +21,10 @@ export type AuthTokens = Omit<Credentials, 'certificate'>
  *
  * Alternatively, you can force "unsafe" authentication by explicitly setting `certificate` to `undefined`.
  */
-export type AuthOptions<Cert extends string | undefined = typeof CERTIFICATE> = {
-  certificate?: Cert
-}
+export type AuthOptions<Cert extends string | undefined = typeof CERTIFICATE> =
+  {
+    certificate?: Cert
+  }
 
 /**
  * Validated credentials ready to be used for authentication.

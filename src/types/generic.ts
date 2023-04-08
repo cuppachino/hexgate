@@ -1,6 +1,11 @@
 import type { Assert, Flat, KeyOf, Split } from '@cuppachino/type-space'
 
 /**
+ * A type representing any function.
+ */
+export type UnknownFunction = (...args: any[]) => any
+
+/**
  * Exclude all properties from `T` where `T[K]` is `never`.
  */
 export type ExcludeNever<T> = {
@@ -62,3 +67,22 @@ export type SplitDashesAndSlashes<T extends string> = Flat<
 > extends infer F extends string[]
   ? F
   : never
+
+/** Boolean - true if `A` extends `B` extends `A` */
+export type Exact<A, B> = Extract<A, B> extends never
+  ? false
+  : Extract<B, A> extends never
+  ? false
+  : true
+
+/** Boolean - true if `A` extends `B` */
+export type Extends<A, B> = Extract<A, B> extends never ? false : true
+
+/**
+ * Generic "any" function. Useful during development when you don't know what the arguments or return type will be yet.
+ */
+export type Anyhow<A extends any[] = any[], R = any> = (...args: A) => R
+
+export type AsyncFn<A extends any[] = any[], R = any> = (
+  ...args: A
+) => Promise<R>

@@ -8,9 +8,12 @@ import type { Credentials } from '../../types/tokens.js'
  * @param credential - Either a certificate string or an object with a certificate property (e.g. `Credentials`)
  * @param options - Additional, non-essential, options to pass to the https.Agent constructor.
  */
-export class HttpsAgent<Cert extends Subset<Credentials, 'certificate'>> extends Agent {
+export class HttpsAgent<
+  Cert extends Subset<Credentials, 'certificate'>
+> extends Agent {
   constructor(credential: Cert, options?: AgentOptions) {
-    const certificate = typeof credential === 'string' ? credential : credential?.certificate
+    const certificate =
+      typeof credential === 'string' ? credential : credential?.certificate
     super({
       keepAlive: true,
       maxSockets: 1,

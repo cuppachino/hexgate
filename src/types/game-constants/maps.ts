@@ -4,7 +4,11 @@
 /* ------------------ DO NOT EDIT ---------------- */
 /* ----------------------------------------------- */
 
-import type { UnionLiteral, NumberLike, IntoNumber } from '@cuppachino/type-space'
+import type {
+  UnionLiteral,
+  NumberLike,
+  IntoNumber
+} from '@cuppachino/type-space'
 
 export namespace Map {
   /* --------------------- PUBLIC ------------------ */
@@ -52,7 +56,11 @@ export namespace Map {
    * ```
    */
   export type ByMapId<T extends NumberLike<MapId>> = {
-    [I in keyof Maps]: Maps[I] extends Props<IntoNumber<T>, infer _MapName, infer _Notes>
+    [I in keyof Maps]: Maps[I] extends Props<
+      IntoNumber<T>,
+      infer _MapName,
+      infer _Notes
+    >
       ? Maps[I]
       : never
   }[keyof Maps]
@@ -68,7 +76,9 @@ export namespace Map {
    * ```
    */
   export type ByMapName<T extends MapName> = {
-    [I in keyof Maps]: Maps[I] extends Props<infer _MapId, T, infer _Notes> ? Maps[I] : never
+    [I in keyof Maps]: Maps[I] extends Props<infer _MapId, T, infer _Notes>
+      ? Maps[I]
+      : never
   }[keyof Maps]
 
   /**
@@ -82,7 +92,9 @@ export namespace Map {
    * ```
    */
   export type ByNotes<T extends Notes> = {
-    [I in keyof Maps]: Maps[I] extends Props<infer _MapId, infer _MapName, T> ? Maps[I] : never
+    [I in keyof Maps]: Maps[I] extends Props<infer _MapId, infer _MapName, T>
+      ? Maps[I]
+      : never
   }[keyof Maps]
 
   /* -------------------- INTERNAL ----------------- */

@@ -9,7 +9,9 @@ import { getTokens } from './tokens.js'
  *
  * @returns `Credentials`
  */
-export async function auth<Cert extends string = typeof CERTIFICATE>(options?: AuthOptions<Cert>) {
+export async function auth<Cert extends string = typeof CERTIFICATE>(
+  options?: AuthOptions<Cert>
+) {
   const tokens = await getTokens()
   return { ...tokens, certificate: options?.certificate ?? CERTIFICATE }
 }

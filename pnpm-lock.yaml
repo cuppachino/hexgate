@@ -5,8 +5,8 @@ dependencies:
     specifier: ^2.1.2
     version: 2.1.2
   '@cuppachino/type-space':
-    specifier: ^1.16.0
-    version: 1.16.0
+    specifier: ^2.0.0
+    version: 2.0.0
   '@type-challenges/utils':
     specifier: ^0.1.1
     version: 0.1.1
@@ -297,8 +297,12 @@ packages:
     engines: {node: '>= 12.0.0', npm: '>= 7.0.0'}
     dev: false
 
-  /@cuppachino/type-space@1.16.0:
-    resolution: {integrity: sha512-GOldvmkOFomI5Fy0x6vbzggXfmrg/J21H7MWU4MyrCO94WSb50CheXD9yvkRGXylsc2BMJ1kQDMviSml2a6vBQ==}
+  /@cuppachino/type-space@1.17.1:
+    resolution: {integrity: sha512-C9+iSFeW28g/rUniY80sAKTEq9+obwZ6I5shyzJdw6+wg0KPXZF/UCgXKZCyifPi8ZnM4kp2M/Rwktv4MQUrrQ==}
+    dev: false
+
+  /@cuppachino/type-space@2.0.0:
+    resolution: {integrity: sha512-LrGviIPYv7VKLcWL4QRleIacIZVlssgL/pPVZruPSupMCCNOWml8k3SHwH5D7h2i8OeHyK122bdKbC2IdR1NMw==}
     dev: false
 
   /@esbuild-kit/cjs-loader@2.4.2:
@@ -1031,7 +1035,7 @@ packages:
   /colorix@2.0.2:
     resolution: {integrity: sha512-zRxy4JPmBgqSlHFqxKOuXCXxHTV4TkSIwAuCrrcu7p7nC49dlsTwUlsvI99B/8R35ydBbvT0SQZtoi3WVaApBQ==}
     dependencies:
-      '@cuppachino/type-space': 1.16.0
+      '@cuppachino/type-space': 1.17.1
       '@type-challenges/utils': 0.1.1
       strip-ansi: 7.0.1
       supports-color: 9.3.1

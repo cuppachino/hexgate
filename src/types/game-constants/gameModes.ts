@@ -29,7 +29,10 @@ export namespace GameMode {
   /**
    * `Description` attribute of `GameMode.Props`
    */
-  export type Description = UnionLiteral<GameModes[number]['description'], string>
+  export type Description = UnionLiteral<
+    GameModes[number]['description'],
+    string
+  >
 
   /* -------------------- HELPERS ------------------ */
   /* ----------------------------------------------- */
@@ -45,7 +48,9 @@ export namespace GameMode {
    * ```
    */
   export type ByGameMode<T extends GameMode> = {
-    [I in keyof GameModes]: GameModes[I] extends Props<T, infer _Description> ? GameModes[I] : never
+    [I in keyof GameModes]: GameModes[I] extends Props<T, infer _Description>
+      ? GameModes[I]
+      : never
   }[keyof GameModes]
 
   /**
@@ -59,7 +64,9 @@ export namespace GameMode {
    * ```
    */
   export type ByDescription<T extends Description> = {
-    [I in keyof GameModes]: GameModes[I] extends Props<infer _GameMode, T> ? GameModes[I] : never
+    [I in keyof GameModes]: GameModes[I] extends Props<infer _GameMode, T>
+      ? GameModes[I]
+      : never
   }[keyof GameModes]
 
   /* -------------------- INTERNAL ----------------- */

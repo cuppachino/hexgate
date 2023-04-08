@@ -1200,7 +1200,9 @@ export type LcuOperations = {
       200: {
         content: {
           'application/json': {
-            [key: string]: LcuComponents['schemas']['LolChallengesUIPlayerSummary'] | undefined
+            [key: string]:
+              | LcuComponents['schemas']['LolChallengesUIPlayerSummary']
+              | undefined
           }
         }
       }
@@ -3071,7 +3073,9 @@ export type LcuOperations = {
       200: {
         content: {
           'application/json': {
-            [key: string]: LcuComponents['schemas']['ClashEventData'] | undefined
+            [key: string]:
+              | LcuComponents['schemas']['ClashEventData']
+              | undefined
           }
         }
       }
@@ -5473,7 +5477,9 @@ export type LcuOperations = {
       200: {
         content: {
           'application/json': {
-            [key: string]: LcuComponents['schemas']['LolGameflowGameModeSpellList'] | undefined
+            [key: string]:
+              | LcuComponents['schemas']['LolGameflowGameModeSpellList']
+              | undefined
           }
         }
       }
@@ -5495,7 +5501,9 @@ export type LcuOperations = {
       200: {
         content: {
           'application/json': {
-            [key: string]: LcuComponents['schemas']['LolGameflowGameModeSpellList'] | undefined
+            [key: string]:
+              | LcuComponents['schemas']['LolGameflowGameModeSpellList']
+              | undefined
           }
         }
       }
@@ -6113,7 +6121,9 @@ export type LcuOperations = {
       200: {
         content: {
           'application/json': {
-            [key: string]: LcuComponents['schemas']['LolInventoryInventoryCacheEntry'] | undefined
+            [key: string]:
+              | LcuComponents['schemas']['LolInventoryInventoryCacheEntry']
+              | undefined
           }
         }
       }
@@ -8365,7 +8375,9 @@ export type LcuOperations = {
       200: {
         content: {
           'application/json': {
-            [key: string]: LcuComponents['schemas']['LolLootPlayerLoot'] | undefined
+            [key: string]:
+              | LcuComponents['schemas']['LolLootPlayerLoot']
+              | undefined
           }
         }
       }
@@ -10706,7 +10718,9 @@ export type LcuOperations = {
       200: {
         content: {
           'application/json': {
-            [key: string]: LcuComponents['schemas']['LolRankedRankedStats'] | undefined
+            [key: string]:
+              | LcuComponents['schemas']['LolRankedRankedStats']
+              | undefined
           }
         }
       }
@@ -11972,7 +11986,9 @@ export type LcuOperations = {
       200: {
         content: {
           'application/json': {
-            [key: string]: LcuComponents['schemas']['LolStoreItemKey'] | undefined
+            [key: string]:
+              | LcuComponents['schemas']['LolStoreItemKey']
+              | undefined
           }
         }
       }
@@ -11989,7 +12005,9 @@ export type LcuOperations = {
       200: {
         content: {
           'application/json': {
-            [key: string]: LcuComponents['schemas']['LolStoreItemKey'] | undefined
+            [key: string]:
+              | LcuComponents['schemas']['LolStoreItemKey']
+              | undefined
           }
         }
       }
