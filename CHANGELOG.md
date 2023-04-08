@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.6.0
+
+### Minor Changes
+
+*   ab1cf23: Feat: RecipeApi - potentially breaking changes
+
 ## 0.5.4
 
 ### Patch Changes
