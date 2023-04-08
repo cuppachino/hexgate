@@ -77,3 +77,10 @@ export type Exact<A, B> = Extract<A, B> extends never
 
 /** Boolean - true if `A` extends `B` */
 export type Extends<A, B> = Extract<A, B> extends never ? false : true
+
+/**
+ * Generic "any" function. Useful during development when you don't know what the arguments or return type will be yet.
+ */
+export type Anyhow<A extends any[] = any[], R = any> = (...args: A) => R
+
+export type AsyncFn<A extends any[] = any[], R = any> = (...args: A) => Promise<R>

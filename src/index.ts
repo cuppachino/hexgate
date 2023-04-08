@@ -9,14 +9,22 @@ export { createHeaders } from './modules/auth/headers.js'
 export { auth } from './modules/auth/index.js'
 
 /// Hexgate
-export * from './modules/hexgate/index.js'
+export { Hexgate } from './modules/hexgate/index.js'
+export { createHexgate } from './modules/hexgate/create.js'
+export { createRecipe } from './modules/hexgate/recipe.js'
+export { extractHexgateSymbol, hexgateSymbol } from './modules/hexgate/symbol.js'
 
 /// HTTPS
 export { HttpsAgent } from './modules/https/agent.js'
 export { createRequestInit } from './modules/https/request-init.js'
 
 /// Utilities
+export { extractData } from './utils/extract-data.js'
+export { identity } from './utils/identity.js'
+export { mapDefined } from './utils/map-defined.js'
 export { poll } from './utils/poll.js'
+export { proxyFunction } from './utils/proxy-function.js'
+export { proxyFlyweight } from './utils/proxy-flyweight.js'
 
 /// Errors
 export { HexgateError } from './errors/index.js'
@@ -33,11 +41,11 @@ export type { ErrorKind } from './types/errors.js'
 
 /// Hexgate Types
 export type {
-  OptionalEmptyArg,
-  RequiredEmptyArg,
   HexgateBuild,
+  HexgateCreate,
   HexgateFetcher,
-  HexgateCreate
+  OptionalEmptyArg,
+  RequiredEmptyArg
 } from './types/hexgate/fetcher.js'
 
 /// Game Constant Types
@@ -48,17 +56,18 @@ export type * from './types/game-constants/queues.js'
 export type * from './types/game-constants/seasons.js'
 
 /// DTO Types
-export type * from './types/dto/game-server-region.js'
+export type { GameServerRegion } from './types/dto/game-server-region.js'
+export type { LcuResponseCode } from './types/dto/lcu-response-code.js'
 
 /// OpenAPI Types
+export type { LcuComponents } from './types/openapi/components.js'
+export type { LcuOperations } from './types/openapi/operations.js'
+export type { LcuPaths } from './types/openapi/paths.js'
+
 export type {
-  LcuComponents,
-  LcuOperations,
-  LcuOperationsLens,
-  LcuPaths,
-  LcuResponseCode,
-  UnwrapResponse,
-  UnwrapRequestBody,
-  UnwrapParameters,
-  UnwrapRequest
-} from './types/openapi/index.js'
+  Operation,
+  OperationParameters,
+  OperationResponses
+} from './types/hexgate/operation.js'
+
+export type { ApiResponse } from '@cuppachino/openapi-fetch'
