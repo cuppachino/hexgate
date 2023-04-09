@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.7.0
+
+### Minor Changes
+
+*   60918a6: feat: add `Result` util to the recipe api + "phantom" error typings
+
 ## 0.6.0
 
 ### Minor Changes
