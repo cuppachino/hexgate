@@ -28,6 +28,7 @@ export { mapDefined } from './utils/map-defined.js'
 export { poll } from './utils/poll.js'
 export { proxyFunction } from './utils/proxy-function.js'
 export { proxyFlyweight } from './utils/proxy-flyweight.js'
+export { result } from './utils/result.js'
 
 /// Errors
 export { HexgateError } from './errors/index.js'
@@ -73,4 +74,13 @@ export type {
   OperationResponses
 } from './types/hexgate/operation.js'
 
-export type { ApiResponse } from '@cuppachino/openapi-fetch'
+export type {
+  ApiResponse,
+  ApiError,
+  CreateFetch,
+  CustomRequestInit,
+  Fetch
+} from '@cuppachino/openapi-fetch'
+
+export type { Phantom, PhantomError, PhantomSymbol } from './types/phantom.js'
+export type { Err, IntoResult, Ok, Result } from './types/result.js'
