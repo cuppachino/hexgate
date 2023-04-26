@@ -77,7 +77,7 @@ const hexgate = new Hexgate(credentials)
 
 ## Builder API
 
-The simplest way of getting started is to "`.build`" a request function. The builder uses generics to infer the arguments and return type of the request.
+The simplest way of getting started is to "`.build`" a request function. The builder uses generics to infer the parameters and return type of the request.
 
 ```ts
 const hexgate = new Hexgate(await auth())
