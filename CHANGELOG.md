@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.7.1
+
+### Patch Changes
+
+*   127ff15: Update README.md
+
 ## 0.7.0
 
 ### Minor Changes
