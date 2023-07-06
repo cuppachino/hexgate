@@ -62,6 +62,7 @@ export type * from './types/game-constants/seasons.js'
 /// DTO Types
 export type { GameServerRegion } from './types/dto/game-server-region.js'
 export type { LcuResponseCode } from './types/dto/lcu-response-code.js'
+export type { LcuEvent, LcuEventLookup } from './types/dto/lcu-event-lookup.js'
 
 /// OpenAPI Types
 export type { LcuComponents } from './types/openapi/components.js'
