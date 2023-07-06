@@ -8,9 +8,8 @@ const formatTypeScript = (code: string) => {
 }
 
 const toType = ([rawName, rawDesc]: [string, string]) => {
-  const name = rawName.replace(/[_-](\w)/g, (_, letter) => letter.toUpperCase())
   const desc = rawDesc ? `/**\n * ${rawDesc}\n */\n` : ''
-  return `${desc}${name}: undefined,`
+  return `${desc}['${rawName}']: undefined,`
 }
 
 const toTypes = (arr: [string, string][]) => {
