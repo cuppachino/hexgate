@@ -7,16 +7,24 @@ import type {
   LcuEventLookup
 } from '../../types/dto/lcu-event-lookup.js'
 
-export type LcuWebSocketEvent<T extends LcuEvent> = {
-  data: LcuEventLookup[T]
-  eventType: T
-  uri: string
+type RecordToCallbacks<T> = {
+  [K in keyof T]: ({
+    data,
+    eventType,
+    uri
+  }: {
+    data: T[K]
+    eventType: K
+    uri: string
+  }) => void
 }
 
+type LcuWebSocketEventCallbacks = RecordToCallbacks<LcuEventLookup>
+
 export class LcuClient extends WebSocket {
-  eventListeners: {
-    [K in keyof LcuEventLookup]?: ((data: LcuEventLookup[K]) => void)[] // ((data: LcuEventLookup[K] extends undefined ? unknown : LcuEventLookup[K]) => void)
-  } = {}
+  eventListeners: Partial<
+    Record<LcuEvent, Array<LcuWebSocketEventCallbacks[LcuEvent]>>
+  > = {}
 
   constructor(credentials: Credentials) {
     const url = `wss://127.0.0.1:${credentials.appPort}/`
@@ -32,13 +40,17 @@ export class LcuClient extends WebSocket {
   }
 
   private publish(data: WebSocket.RawData) {
-    const [eventCode, eventType, eventData] = (():
-      | [8, LcuEvent, LcuEventLookup[LcuEvent]]
-      | [0, undefined, undefined] => {
+    const [eventCode, eventType, eventData] = (() => {
       try {
         const json = JSON.parse(data.toString())
         if (json[0] === 8) {
-          return json as [8, LcuEvent, LcuEventLookup[LcuEvent]]
+          return json as any as [
+            8,
+            LcuEvent,
+            any
+            // ! This is looks like a bug with TypeScript. The type collapses to `never` and locks up the TS server, so I'm using `any` instead.
+            // ! I noticed this speeds up inference for `data` in `subscribe` by a lot.
+          ]
         }
       } catch (error) {
         // console.error(error)
@@ -49,16 +61,14 @@ export class LcuClient extends WebSocket {
     if (eventCode) {
       const listeners = this.eventListeners[eventType]
       if (listeners) {
-        listeners.forEach((listener) => {
-          listener(eventData)
-        })
+        listeners.forEach((listener) => listener(eventData))
       }
     }
   }
 
-  subscribe<T extends LcuEvent>(
+  subscribe<T extends keyof LcuEventLookup>(
     event: T,
-    listener: (data: LcuEventLookup[T]) => void
+    listener: LcuWebSocketEventCallbacks[T]
   ) {
     const isOpen = this.readyState === WebSocket.OPEN
     if (!isOpen) {

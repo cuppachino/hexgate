@@ -7,16 +7,26 @@ const formatTypeScript = (code: string) => {
   })
 }
 
+const unknownType = `type Unknown<T> = {
+  data: unknown
+  eventType: T
+  uri: string
+}`
+
 const toType = ([rawName, rawDesc]: [string, string]) => {
+  if (rawName === 'OnJsonApiEvent_lol-champ-select_v1_session') {
+    return `'OnJsonApiEvent_lol-champ-select_v1_session': LcuComponents['schemas']['LolChampSelectChampSelectSession'],`
+  }
+
   const desc = rawDesc ? `/**\n * ${rawDesc}\n */\n` : ''
-  return `${desc}['${rawName}']: undefined,`
+  return `${desc}'${rawName}': Record<string, unknown>,`
 }
 
 const toTypes = (arr: [string, string][]) => {
   return (
     [...new Set(arr.map(toType))]
       .join('\n')
-      .replace(/^/, 'export type LcuEventLookup = {\n') + '\n}'
+      .replace(/^/, 'export interface LcuEventLookup {\n') + '\n}'
   )
 }
 
@@ -30,7 +40,7 @@ const json = (
 
 const types = toTypes(Object.entries(json.events))
 const extra = `export type LcuEvent = keyof LcuEventLookup`
-const out = `${types}\n\n${extra}`
+const out = `import type {LcuComponents} from '../openapi/components.js'\n${unknownType}\n${types}\n\n${extra}`
 
 // write the types to a file
 import fs from 'fs'
