@@ -5,7 +5,6 @@
 [![Release](https://github.com/cuppachino/hexgate/actions/workflows/release.yml/badge.svg?branch=main)](https://github.com/cuppachino/hexgate/actions/workflows/release.yml)
 [![License](https://img.shields.io/github/license/cuppachino/hexgate?color=ffca4a)](https://github.com/cuppachino/hexgate/blob/528f647166eddef82e0ceb15ac8feafb56e97773/LICENSE)
 [![npm (scoped)](https://img.shields.io/npm/v/hexgate?color=%23fb3e44)](https://www.npmjs.com/package/hexgate)
-[![npm](https://img.shields.io/npm/dw/hexgate)](https://www.npmjs.com/package/hexgate)
 
 [Hexgate](https://www.npmjs.com/package/hexgate) is a work-in-progress LCU suite. It is **not** endorsed by Riot Games. You can find out more about what that means [here](https://www.riotgames.com/en/legal). Thank you Riot ❤️ for providing a public API for us to play with. If you have any questions, feel free to join the [cuppachino discord](https://discord.gg/HEd72YnzVq).
 
@@ -13,7 +12,7 @@
 
 *   As of #19, Hexgate can be used in both ESM and CJS node environments. If you have any problems, please open an issue. Thanks!
 
-Please refer to the [wiki](https://github.com/cuppachino/hexgate/wiki) until Hexgate is more mature. I am planning a website for Hexgate, but at the moment I am focused on what Hexgate should become.
+Please refer to the [wiki](https://github.com/cuppachino/hexgate/wiki) for more info.
 
 <!-- todo: add more info -->
 
