@@ -1,1320 +1,4556 @@
+import type { LcuComponents } from '../openapi/components.js'
+
 export type LcuEventLookup = {
   /**
    * Fired when a callback is invoked.
    */
-  ["OnCallback"]: undefined
+  ['OnCallback']: Record<string, unknown>
   /**
    * Fired when a resource is changed.
    */
-  ["OnJsonApiEvent"]: undefined
-  ["OnJsonApiEvent_chat_v1_session"]: undefined
-  ["OnJsonApiEvent_chat_v1_settings"]: undefined
-  ["OnJsonApiEvent_chat_v3_blocked"]: undefined
-  ["OnJsonApiEvent_chat_v3_errors"]: undefined
-  ["OnJsonApiEvent_chat_v3_friends"]: undefined
-  ["OnJsonApiEvent_chat_v3_groups"]: undefined
-  ["OnJsonApiEvent_chat_v4_friendrequests"]: undefined
-  ["OnJsonApiEvent_chat_v4_presences"]: undefined
-  ["OnJsonApiEvent_chat_v5_messages"]: undefined
-  ["OnJsonApiEvent_chat_v5_participants"]: undefined
-  ["OnJsonApiEvent_chat_v6_conversations"]: undefined
-  ["OnJsonApiEvent_client-config_v1_status"]: undefined
-  ["OnJsonApiEvent_client-config_v2_config"]: undefined
-  ["OnJsonApiEvent_client-config_v2_namespace"]: undefined
-  ["OnJsonApiEvent_config_v1_config"]: undefined
-  ["OnJsonApiEvent_data-store_v1_install-settings"]: undefined
-  ["OnJsonApiEvent_data-store_v1_system-settings"]: undefined
-  ["OnJsonApiEvent_entitlements_v1_token"]: undefined
-  ["OnJsonApiEvent_ga-restriction_v1_penalty-notifications"]: undefined
-  ["OnJsonApiEvent_lol-account-verification_v1_is-verified"]: undefined
-  ["OnJsonApiEvent_lol-active-boosts_v1_active-boosts"]: undefined
-  ["OnJsonApiEvent_lol-anti-addiction_v1_anti-addiction-token"]: undefined
-  ["OnJsonApiEvent_lol-catalog_v1_items"]: undefined
-  ["OnJsonApiEvent_lol-challenges_v1_client-state"]: undefined
-  ["OnJsonApiEvent_lol-challenges_v1_seasons"]: undefined
-  ["OnJsonApiEvent_lol-champ-select-legacy_v1_bannable-champion-ids"]: undefined
-  ["OnJsonApiEvent_lol-champ-select-legacy_v1_current-champion"]: undefined
-  ["OnJsonApiEvent_lol-champ-select-legacy_v1_disabled-champion-ids"]: undefined
-  ["OnJsonApiEvent_lol-champ-select-legacy_v1_implementation-active"]: undefined
-  ["OnJsonApiEvent_lol-champ-select-legacy_v1_pickable-champion-ids"]: undefined
-  ["OnJsonApiEvent_lol-champ-select-legacy_v1_pickable-skin-ids"]: undefined
-  ["OnJsonApiEvent_lol-champ-select-legacy_v1_session"]: undefined
-  ["OnJsonApiEvent_lol-champ-select-legacy_v1_team-boost"]: undefined
-  ["OnJsonApiEvent_lol-champ-select_v1_all-grid-champions"]: undefined
-  ["OnJsonApiEvent_lol-champ-select_v1_current-champion"]: undefined
-  ["OnJsonApiEvent_lol-champ-select_v1_grid-champions"]: undefined
-  ["OnJsonApiEvent_lol-champ-select_v1_muted-players"]: undefined
-  ["OnJsonApiEvent_lol-champ-select_v1_session"]: undefined
-  ["OnJsonApiEvent_lol-champ-select_v1_team-boost"]: undefined
-  ["OnJsonApiEvent_lol-champions_v1_inventories"]: undefined
-  ["OnJsonApiEvent_lol-champions_v1_owned-champions-minimal"]: undefined
-  ["OnJsonApiEvent_lol-chat_v1_blocked-players"]: undefined
-  ["OnJsonApiEvent_lol-chat_v1_config"]: undefined
-  ["OnJsonApiEvent_lol-chat_v1_conversations"]: undefined
-  ["OnJsonApiEvent_lol-chat_v1_friend-counts"]: undefined
-  ["OnJsonApiEvent_lol-chat_v1_friend-groups"]: undefined
-  ["OnJsonApiEvent_lol-chat_v1_friend-requests"]: undefined
-  ["OnJsonApiEvent_lol-chat_v1_friends"]: undefined
-  ["OnJsonApiEvent_lol-chat_v1_me"]: undefined
-  ["OnJsonApiEvent_lol-chat_v1_resources"]: undefined
-  ["OnJsonApiEvent_lol-chat_v1_session"]: undefined
-  ["OnJsonApiEvent_lol-chat_v1_settings"]: undefined
-  ["OnJsonApiEvent_lol-clash_v1_checkin-allowed"]: undefined
-  ["OnJsonApiEvent_lol-clash_v1_disabled-config"]: undefined
-  ["OnJsonApiEvent_lol-clash_v1_enabled"]: undefined
-  ["OnJsonApiEvent_lol-clash_v1_iconconfig"]: undefined
-  ["OnJsonApiEvent_lol-clash_v1_invited-roster-ids"]: undefined
-  ["OnJsonApiEvent_lol-clash_v1_player"]: undefined
-  ["OnJsonApiEvent_lol-clash_v1_playmode-restricted"]: undefined
-  ["OnJsonApiEvent_lol-clash_v1_ready"]: undefined
-  ["OnJsonApiEvent_lol-clash_v1_simple-state-flags"]: undefined
-  ["OnJsonApiEvent_lol-clash_v1_time"]: undefined
-  ["OnJsonApiEvent_lol-clash_v1_visible"]: undefined
-  ["OnJsonApiEvent_lol-clash_v1_voice-enabled"]: undefined
-  ["OnJsonApiEvent_lol-clash_v2_playmode-restricted"]: undefined
-  ["OnJsonApiEvent_lol-client-config_v3_client-config"]: undefined
-  ["OnJsonApiEvent_lol-collections_v1_inventories"]: undefined
-  ["OnJsonApiEvent_lol-content-targeting_v1_filters"]: undefined
-  ["OnJsonApiEvent_lol-cosmetics_v1_inventories"]: undefined
-  ["OnJsonApiEvent_lol-drops_v1_ready"]: undefined
-  ["OnJsonApiEvent_lol-end-of-game_v1_eog-stats-block"]: undefined
-  ["OnJsonApiEvent_lol-end-of-game_v1_gameclient-eog-stats-block"]: undefined
-  ["OnJsonApiEvent_lol-end-of-game_v1_tft-eog-stats"]: undefined
-  ["OnJsonApiEvent_lol-event-shop_v1_info"]: undefined
-  ["OnJsonApiEvent_lol-event-shop_v1_navigation-button-data"]: undefined
-  ["OnJsonApiEvent_lol-event-shop_v1_token-upsell"]: undefined
-  ["OnJsonApiEvent_lol-game-client-chat_v1_aas-messages"]: undefined
-  ["OnJsonApiEvent_lol-game-client-chat_v1_buddies"]: undefined
-  ["OnJsonApiEvent_lol-game-client-chat_v1_instant-messages"]: undefined
-  ["OnJsonApiEvent_lol-game-client-chat_v1_party-messages"]: undefined
-  ["OnJsonApiEvent_lol-game-queues_v1_custom"]: undefined
-  ["OnJsonApiEvent_lol-game-queues_v1_custom-non-default"]: undefined
-  ["OnJsonApiEvent_lol-game-queues_v1_queues"]: undefined
-  ["OnJsonApiEvent_lol-game-settings_v1_game-settings"]: undefined
-  ["OnJsonApiEvent_lol-game-settings_v1_input-settings"]: undefined
-  ["OnJsonApiEvent_lol-game-settings_v1_ready"]: undefined
-  ["OnJsonApiEvent_lol-gameflow_v1_availability"]: undefined
-  ["OnJsonApiEvent_lol-gameflow_v1_battle-training"]: undefined
-  ["OnJsonApiEvent_lol-gameflow_v1_early-exit-notifications"]: undefined
-  ["OnJsonApiEvent_lol-gameflow_v1_gameflow-metadata"]: undefined
-  ["OnJsonApiEvent_lol-gameflow_v1_gameflow-phase"]: undefined
-  ["OnJsonApiEvent_lol-gameflow_v1_session"]: undefined
-  ["OnJsonApiEvent_lol-gameflow_v1_spectate"]: undefined
-  ["OnJsonApiEvent_lol-gameflow_v1_watch"]: undefined
-  ["OnJsonApiEvent_lol-highlights_v1_config"]: undefined
-  ["OnJsonApiEvent_lol-highlights_v1_highlights-folder-path"]: undefined
-  ["OnJsonApiEvent_lol-honeyfruit_v1_account-claim"]: undefined
-  ["OnJsonApiEvent_lol-honeyfruit_v1_linking-settings-button-available"]: undefined
-  ["OnJsonApiEvent_lol-honeyfruit_v1_vng-publisher-settings"]: undefined
-  ["OnJsonApiEvent_lol-honor-v2_v1_ballot"]: undefined
-  ["OnJsonApiEvent_lol-honor-v2_v1_config"]: undefined
-  ["OnJsonApiEvent_lol-honor-v2_v1_level-change"]: undefined
-  ["OnJsonApiEvent_lol-honor-v2_v1_profile"]: undefined
-  ["OnJsonApiEvent_lol-honor-v2_v1_recipients"]: undefined
-  ["OnJsonApiEvent_lol-honor-v2_v1_recognition"]: undefined
-  ["OnJsonApiEvent_lol-honor-v2_v1_recognition-history"]: undefined
-  ["OnJsonApiEvent_lol-honor-v2_v1_team-choices"]: undefined
-  ["OnJsonApiEvent_lol-hovercard_v1_friend-info"]: undefined
-  ["OnJsonApiEvent_lol-hovercard_v1_friend-info-by-summoner"]: undefined
-  ["OnJsonApiEvent_lol-inventory_v1_initial-configuration-complete"]: undefined
-  ["OnJsonApiEvent_lol-inventory_v1_inventory"]: undefined
-  ["OnJsonApiEvent_lol-inventory_v1_signedInventory"]: undefined
-  ["OnJsonApiEvent_lol-inventory_v1_wallet"]: undefined
-  ["OnJsonApiEvent_lol-inventory_v2_inventory"]: undefined
-  ["OnJsonApiEvent_lol-kr-playtime-reminder_v1_message"]: undefined
-  ["OnJsonApiEvent_lol-league-session_v1_league-session-token"]: undefined
-  ["OnJsonApiEvent_lol-license-agreement_v1_agreements"]: undefined
-  ["OnJsonApiEvent_lol-license-agreement_v1_all-agreements"]: undefined
-  ["OnJsonApiEvent_lol-license-agreement_v1_serve-location"]: undefined
-  ["OnJsonApiEvent_lol-loadouts_v1_enabled"]: undefined
-  ["OnJsonApiEvent_lol-loadouts_v1_loadouts-ready"]: undefined
-  ["OnJsonApiEvent_lol-loadouts_v4_loadout"]: undefined
-  ["OnJsonApiEvent_lol-loadouts_v4_loadouts"]: undefined
-  ["OnJsonApiEvent_lol-lobby-team-builder_champ-select_v1"]: undefined
-  ["OnJsonApiEvent_lol-lobby-team-builder_v1_matchmaking"]: undefined
-  ["OnJsonApiEvent_lol-lobby_v1_lobby"]: undefined
-  ["OnJsonApiEvent_lol-lobby_v2_comms"]: undefined
-  ["OnJsonApiEvent_lol-lobby_v2_eligibility"]: undefined
-  ["OnJsonApiEvent_lol-lobby_v2_lobby"]: undefined
-  ["OnJsonApiEvent_lol-lobby_v2_party-active"]: undefined
-  ["OnJsonApiEvent_lol-login_v1_login-connection-state"]: undefined
-  ["OnJsonApiEvent_lol-login_v1_login-data-packet"]: undefined
-  ["OnJsonApiEvent_lol-login_v1_login-in-game-creds"]: undefined
-  ["OnJsonApiEvent_lol-login_v1_login-platform-credentials"]: undefined
-  ["OnJsonApiEvent_lol-login_v1_session"]: undefined
-  ["OnJsonApiEvent_lol-login_v1_wallet"]: undefined
-  ["OnJsonApiEvent_lol-login_v2_league-session-init-token"]: undefined
-  ["OnJsonApiEvent_lol-loot_v1_currency-configuration"]: undefined
-  ["OnJsonApiEvent_lol-loot_v1_enabled"]: undefined
-  ["OnJsonApiEvent_lol-loot_v1_milestones"]: undefined
-  ["OnJsonApiEvent_lol-loot_v1_player-display-categories"]: undefined
-  ["OnJsonApiEvent_lol-loot_v1_player-loot"]: undefined
-  ["OnJsonApiEvent_lol-loot_v1_player-loot-map"]: undefined
-  ["OnJsonApiEvent_lol-loot_v1_ready"]: undefined
-  ["OnJsonApiEvent_lol-loot_v1_recipes"]: undefined
-  ["OnJsonApiEvent_lol-loot_v2_player-loot-map"]: undefined
-  ["OnJsonApiEvent_lol-loyalty_v1_status-notification"]: undefined
-  ["OnJsonApiEvent_lol-maps_v1_maps"]: undefined
-  ["OnJsonApiEvent_lol-maps_v2_maps"]: undefined
-  ["OnJsonApiEvent_lol-marketing-preferences_v1_partition"]: undefined
-  ["OnJsonApiEvent_lol-marketing-preferences_v1_ready"]: undefined
-  ["OnJsonApiEvent_lol-matchmaking_v1_ready-check"]: undefined
-  ["OnJsonApiEvent_lol-matchmaking_v1_search"]: undefined
-  ["OnJsonApiEvent_lol-missions_v1_missions"]: undefined
-  ["OnJsonApiEvent_lol-missions_v1_series"]: undefined
-  ["OnJsonApiEvent_lol-npe-rewards_v1_login-rewards"]: undefined
-  ["OnJsonApiEvent_lol-npe-tutorial-path_v1_rewards"]: undefined
-  ["OnJsonApiEvent_lol-npe-tutorial-path_v1_settings"]: undefined
-  ["OnJsonApiEvent_lol-npe-tutorial-path_v1_tutorials"]: undefined
-  ["OnJsonApiEvent_lol-patch_v1_checking-enabled"]: undefined
-  ["OnJsonApiEvent_lol-patch_v1_environment"]: undefined
-  ["OnJsonApiEvent_lol-patch_v1_game-version"]: undefined
-  ["OnJsonApiEvent_lol-patch_v1_notifications"]: undefined
-  ["OnJsonApiEvent_lol-patch_v1_products"]: undefined
-  ["OnJsonApiEvent_lol-patch_v1_status"]: undefined
-  ["OnJsonApiEvent_lol-perks_v1_inventory"]: undefined
-  ["OnJsonApiEvent_lol-perks_v1_pages"]: undefined
-  ["OnJsonApiEvent_lol-perks_v1_perks"]: undefined
-  ["OnJsonApiEvent_lol-perks_v1_settings"]: undefined
-  ["OnJsonApiEvent_lol-perks_v1_styles"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_initial-configuration-complete"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespace_Parties_PublishPresenceDelay"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_IsNewAvsServiceEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_KrPhoneDisplayEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_PasswordEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_PhoneValidationEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_SettingsEnable"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_SettingsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_SettingsVerifyEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_ShouldUseNewAvs"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Banners"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Banners_IsEnabledOnProfile"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Banners_IsEquipEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Banners_IsOtherSummonersProfileEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_BetterRewards"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_BetterRewards_DayOneModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_BetterRewards_GetPostgameXpFromRms"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_BetterRewards_VisualUpdateEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_BotConfigurations"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_BotConfigurations_IntermediateInCustoms"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_BotConfigurations_RiotscriptInCustoms"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_CareerStats"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_CareerStats_StatsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_ChallengeUpdateDelaySeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_ClientState"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_CollectionEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_CustomizeIdentityEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_DarkModeAllowlistOnly"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_EnabledInventoryTypes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_FeatureIntroEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_LobbyChallengesEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_MaxNotificationSubscriptionDelaySeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_MaxWaitTimeBeforeNotificationSubscriptionSeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_NumberOfSuggestedChallenges"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_PartiesV2Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_PostgameOverride"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_RankIdentityOverride"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_WaitTimeBeforeCallChallengeUpdateSeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_WaitTimeBeforeDarkModeAdditionalCallsSeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_CapUnlockChampionLevel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_ChampionPointQueueTypes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_EndOfGameEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_GradeEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_LegsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_LootChestsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_MaxChampionLevel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_MinSummonerLevel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_ShowGradeAvailablePopup"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_SupportedQueueTypes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_AllChampsAvailableInAram"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_AlwaysShowRewardIcon"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_AutoReconnectEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_CollatorChampionFilterEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_UseActionPatchV2"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_UseOptimizedBotChampionSelectProcessor"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_UseOptimizedChampSelectProcessor"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_UseOptimizedSpellSelectProcessor"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionTradeService"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionTradeService_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChatDomain"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChatDomain_ChampSelectDomainName"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ChatDomain_PostGameDomainName"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat_ChatHistoryEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat_ChatHistoryThreshold"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat_Default_public_chat_rooms"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat_MaximumRosterSize"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat_MobileEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat_Rename_general_group_throttle"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Chroma"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Chroma_IsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_AwardsTabEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_BracketSpectateEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_CapacityIndicatorEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ClashStartModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_DarkModeEntitlement"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_EnabledState"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_EndOfGameFlowEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_FindTeamViewEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_HonorCheckEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_HonorLevelRequired"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_IconConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_InviteModalTiersEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_IsOtherSummonersProfileEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_IsPlaymodeRestrictionEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_IsRewardsModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_LftEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_LoginModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_PremiumTicketsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ScoutingDisableHistory"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ScoutingDisableMastery"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ScoutingDisableRanked"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ScoutingEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ScoutingUseDeprecated"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_SmsVerificationEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_StorePageLink"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_String"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_SubstitutionEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ThirdPartyInvitesEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_TutorialEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_Visibility"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_VoiceEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_Worlds2020LootModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_MaxNumPlayersForPracticeToolGame"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_advancedTutorialEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_archivedStatsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_buddyNotesEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_championTradeThroughLCDS"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_clientHeartBeatRateSeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_currentSeason"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_displayPromoGamesPlayedEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_enabledQueueIdsList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_freeToPlayChampionForNewPlayersIdList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_freeToPlayChampionIdList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_freeToPlayChampionsForNewPlayersMaxLevel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_gameMapEnabledDTOList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_gameModeToInactiveSpellIds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_inactiveAramSpellIdList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_inactiveChampionIdList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_inactiveClassicSpellIdList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_inactiveOdinSpellIdList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_inactiveSpellIdList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_inactiveTutorialSpellIdList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_knownGeographicGameServerRegions"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_leagueServiceEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_leaguesDecayMessagingEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_localeSpecificChatRoomsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_masteryPageOnServer"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_maxMasteryPagesOnServer"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_minNumPlayersForPracticeGame"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_modularGameModeEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_observableCustomGameModes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_observableGameModes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_observerModeEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_practiceGameEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_practiceGameTypeConfigIdList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_queueThrottleDTO"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_replayServiceAddress"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_replaySystemStates"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_riotDataServiceDataSendProbability"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_runeUniquePerSpellBook"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_sendFeedbackEventsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_spectatorSlotLimit"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_storeCustomerEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_teamServiceEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_tournamentSendStatsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_tournamentShortCodesEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_tribunalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_unobtainableChampionSkinIDList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_ClubPresenceDecryptionKey"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_ClubServiceUrl"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_ClubsActiveIcon"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_ClubsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_ClubsLCUEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_ClubsMemberIcon"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_InviteToClubLobbyEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Companions"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Companions_SelectorInChampSelectEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ContextualEducation"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ContextualEducationURLs"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ContextualEducationURLs_LAST_HIT"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ContextualEducation_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ContextualEducation_MaxTargetSummonerLevel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ContextualEducation_TargetMinionsPerWave"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_CustomGame"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_CustomGame_BotsAvailableInAram"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_CustomGame_MinorRestrictionsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampionSkins"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampionSkins_DisabledChampionSkins"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampionSkins_DisabledChromas"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ARAM"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ARAM_BOT"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ARAM_CLASH"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ARAM_UNRANKED_5x5"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ARSR"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ASCENSION"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_BILGEWATER"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_BOT"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_BOT_3x3"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_CLASH"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_CLASSIC"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_COUNTER_PICK"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_FIRSTBLOOD"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_FIRSTBLOOD_1x1"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_FIRSTBLOOD_2x2"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_GAMEMODEX"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_HEXAKILL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_KINGPORO"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_KING_PORO"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_LNY23_TFT"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_NEXUSBLITZ"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_NIGHTMARE_BOT"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_NORMAL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_NORMAL_3x3"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_NORMAL_TFT"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ODIN"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ODIN_UNRANKED"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ODYSSEY"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ONEFORALL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ONEFORALL_5x5"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_PRACTICETOOL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_FLEX_SR"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_FLEX_TT"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_SOLO_5x5"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_TEAM_3x3"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_TEAM_5x5"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_TFT"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_TFT_DOUBLE_UP"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_TFT_PAIRS"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_TFT_TURBO"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_SIEGE"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_SNOWURF"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_SR_6x6"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_TFT"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_TUTORIAL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_TUTORIAL_MODULE_1"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_TUTORIAL_MODULE_2"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_TUTORIAL_MODULE_3"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_TUTORIAL_TFT"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ULTBOOK"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_URF"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_URF_BOT"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DiscordRP_IsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DockedPrompt"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_DockedPrompt_EnabledNewDockedPromptRenderer"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_CS_CZ_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_DE_DE_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EL_GR_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EN_AU_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EN_GB_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EN_PH_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EN_PL_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EN_SG_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EN_US_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ES_AR_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ES_ES_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ES_MX_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EsportsHubDataURL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EsportsHubInitialized"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EsportsHubLongPollMinutes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EsportsHubShortPollMinutes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_FR_FR_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_HU_HU_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ID_ID_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_IT_IT_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_JA_JP_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_KO_KR_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_KillHub"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_Landing_Embed_URL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_MS_MY_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_PL_PL_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_PT_BR_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_RO_RO_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_RU_RU_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_Staging"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_TH_TH_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_TR_TR_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_VN_VN_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ZH_CN_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ZH_MY_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ZH_TW_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Emotes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Emotes_IsEmotePanelEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Emotes_IsEmoteTutorialModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_EndOfGameGifting"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_EndOfGameGifting_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_EndofGameGiftSettings"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_EndofGameGiftSettings_GiftRecipientLevelMin"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_EndofGameGiftSettings_GiftSenderLevelMin"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_EndofGameGiftSettings_GiftSenderRPMax"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_EndofGameGiftSettings_RecipientGiftDailyMax"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_EndofGameGiftSettings_SenderGiftDailyMax"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_EoGReporting"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_EoGReporting_GameAgnosticReportingTrinary"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Esports"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Esports_NotificationsAssetMagickURL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Esports_NotificationsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Esports_NotificationsServiceEndpoint"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Esports_NotificationsStreamGroupSlug"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Esports_NotificationsStreamURL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Eternals"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Eternals_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Eternals_ServiceUrl"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedGame"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedGame_MetadataEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_DisabledRgmButtonEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_GoldenSpatulaClubDisabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_MaxNotificationSaveDelayMinutes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_NotificationsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_QueueToggleNotificationMinutesThreshold"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_QueuesDelayedRefreshMaxTimeout"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_QueuesDelayedRefreshMinTimeout"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_AssociationUrlTemplate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_ContactDetailsUrlTemplate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_ContactsUrlTemplate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_EnableAddFriendButton"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_EnableSocial"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_EnableViewAllPanel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_EnabledPercent"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_EnabledSocialNetworks"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_FacebookAssociationUrlTemplate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_FacebookUnlinkUrlTemplate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_FaqLink"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_HideFriends"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_PlayerLevelForNewNotification"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_RegistrationPollDurationMillis"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_RegistrationPollRateMillis"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_ShowToolTip"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_StatusExpiryMillis"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_UnlinkUrlTemplate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_UseNativeFacebookPop"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameClientCmdLineToggles"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameClientCmdLineToggles_UseDX11"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameClientCmdLineToggles_UseMetal"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameClientCmdLineToggles_UseNewX3D"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameClientCmdLineToggles_UseNewX3DFramebuffers"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameInvites"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameInvites_GameInviteServiceEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameInvites_InviteBulkMaxSize"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameInvites_LobbyCreationEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameInvites_ServiceEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameTimerSync"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameTimerSync_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GameTimerSync_PercentOfTotalTimerToSyncAt"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Gameflow_ForceGameLocaleAsEnglish"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Gameflow_ShouldSendRiotClientHeartBeat"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GeoInfo"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GeoInfo_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GuestSlots"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_GuestSlots_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Highlights"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Highlights_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Honor"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Honor_DayOneModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Honor_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Honor_Honor2018Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Honor_SecondsToVote"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Inventory"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Inventory_BaseServiceUrl"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Inventory_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ItemSets"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ItemSets_EditorEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ItemSets_MaxItemSets"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ItemSets_SendItemSetsToGame"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Karma"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Karma_Worlds2017VotingEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Kickout"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_KrPlaytimeReminder"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCU"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUACS"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUACS_Endpoint"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUACS_UseIdTokens"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUAlphaShutdown"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUAlphaShutdown_Countdown"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCUAugmentsVisible"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCUCollectiblesChromasEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCUCollectiblesWardSkinsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCUMasteriesVisible"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCUPerksVisible"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCURunesVisible"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCUSkinsViewerEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUMatchHistory"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUMatchHistory_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUMatchHistory_MatchHistoryWebURL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_CanQueryInactiveItems"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_DisableCapRMS"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_EnableDropRatesInPurchaseModal"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_EnableFetchOffers"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_LookupMissingCatalogItemKeys"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_PlayerGiftingNotificationsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_RecommendationsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_SinglePageApplicationEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_StoreUrl"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_UseGameDataAssets"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_UseRMS"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_UseRsoAccessToken"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCU_AirClientAlphaInviteEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LCU_AirClientAlphaInviteURL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuAlphaShutdown"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuAlphaShutdown_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuAutoLogout"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuAutoLogout_IdleExitAfterWarningMinutes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuAutoLogout_IdleWarningMinutes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuBuddySpectate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuBuddySpectate_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionDetails"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionDetails_AbilitiesSectionEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionDetails_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionDetails_PawEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionDetails_SkinsSectionEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_AlliedSkinDisplayEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ChampSelectChangeTooltipDurationMillis"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ChampSelectChangeTooltipKey"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ChampSelectMutingEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ChampSelectReportV2Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ChampTradingTooltipEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_DisableAutoSmiteAssignment"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_EnableFavorites"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_EnablePositionFilters"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_IsDisconnectNotificationEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_PickOrderSwappingTooltipEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_PositionAssignmentAnimationEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_RandomChampionEnabledGameQueues"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_RandomChampionRateLimitInterval"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_RandomChampionRateLimitMaxActions"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ReportingEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ShowChampSelectChangeTooltip"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ShowEmoteButton"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_SkinPurchaseEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_SkinPurchaseNotificationEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_SkinPurchaseTime"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_ABTestFilterEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_ABTestFilterGroups"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_ABTestFilterSalt"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_EntitlementsFilterEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_LaneFilterEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_LevelFilterEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_LocationFiltersEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_Mapping"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_MasteryFilterChampionLimit"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_MasteryFilterDaysSinceLastPlayed"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_MasteryFilterEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_MasteryFilterLevelThreshold"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_MissionsFilterEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_RankFilterEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_RankedFilterEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_RevivalFilterEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_RevivalFilterThreshold"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_TargetingAttributeStorageBaseUri"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_TargetingAttributeStorageEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_TargetingAttributeStorageRolloutPct"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_TargetingAttributeStorageUri"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuDisambiguation"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuDisambiguation_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuDisambiguation_Required"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification_IsOptional"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification_MandatoryAt"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification_MaxOptionalLevel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification_MinimumSummonerLevel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification_RequiredLogins"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuGameSettings"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuGameSettings_GameplayEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuGameSettings_HotkeysEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuGameSettings_InterfaceEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuGameSettings_SoundEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHome"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHome_LandingPagesTimeout"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHome_ReloadEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHome_ReloadPollerInterval"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHome_ReloadStaleInterval"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHome_RequireItemLoaded"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHovercard"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHovercard_Disabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHovercard_RoleInfoEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLeagueSpectate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLeagueSpectate_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLevelUp"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLevelUp_EventEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLevelUp_ModalNotificationDisabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_AutoGrantInviteEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_GameInvitesEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_ObserverModeEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_PracticeGameEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_PracticeGameListEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_QueueEligibilityGateKeeperEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_QueueEligibilityV2Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_SendInventoryTokenMetricsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_UseInventoryToken"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLoyalty"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLoyalty_LeagueUnlockedEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLoyalty_LolcafeEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuNpe"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuNpe_HardMaxSummonerLevel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuNpe_MaxSummonerLevel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuNpe_RewardsChallengesEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuNpe_RewardsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuNpe_RewardsLoginEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments_BypassAccountIds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments_Host"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments_PmcEdgeHost"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments_PmcSessionsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments_RiotPayEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments_RiotPayThrottle"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuProfiles"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuProfiles_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuProfiles_ForceLayout"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPurchaseWidget"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPurchaseWidget_BaseUrl"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPurchaseWidget_CapOrdersUrl"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPurchaseWidget_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPurchaseWidget_NonRefundableDisclaimerEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPurchaseWidget_PurchaseDisclaimerEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuReadyCheckUpdate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuReadyCheckUpdate_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuRevivals"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuRevivals_FoundationEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSentryJSErrors"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSentryJSErrors_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSentryJSErrors_SampleRate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSentryJSErrors_SentryDSN"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSettings"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSettings_FullRepairEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_AutoLinkEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_ChatWindowPopoutEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_ChatWindowResizeEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_ClearChatHistoryEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_DefaultGameQueues"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_DetachedChatWindowResizeDisabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_EnabledGameQueues"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_FriendRequestToastsDisabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_FriendsListGiftingEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_LcuSupportedGameQueues"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_MoreUnreadsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_NewChatButtonEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_RecentlyPlayedDisabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_SlashMeEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_SortConversationsByTimeEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_StatusesDisabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_VirtualizedMessagesEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_VirtualizedRosterEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSummonerIconPicker"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSummonerIconPicker_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_BattlepassHubEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_EligibilityInventoryTypes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_HubEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_MatchHistoryEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_OrbEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_PatchNotesUrl"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_PlayButtonEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_SeriesInternalName"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_TftHomeEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_CarouselChampIds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_GameModeSelectEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_IntroABTestPercentage"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_NewPlayerExperienceEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_PracticeToolEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_SkipTutorialPathAfterLevel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_StatsTimeout"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_TutorialSummonerIcon"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuUiKit"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuUiKit_CelebrationModalsDisabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_ApexDemotionNotificationEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_ChallengerLaddersEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_ConfigRefreshIntervalSeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_CurrentSplit"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_CurrentYear"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_DefaultJwtTimeToLiveSeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationEndTime"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationSettingsName"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationSettingsSchemaVer"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationStartTime1"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationStartTime2"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationStartTime3"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationsConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosRewardGroupsConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosRewardsConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_FlexRestrictionModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_IsGlobalNotificationsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_IsPreseason"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_IsSeasonMemorialModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_IsSplitStartModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_JWTEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_MasterTierEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_PreseasonName"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_PromoHelperEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_PromotionVignetteV2Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_Ranked2017Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_Ranked2019Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_RankedReferenceModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_RankedRewardConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_SeasonModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_SeasonName"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_SendSignedRankedOverview"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_TftSeasonNameLocKey"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClient"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_GSMv2"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_GameAgnosticMatchHistory"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_Leagues"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_MarketingPreferences"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_Missions"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_Parties"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_PlayerBehavior"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_PublishingContent"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_Summoner"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_Tastes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_Teambuilder"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientLeagueSessionServicesEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientLeagueSessionServicesEnabled_Leagues"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientServiceTrafficBalanceRate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientServiceTrafficBalanceRate_Parties"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClient_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClient_LeagueSessionEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueSession_FailureRefreshTimeoutSeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueSession_RefreshTokenOverride"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueSession_UseSessionRefreshV2"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeaverBuster"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeaverBuster_IsLbsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LeaverBuster_IsLockoutModalEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_EnableStarShardsServices"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_EnableStarShardsUpgradeFlow"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_InventoryServiceUrl"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_LoadoutsServiceUrl"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_NewLoadoutPickerEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_UseV4LoadoutFlow"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_ValidInventoryTypes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_bannedUntilDateMillis"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_broadcastNotification"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_coOpVsAiMinutesLeftToday"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_coOpVsAiMsecsUntilReset"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_competitiveRegion"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_customMinutesLeftToday"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_customMsecsUntilReset"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_displayPrimeReformCard"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_emailStatus"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_gameTypeConfigs"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_inGhostGame"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_languages"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_matchMakingEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_maxPracticeGameSize"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_minor"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_minorShutdownEnforced"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_minutesUntilMidnight"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_minutesUntilShutdown"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_minutesUntilShutdownEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_platformGameLifecycle"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_platformId"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_playerStatSummaries"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_restrictedChatGamesRemaining"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_restrictedGamesRemainingForRanked"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_showEmailVerificationPopup"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_simpleMessages"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestBundleDiscount1"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestBundleDiscount2"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestBundleDiscount3"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestBundleDiscount4"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestBundleDiscount5"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestsBundleId1"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestsBundleId2"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestsBundleId3"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestsBundleId4"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestsBundleId5"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EnableMythicEssenceDisplay"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EventChestBundleId1"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EventChestBundleId2"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EventChestBundleId3"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EventChestBundleId4"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EventChestBundleId5"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EventChestsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_InitializationGoalFlags"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_LEdgeAccessEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_LEdgeAccessPercentage"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_LcuEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_LootMilestonesEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_LootOddsQueryEvaluationEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_MATERIAL_112LearnMoreURL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_MinSummonerLevel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_NewPlayerChestEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_NoRefundConfirmationEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_PurchaseChestsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_Visible"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_WorldsTokensEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootService"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootService_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootService_NewPlayerChestEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootService_PurchaseChestsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_LootService_Visible"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Masteries"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Masteries_ShowPointsResetMessage"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_EligibilityInventoryTypes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsCompressed"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsCooldownPollingTime"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsFrontEndEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsPollingTime"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsTabTrackerEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsUseV4Api"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_SendSimpleInventoryTokens"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_BasicTutorialMutators"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_BattleTrainingMutators"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_CustomGameMutators"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_EnabledAssetMutators"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_EnabledCustomModes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_EnabledModes"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_EnabledMutators"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Navigation"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Navigation_NavBarDisplayMode"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Navigation_UseEnhancedMenu"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Navigation_UseTextLabels"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory_MatchHistoryWebURL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory_PostIPXPToLegSEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory_RecentlyPlayedNumGames"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory_SharingEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory_TftMatchHistoryEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerIntro"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerIntro_IntroUrl"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerIntro_NewSummonerIconIds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerLandingPage"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerLandingPage_ChampDisplayList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerLandingPage_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerLandingPage_LikeUsURL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerLandingPage_MaxLevel"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerLandingPage_SubscribeURL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerRouter"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerRouter_ABDisablingOfTutorial"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerRouter_QueueID"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_CustomsInPartiesEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_EnableLobbyCreation"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_EnabledForTeamBuilderQueues"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_GameflowRegistrationStatusRequired"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_GameflowSamplingProbability"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_LoginRegistrationTimeout"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_NotificationDelaySamplingPercentage"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_OpenPartyEnable"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_PremadeEligibilityFromPartiesEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_PremadeEligibilityQueuesDelayedRefreshTimeoutSeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_RegistrationConfigurationChangedTimeout"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_RegistrationCredentialsRequired"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_RegistrationRetryInterval"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_ServiceProxySamplingPercentage"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PartyRewards"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PartyRewards_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PartyRewards_GameFlowVisualUpdate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Perks"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Perks_MinSummonerLevelUnlockCustomPages"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Perks_PerksEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_BaseServiceURL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_HubEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_Port"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_PromotionEndTime"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_PromotionName"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_PromotionStartTime"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_Protocol"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_ServiceConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_ServicePath"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_ShowNavButton"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_ThemedBackground"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers_BaseServiceURL"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers_HubEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers_Port"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers_Protocol"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers_ServiceConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers_ServicePath"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlatformShutdown"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlatformShutdown_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerBehavior"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerBehavior_CodeOfConductEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerBehavior_ReformCardV2Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerFeedbackTool"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerFeedbackTool_BackendUrl"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerFeedbackTool_EnableHomeTrigger"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerNotification"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerNotification_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerPreferences"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerPreferences_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerPreferences_EnforceHttps"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerPreferences_ServiceEndpoint"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerPreferences_Version"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Postgame"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Postgame_ShowPositionDetectionEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_ACSLookup"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_ChampionMasteryLookup"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForBuddyPanelView"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForChatFriendsList"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForChatGroupChatParticipants"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForClubChatParticipants"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForCustomGameLobby"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForGameLobbySuggestedPlayers"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForGroupFinderCapViewSuggestedPlayers"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForSummonerQuickView"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForTeamBuilderSuggestedPlayers"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_LeagueLookup"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Profiles"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Profiles_EosIconEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Profiles_EosTooltipShowOnce"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Profiles_RankQueueOnCount"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Profiles_SkinsPickerEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PublishingContent"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PublishingContent_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PublishingContent_LocalePreferenceEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PublishingContent_LocalePreferenceOptions"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PublishingContent_TftGdsTest"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_PublishingContent_TftHubCardsUrl"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueImages"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueImages_OverrideQueueImage"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_AllowablePremadeSizesForQueueId440"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_KarmaEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndDivisionForPremadeSize2QueueId1100"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndDivisionForPremadeSize2QueueId420"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize1"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize1QueueId410"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize1QueueId420"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize1QueueId440"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize1QueueId470"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize1QueueId9"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize2"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize2QueueId4"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize2QueueId420"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize2QueueId440"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize2QueueId470"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize2QueueId9"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize3"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize3QueueId420"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize3QueueId440"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize3QueueId470"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize3QueueId9"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize4"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize4QueueId420"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize4QueueId440"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize4QueueId470"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize4QueueId9"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize5"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize5QueueId420"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize5QueueId440"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize5QueueId470"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize5QueueId9"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_QueuesRequiringTwentyChampions"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTier"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTierQueueId4"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTierQueueId410"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTierQueueId420"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTierQueueId440"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTierQueueId470"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTierQueueId9"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueRestrictionMaxDelta"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueRestrictionMode"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighMmrPremadeMaxSize"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighMmrPremadeRank"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighMmrPremadeRestrictionEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighMmrPremadeTier"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTier"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTierQueueId4"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTierQueueId410"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTierQueueId420"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTierQueueId440"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTierQueueId470"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTierQueueId9"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDelta"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDeltaQueueId4"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDeltaQueueId410"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDeltaQueueId420"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDeltaQueueId440"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDeltaQueueId470"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDeltaQueueId9"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMode"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionModeQueueId4"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionModeQueueId410"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionModeQueueId420"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionModeQueueId440"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionModeQueueId470"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionModeQueueId9"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDelta"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDeltaQueueId4"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDeltaQueueId410"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDeltaQueueId420"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDeltaQueueId440"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDeltaQueueId470"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDeltaQueueId9"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMode"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionModeQueueId4"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionModeQueueId410"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionModeQueueId420"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionModeQueueId440"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionModeQueueId470"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionModeQueueId9"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_ServiceEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Regalia"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Replays"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Replays_MinSupportedGameServerVersion"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Replays_ThirdPersonAccessibleGameQueues"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Rewards"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Rewards_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Sanitizer"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Sanitizer_Level1Unfilter"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_Maximum_team_reward_level"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_Minimum_points_per_reward_level"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_Minimum_win_team_reward_level_1"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_Minimum_win_team_reward_level_2"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_Minimum_win_team_reward_level_3"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_QualificationWarningEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_ServiceCallEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Sentry"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Sentry_SampleRate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ServiceStatusAPI"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ServiceStatusAPI_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_AdvancedGameDetailsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_AdvancedGameDetailsUrlTemplate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_MatchDetailsUrlTemplate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_MatchHistoryEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_MatchHistoryUrlTemplate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_ShareEndOfGameEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_ShareGameUrlTemplate"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_ShareMatchHistory"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SkinRentals"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SkinRentals_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SkinsViewer"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SkinsViewer_VintageSkinSummonerIconConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SocialLeaderboard"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SocialLeaderboard_IsSocialLeaderboardEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SocialLeaderboard_LeaguesPuuidPageSize"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SocialLeaderboard_MinsTillCacheExpiry"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SocialLeaderboard_SecsTillAvailabilityCacheExpiry"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SocialLeaderboard_UseSocialLeaderboardLeaguesEndpoint"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Spectator"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Spectator_SaveReconnectInfoEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_String"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_String_String"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_FriendsOfFriendsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_FriendsOfFriendsLimit"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_HonoredPlayersLimit"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_MaxNumReplacements"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_MaxNumSuggestedPlayers"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_OnlineFriendsLimit"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_PreviousPremadesLimit"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_VictoriousComradesLimit"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Summoner_ConfigRefreshIntervalSeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Summoner_JWTMaxTimeoutSeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Summoner_JWTMinTimeoutSeconds"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Summoner_SummonerProfileCacheEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBoost"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBoost_AllSkinEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBoost_RandomSkinEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_ActionTimeoutRecoveryEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_EnableChampionSelectPreferences"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_EstimatedWaitAdjustmentEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_FillPrimaryWaitFactor"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_FillSecondaryWaitFactor"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_LogAllLCDSMessages"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_MidPrimaryWaitFactor"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_SendAfkCheckMetricsEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_ServiceCallTimeoutMillis"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_SkinPurchaseEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_SupportPrimaryWaitFactor"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_SupportSecondaryWaitFactor"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_TBRerollServiceEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_TakeoverEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_UnlockLockInButtonTimeoutEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_TencentAntiAddiction_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Testing"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Testing_Rcarter"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ThirdPartyVerification"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_ThirdPartyVerification_CAHServiceEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Trophies"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Trophies_IsEnabledOnProfile"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Trophies_IsOtherSummonersProfileEnabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Voice"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_Voice_Enabled"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_WardSkinConfig"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_WardSkinConfig_UseLoadouts"]: undefined
-  ["OnJsonApiEvent_lol-platform-config_v1_namespaces_WardSkinConfig_WardSkinSelection"]: undefined
-  ["OnJsonApiEvent_lol-player-behavior_v1_config"]: undefined
-  ["OnJsonApiEvent_lol-player-behavior_v2_reporter-feedback"]: undefined
-  ["OnJsonApiEvent_lol-player-behavior_v3_reform-cards"]: undefined
-  ["OnJsonApiEvent_lol-player-preferences_v1_player-preferences-ready"]: undefined
-  ["OnJsonApiEvent_lol-pre-end-of-game_v1_currentSequenceEvent"]: undefined
-  ["OnJsonApiEvent_lol-premade-voice_v1_availability"]: undefined
-  ["OnJsonApiEvent_lol-premade-voice_v1_capturedevices"]: undefined
-  ["OnJsonApiEvent_lol-premade-voice_v1_first-experience"]: undefined
-  ["OnJsonApiEvent_lol-premade-voice_v1_participant-records"]: undefined
-  ["OnJsonApiEvent_lol-premade-voice_v1_settings"]: undefined
-  ["OnJsonApiEvent_lol-progression_v1_groups"]: undefined
-  ["OnJsonApiEvent_lol-progression_v1_ready"]: undefined
-  ["OnJsonApiEvent_lol-publishing-content_v1_listeners"]: undefined
-  ["OnJsonApiEvent_lol-publishing-content_v1_ready"]: undefined
-  ["OnJsonApiEvent_lol-publishing-content_v1_settings"]: undefined
-  ["OnJsonApiEvent_lol-purchase-widget_v1_configuration"]: undefined
-  ["OnJsonApiEvent_lol-purchase-widget_v3_purchase-offer-order-statuses"]: undefined
-  ["OnJsonApiEvent_lol-ranked_v1_challenger-ladders-enabled"]: undefined
-  ["OnJsonApiEvent_lol-ranked_v1_current-ranked-stats"]: undefined
-  ["OnJsonApiEvent_lol-ranked_v1_eos-rewards"]: undefined
-  ["OnJsonApiEvent_lol-ranked_v1_global-notifications"]: undefined
-  ["OnJsonApiEvent_lol-ranked_v1_notifications"]: undefined
-  ["OnJsonApiEvent_lol-ranked_v1_ranked-stats"]: undefined
-  ["OnJsonApiEvent_lol-ranked_v1_signed-ranked-stats"]: undefined
-  ["OnJsonApiEvent_lol-ranked_v1_splits-config"]: undefined
-  ["OnJsonApiEvent_lol-ranked_v1_top-rated-ladders-enabled"]: undefined
-  ["OnJsonApiEvent_lol-regalia_v2_config"]: undefined
-  ["OnJsonApiEvent_lol-regalia_v2_summoners"]: undefined
-  ["OnJsonApiEvent_lol-replays_v1_configuration"]: undefined
-  ["OnJsonApiEvent_lol-replays_v1_metadata"]: undefined
-  ["OnJsonApiEvent_lol-replays_v1_rofls"]: undefined
-  ["OnJsonApiEvent_lol-rewards_v1_grants"]: undefined
-  ["OnJsonApiEvent_lol-rewards_v1_groups"]: undefined
-  ["OnJsonApiEvent_lol-rso-auth_configuration_v3"]: undefined
-  ["OnJsonApiEvent_lol-rso-auth_v1_authorization"]: undefined
-  ["OnJsonApiEvent_lol-settings_v1_account"]: undefined
-  ["OnJsonApiEvent_lol-settings_v1_local"]: undefined
-  ["OnJsonApiEvent_lol-settings_v2_account"]: undefined
-  ["OnJsonApiEvent_lol-settings_v2_config"]: undefined
-  ["OnJsonApiEvent_lol-settings_v2_local"]: undefined
-  ["OnJsonApiEvent_lol-settings_v2_ready"]: undefined
-  ["OnJsonApiEvent_lol-shutdown_v1_notification"]: undefined
-  ["OnJsonApiEvent_lol-spectator_v1_spectate"]: undefined
-  ["OnJsonApiEvent_lol-statstones_v2_player-summary-self"]: undefined
-  ["OnJsonApiEvent_lol-store_v1_getStoreUrl"]: undefined
-  ["OnJsonApiEvent_lol-store_v1_store-ready"]: undefined
-  ["OnJsonApiEvent_lol-suggested-players_v1_suggested-players"]: undefined
-  ["OnJsonApiEvent_lol-summoner_v1_current-alias-state"]: undefined
-  ["OnJsonApiEvent_lol-summoner_v1_current-summoner"]: undefined
-  ["OnJsonApiEvent_lol-summoner_v1_status"]: undefined
-  ["OnJsonApiEvent_lol-summoner_v1_summoner-requests-ready"]: undefined
-  ["OnJsonApiEvent_lol-tastes_v1_ready"]: undefined
-  ["OnJsonApiEvent_lol-tft-pass_v1_enabled"]: undefined
-  ["OnJsonApiEvent_lol-tft-team-planner_v1_config"]: undefined
-  ["OnJsonApiEvent_lol-tft-team-planner_v1_team"]: undefined
-  ["OnJsonApiEvent_lol-tft-troves_v1_config"]: undefined
-  ["OnJsonApiEvent_lol-tft_v1_tft"]: undefined
-  ["OnJsonApiEvent_lol-tft_v2_tft"]: undefined
-  ["OnJsonApiEvent_lol-yourshop_v1_modal"]: undefined
-  ["OnJsonApiEvent_lol-yourshop_v1_ready"]: undefined
-  ["OnJsonApiEvent_lol-yourshop_v1_status"]: undefined
-  ["OnJsonApiEvent_memory_v1_fe-processes-ready"]: undefined
-  ["OnJsonApiEvent_patcher_v1_notifications"]: undefined
-  ["OnJsonApiEvent_patcher_v1_products"]: undefined
-  ["OnJsonApiEvent_patcher_v1_status"]: undefined
-  ["OnJsonApiEvent_player-notifications_v1_notifications"]: undefined
-  ["OnJsonApiEvent_player-reporting_v1_reporter-feedback"]: undefined
-  ["OnJsonApiEvent_plugin-manager_v1_external-plugins"]: undefined
-  ["OnJsonApiEvent_plugin-manager_v1_status"]: undefined
-  ["OnJsonApiEvent_process-control_v1_process"]: undefined
-  ["OnJsonApiEvent_product-metadata_v2_products"]: undefined
-  ["OnJsonApiEvent_product-session_v1_external-sessions"]: undefined
-  ["OnJsonApiEvent_riot-messaging-service_v1_message"]: undefined
-  ["OnJsonApiEvent_riot-messaging-service_v1_out-of-sync"]: undefined
-  ["OnJsonApiEvent_riot-messaging-service_v1_session"]: undefined
-  ["OnJsonApiEvent_riot-messaging-service_v1_state"]: undefined
-  ["OnJsonApiEvent_riotclient_affinity"]: undefined
-  ["OnJsonApiEvent_riotclient_app-port"]: undefined
-  ["OnJsonApiEvent_riotclient_get_region_locale"]: undefined
-  ["OnJsonApiEvent_riotclient_new-args"]: undefined
-  ["OnJsonApiEvent_riotclient_pre-shutdown_begin"]: undefined
-  ["OnJsonApiEvent_riotclient_region-locale"]: undefined
-  ["OnJsonApiEvent_riotclient_system-info_v1"]: undefined
-  ["OnJsonApiEvent_riotclient_ux-crash-count"]: undefined
-  ["OnJsonApiEvent_riotclient_ux-state_request"]: undefined
-  ["OnJsonApiEvent_riotclient_v1_crash-reporting"]: undefined
-  ["OnJsonApiEvent_riotclient_zoom-scale"]: undefined
-  ["OnJsonApiEvent_rso-auth_configuration_v3"]: undefined
-  ["OnJsonApiEvent_rso-auth_v1_auth-hints"]: undefined
-  ["OnJsonApiEvent_rso-auth_v1_session"]: undefined
-  ["OnJsonApiEvent_rso-auth_v2_authorizations"]: undefined
-  ["OnJsonApiEvent_sanitizer_v1_status"]: undefined
-  ["OnJsonApiEvent_scd_v1_cookies"]: undefined
-  ["OnJsonApiEvent_system_v1_builds"]: undefined
-  ["OnJsonApiEvent_voice-chat_v1_audio-properties"]: undefined
-  ["OnJsonApiEvent_voice-chat_v2_devices"]: undefined
-  ["OnJsonApiEvent_voice-chat_v2_state"]: undefined
-  ["OnJsonApiEvent_voice-chat_v3_sessions"]: undefined
-  ["OnJsonApiEvent_voice-chat_v3_settings"]: undefined
+  ['OnJsonApiEvent']: Record<string, unknown>
+  ['OnJsonApiEvent_chat_v1_session']: Record<string, unknown>
+  ['OnJsonApiEvent_chat_v1_settings']: Record<string, unknown>
+  ['OnJsonApiEvent_chat_v3_blocked']: Record<string, unknown>
+  ['OnJsonApiEvent_chat_v3_errors']: Record<string, unknown>
+  ['OnJsonApiEvent_chat_v3_friends']: Record<string, unknown>
+  ['OnJsonApiEvent_chat_v3_groups']: Record<string, unknown>
+  ['OnJsonApiEvent_chat_v4_friendrequests']: Record<string, unknown>
+  ['OnJsonApiEvent_chat_v4_presences']: Record<string, unknown>
+  ['OnJsonApiEvent_chat_v5_messages']: Record<string, unknown>
+  ['OnJsonApiEvent_chat_v5_participants']: Record<string, unknown>
+  ['OnJsonApiEvent_chat_v6_conversations']: Record<string, unknown>
+  ['OnJsonApiEvent_client-config_v1_status']: Record<string, unknown>
+  ['OnJsonApiEvent_client-config_v2_config']: Record<string, unknown>
+  ['OnJsonApiEvent_client-config_v2_namespace']: Record<string, unknown>
+  ['OnJsonApiEvent_config_v1_config']: Record<string, unknown>
+  ['OnJsonApiEvent_data-store_v1_install-settings']: Record<string, unknown>
+  ['OnJsonApiEvent_data-store_v1_system-settings']: Record<string, unknown>
+  ['OnJsonApiEvent_entitlements_v1_token']: Record<string, unknown>
+  ['OnJsonApiEvent_ga-restriction_v1_penalty-notifications']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-account-verification_v1_is-verified']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-active-boosts_v1_active-boosts']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-anti-addiction_v1_anti-addiction-token']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-catalog_v1_items']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-challenges_v1_client-state']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-challenges_v1_seasons']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-champ-select-legacy_v1_bannable-champion-ids']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-champ-select-legacy_v1_current-champion']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-champ-select-legacy_v1_disabled-champion-ids']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-champ-select-legacy_v1_implementation-active']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-champ-select-legacy_v1_pickable-champion-ids']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-champ-select-legacy_v1_pickable-skin-ids']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-champ-select-legacy_v1_session']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-champ-select-legacy_v1_team-boost']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-champ-select_v1_all-grid-champions']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-champ-select_v1_current-champion']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-champ-select_v1_grid-champions']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-champ-select_v1_muted-players']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-champ-select_v1_session']: LcuComponents['schemas']['LolChampSelectChampSelectSession']
+  ['OnJsonApiEvent_lol-champ-select_v1_team-boost']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-champions_v1_inventories']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-champions_v1_owned-champions-minimal']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-chat_v1_blocked-players']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-chat_v1_config']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-chat_v1_conversations']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-chat_v1_friend-counts']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-chat_v1_friend-groups']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-chat_v1_friend-requests']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-chat_v1_friends']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-chat_v1_me']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-chat_v1_resources']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-chat_v1_session']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-chat_v1_settings']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v1_checkin-allowed']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v1_disabled-config']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v1_enabled']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v1_iconconfig']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v1_invited-roster-ids']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v1_player']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v1_playmode-restricted']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v1_ready']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v1_simple-state-flags']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v1_time']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v1_visible']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v1_voice-enabled']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-clash_v2_playmode-restricted']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-client-config_v3_client-config']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-collections_v1_inventories']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-content-targeting_v1_filters']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-cosmetics_v1_inventories']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-drops_v1_ready']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-end-of-game_v1_eog-stats-block']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-end-of-game_v1_gameclient-eog-stats-block']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-end-of-game_v1_tft-eog-stats']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-event-shop_v1_info']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-event-shop_v1_navigation-button-data']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-event-shop_v1_token-upsell']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-game-client-chat_v1_aas-messages']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-game-client-chat_v1_buddies']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-game-client-chat_v1_instant-messages']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-game-client-chat_v1_party-messages']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-game-queues_v1_custom']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-game-queues_v1_custom-non-default']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-game-queues_v1_queues']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-game-settings_v1_game-settings']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-game-settings_v1_input-settings']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-game-settings_v1_ready']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-gameflow_v1_availability']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-gameflow_v1_battle-training']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-gameflow_v1_early-exit-notifications']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-gameflow_v1_gameflow-metadata']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-gameflow_v1_gameflow-phase']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-gameflow_v1_session']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-gameflow_v1_spectate']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-gameflow_v1_watch']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-highlights_v1_config']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-highlights_v1_highlights-folder-path']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-honeyfruit_v1_account-claim']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-honeyfruit_v1_linking-settings-button-available']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-honeyfruit_v1_vng-publisher-settings']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-honor-v2_v1_ballot']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-honor-v2_v1_config']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-honor-v2_v1_level-change']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-honor-v2_v1_profile']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-honor-v2_v1_recipients']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-honor-v2_v1_recognition']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-honor-v2_v1_recognition-history']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-honor-v2_v1_team-choices']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-hovercard_v1_friend-info']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-hovercard_v1_friend-info-by-summoner']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-inventory_v1_initial-configuration-complete']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-inventory_v1_inventory']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-inventory_v1_signedInventory']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-inventory_v1_wallet']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-inventory_v2_inventory']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-kr-playtime-reminder_v1_message']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-league-session_v1_league-session-token']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-license-agreement_v1_agreements']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-license-agreement_v1_all-agreements']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-license-agreement_v1_serve-location']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-loadouts_v1_enabled']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-loadouts_v1_loadouts-ready']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-loadouts_v4_loadout']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-loadouts_v4_loadouts']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-lobby-team-builder_champ-select_v1']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-lobby-team-builder_v1_matchmaking']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-lobby_v1_lobby']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-lobby_v2_comms']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-lobby_v2_eligibility']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-lobby_v2_lobby']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-lobby_v2_party-active']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-login_v1_login-connection-state']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-login_v1_login-data-packet']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-login_v1_login-in-game-creds']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-login_v1_login-platform-credentials']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-login_v1_session']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-login_v1_wallet']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-login_v2_league-session-init-token']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-loot_v1_currency-configuration']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-loot_v1_enabled']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-loot_v1_milestones']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-loot_v1_player-display-categories']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-loot_v1_player-loot']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-loot_v1_player-loot-map']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-loot_v1_ready']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-loot_v1_recipes']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-loot_v2_player-loot-map']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-loyalty_v1_status-notification']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-maps_v1_maps']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-maps_v2_maps']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-marketing-preferences_v1_partition']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-marketing-preferences_v1_ready']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-matchmaking_v1_ready-check']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-matchmaking_v1_search']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-missions_v1_missions']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-missions_v1_series']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-npe-rewards_v1_login-rewards']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-npe-tutorial-path_v1_rewards']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-npe-tutorial-path_v1_settings']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-npe-tutorial-path_v1_tutorials']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-patch_v1_checking-enabled']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-patch_v1_environment']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-patch_v1_game-version']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-patch_v1_notifications']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-patch_v1_products']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-patch_v1_status']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-perks_v1_inventory']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-perks_v1_pages']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-perks_v1_perks']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-perks_v1_settings']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-perks_v1_styles']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-platform-config_v1_initial-configuration-complete']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespace_Parties_PublishPresenceDelay']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_IsNewAvsServiceEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_KrPhoneDisplayEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_PasswordEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_PhoneValidationEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_SettingsEnable']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_SettingsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_SettingsVerifyEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_AccountVerification_ShouldUseNewAvs']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Banners']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Banners_IsEnabledOnProfile']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Banners_IsEquipEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Banners_IsOtherSummonersProfileEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_BetterRewards']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_BetterRewards_DayOneModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_BetterRewards_GetPostgameXpFromRms']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_BetterRewards_VisualUpdateEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_BotConfigurations']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_BotConfigurations_IntermediateInCustoms']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_BotConfigurations_RiotscriptInCustoms']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_CareerStats']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_CareerStats_StatsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_ChallengeUpdateDelaySeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_ClientState']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_CollectionEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_CustomizeIdentityEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_DarkModeAllowlistOnly']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_EnabledInventoryTypes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_FeatureIntroEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_LobbyChallengesEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_MaxNotificationSubscriptionDelaySeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_MaxWaitTimeBeforeNotificationSubscriptionSeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_NumberOfSuggestedChallenges']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_PartiesV2Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_PostgameOverride']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_RankIdentityOverride']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_WaitTimeBeforeCallChallengeUpdateSeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Challenges_WaitTimeBeforeDarkModeAdditionalCallsSeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_CapUnlockChampionLevel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_ChampionPointQueueTypes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_EndOfGameEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_GradeEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_LegsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_LootChestsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_MaxChampionLevel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_MinSummonerLevel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_ShowGradeAvailablePopup']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionMasteryConfig_SupportedQueueTypes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_AllChampsAvailableInAram']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_AlwaysShowRewardIcon']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_AutoReconnectEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_CollatorChampionFilterEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_UseActionPatchV2']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_UseOptimizedBotChampionSelectProcessor']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_UseOptimizedChampSelectProcessor']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionSelect_UseOptimizedSpellSelectProcessor']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionTradeService']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChampionTradeService_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChatDomain']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChatDomain_ChampSelectDomainName']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ChatDomain_PostGameDomainName']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat_ChatHistoryEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat_ChatHistoryThreshold']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat_Default_public_chat_rooms']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat_MaximumRosterSize']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat_MobileEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Chat_Rename_general_group_throttle']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Chroma']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Chroma_IsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_AwardsTabEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_BracketSpectateEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_CapacityIndicatorEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ClashStartModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_DarkModeEntitlement']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_EnabledState']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_EndOfGameFlowEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_FindTeamViewEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_HonorCheckEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_HonorLevelRequired']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_IconConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_InviteModalTiersEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_IsOtherSummonersProfileEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_IsPlaymodeRestrictionEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_IsRewardsModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_LftEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_LoginModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_PremiumTicketsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ScoutingDisableHistory']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ScoutingDisableMastery']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ScoutingDisableRanked']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ScoutingEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ScoutingUseDeprecated']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_SmsVerificationEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_StorePageLink']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_String']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_SubstitutionEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_ThirdPartyInvitesEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_TutorialEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_Visibility']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_VoiceEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClashConfig_Worlds2020LootModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_MaxNumPlayersForPracticeToolGame']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_advancedTutorialEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_archivedStatsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_buddyNotesEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_championTradeThroughLCDS']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_clientHeartBeatRateSeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_currentSeason']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_displayPromoGamesPlayedEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_enabledQueueIdsList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_freeToPlayChampionForNewPlayersIdList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_freeToPlayChampionIdList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_freeToPlayChampionsForNewPlayersMaxLevel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_gameMapEnabledDTOList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_gameModeToInactiveSpellIds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_inactiveAramSpellIdList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_inactiveChampionIdList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_inactiveClassicSpellIdList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_inactiveOdinSpellIdList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_inactiveSpellIdList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_inactiveTutorialSpellIdList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_knownGeographicGameServerRegions']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_leagueServiceEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_leaguesDecayMessagingEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_localeSpecificChatRoomsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_masteryPageOnServer']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_maxMasteryPagesOnServer']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_minNumPlayersForPracticeGame']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_modularGameModeEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_observableCustomGameModes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_observableGameModes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_observerModeEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_practiceGameEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_practiceGameTypeConfigIdList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_queueThrottleDTO']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_replayServiceAddress']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_replaySystemStates']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_riotDataServiceDataSendProbability']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_runeUniquePerSpellBook']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_sendFeedbackEventsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_spectatorSlotLimit']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_storeCustomerEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_teamServiceEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_tournamentSendStatsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_tournamentShortCodesEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_tribunalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ClientSystemStates_unobtainableChampionSkinIDList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_ClubPresenceDecryptionKey']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_ClubServiceUrl']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_ClubsActiveIcon']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_ClubsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_ClubsLCUEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_ClubsMemberIcon']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Clubs_InviteToClubLobbyEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Companions']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Companions_SelectorInChampSelectEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ContextualEducation']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ContextualEducationURLs']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ContextualEducationURLs_LAST_HIT']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ContextualEducation_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ContextualEducation_MaxTargetSummonerLevel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ContextualEducation_TargetMinionsPerWave']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_CustomGame']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_CustomGame_BotsAvailableInAram']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_CustomGame_MinorRestrictionsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampionSkins']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampionSkins_DisabledChampionSkins']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampionSkins_DisabledChromas']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ARAM']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ARAM_BOT']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ARAM_CLASH']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ARAM_UNRANKED_5x5']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ARSR']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ASCENSION']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_BILGEWATER']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_BOT']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_BOT_3x3']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_CLASH']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_CLASSIC']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_COUNTER_PICK']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_FIRSTBLOOD']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_FIRSTBLOOD_1x1']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_FIRSTBLOOD_2x2']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_GAMEMODEX']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_HEXAKILL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_KINGPORO']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_KING_PORO']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_LNY23_TFT']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_NEXUSBLITZ']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_NIGHTMARE_BOT']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_NORMAL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_NORMAL_3x3']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_NORMAL_TFT']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ODIN']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ODIN_UNRANKED']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ODYSSEY']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ONEFORALL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ONEFORALL_5x5']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_PRACTICETOOL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_FLEX_SR']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_FLEX_TT']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_SOLO_5x5']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_TEAM_3x3']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_TEAM_5x5']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_TFT']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_TFT_DOUBLE_UP']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_TFT_PAIRS']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_RANKED_TFT_TURBO']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_SIEGE']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_SNOWURF']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_SR_6x6']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_TFT']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_TUTORIAL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_TUTORIAL_MODULE_1']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_TUTORIAL_MODULE_2']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_TUTORIAL_MODULE_3']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_TUTORIAL_TFT']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_ULTBOOK']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_URF']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DisabledChampions_URF_BOT']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DiscordRP_IsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DockedPrompt']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_DockedPrompt_EnabledNewDockedPromptRenderer']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_CS_CZ_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_DE_DE_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EL_GR_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EN_AU_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EN_GB_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EN_PH_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EN_PL_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EN_SG_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EN_US_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ES_AR_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ES_ES_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ES_MX_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EsportsHubDataURL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EsportsHubInitialized']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EsportsHubLongPollMinutes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_EsportsHubShortPollMinutes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_FR_FR_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_HU_HU_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ID_ID_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_IT_IT_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_JA_JP_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_KO_KR_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_KillHub']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_Landing_Embed_URL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_MS_MY_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_PL_PL_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_PT_BR_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_RO_RO_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_RU_RU_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_Staging']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_TH_TH_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_TR_TR_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_VN_VN_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ZH_CN_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ZH_MY_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ESports_ZH_TW_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Emotes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Emotes_IsEmotePanelEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Emotes_IsEmoteTutorialModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_EndOfGameGifting']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_EndOfGameGifting_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_EndofGameGiftSettings']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_EndofGameGiftSettings_GiftRecipientLevelMin']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_EndofGameGiftSettings_GiftSenderLevelMin']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_EndofGameGiftSettings_GiftSenderRPMax']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_EndofGameGiftSettings_RecipientGiftDailyMax']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_EndofGameGiftSettings_SenderGiftDailyMax']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_EoGReporting']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_EoGReporting_GameAgnosticReportingTrinary']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Esports']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Esports_NotificationsAssetMagickURL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Esports_NotificationsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Esports_NotificationsServiceEndpoint']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Esports_NotificationsStreamGroupSlug']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Esports_NotificationsStreamURL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Eternals']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Eternals_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Eternals_ServiceUrl']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedGame']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedGame_MetadataEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_DisabledRgmButtonEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_GoldenSpatulaClubDisabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_MaxNotificationSaveDelayMinutes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_NotificationsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_QueueToggleNotificationMinutesThreshold']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_QueuesDelayedRefreshMaxTimeout']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FeaturedModes_QueuesDelayedRefreshMinTimeout']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_AssociationUrlTemplate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_ContactDetailsUrlTemplate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_ContactsUrlTemplate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_EnableAddFriendButton']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_EnableSocial']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_EnableViewAllPanel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_EnabledPercent']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_EnabledSocialNetworks']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_FacebookAssociationUrlTemplate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_FacebookUnlinkUrlTemplate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_FaqLink']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_HideFriends']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_PlayerLevelForNewNotification']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_RegistrationPollDurationMillis']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_RegistrationPollRateMillis']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_ShowToolTip']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_StatusExpiryMillis']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_UnlinkUrlTemplate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_FriendRecommendations_UseNativeFacebookPop']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameClientCmdLineToggles']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameClientCmdLineToggles_UseDX11']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameClientCmdLineToggles_UseMetal']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameClientCmdLineToggles_UseNewX3D']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameClientCmdLineToggles_UseNewX3DFramebuffers']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameInvites']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameInvites_GameInviteServiceEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameInvites_InviteBulkMaxSize']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameInvites_LobbyCreationEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameInvites_ServiceEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameTimerSync']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameTimerSync_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GameTimerSync_PercentOfTotalTimerToSyncAt']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Gameflow_ForceGameLocaleAsEnglish']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Gameflow_ShouldSendRiotClientHeartBeat']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GeoInfo']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GeoInfo_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GuestSlots']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_GuestSlots_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Highlights']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Highlights_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Honor']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Honor_DayOneModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Honor_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Honor_Honor2018Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Honor_SecondsToVote']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Inventory']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Inventory_BaseServiceUrl']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Inventory_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ItemSets']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ItemSets_EditorEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ItemSets_MaxItemSets']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ItemSets_SendItemSetsToGame']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Karma']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Karma_Worlds2017VotingEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Kickout']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_KrPlaytimeReminder']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCU']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUACS']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUACS_Endpoint']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUACS_UseIdTokens']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUAlphaShutdown']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUAlphaShutdown_Countdown']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCUAugmentsVisible']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCUCollectiblesChromasEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCUCollectiblesWardSkinsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCUMasteriesVisible']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCUPerksVisible']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCURunesVisible']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUCollections_LCUSkinsViewerEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUMatchHistory']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUMatchHistory_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUMatchHistory_MatchHistoryWebURL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_CanQueryInactiveItems']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_DisableCapRMS']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_EnableDropRatesInPurchaseModal']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_EnableFetchOffers']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_LookupMissingCatalogItemKeys']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_PlayerGiftingNotificationsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_RecommendationsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_SinglePageApplicationEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_StoreUrl']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_UseGameDataAssets']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_UseRMS']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCUStore_UseRsoAccessToken']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCU_AirClientAlphaInviteEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LCU_AirClientAlphaInviteURL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuAlphaShutdown']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuAlphaShutdown_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuAutoLogout']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuAutoLogout_IdleExitAfterWarningMinutes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuAutoLogout_IdleWarningMinutes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuBuddySpectate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuBuddySpectate_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionDetails']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionDetails_AbilitiesSectionEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionDetails_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionDetails_PawEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionDetails_SkinsSectionEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_AlliedSkinDisplayEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ChampSelectChangeTooltipDurationMillis']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ChampSelectChangeTooltipKey']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ChampSelectMutingEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ChampSelectReportV2Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ChampTradingTooltipEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_DisableAutoSmiteAssignment']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_EnableFavorites']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_EnablePositionFilters']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_IsDisconnectNotificationEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_PickOrderSwappingTooltipEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_PositionAssignmentAnimationEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_RandomChampionEnabledGameQueues']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_RandomChampionRateLimitInterval']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_RandomChampionRateLimitMaxActions']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ReportingEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ShowChampSelectChangeTooltip']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_ShowEmoteButton']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_SkinPurchaseEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_SkinPurchaseNotificationEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuChampionSelect_SkinPurchaseTime']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_ABTestFilterEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_ABTestFilterGroups']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_ABTestFilterSalt']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_EntitlementsFilterEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_LaneFilterEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_LevelFilterEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_LocationFiltersEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_Mapping']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_MasteryFilterChampionLimit']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_MasteryFilterDaysSinceLastPlayed']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_MasteryFilterEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_MasteryFilterLevelThreshold']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_MissionsFilterEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_RankFilterEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_RankedFilterEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_RevivalFilterEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_RevivalFilterThreshold']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_TargetingAttributeStorageBaseUri']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_TargetingAttributeStorageEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_TargetingAttributeStorageRolloutPct']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuContentTargeting_TargetingAttributeStorageUri']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuDisambiguation']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuDisambiguation_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuDisambiguation_Required']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification_IsOptional']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification_MandatoryAt']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification_MaxOptionalLevel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification_MinimumSummonerLevel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuEmailVerification_RequiredLogins']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuGameSettings']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuGameSettings_GameplayEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuGameSettings_HotkeysEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuGameSettings_InterfaceEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuGameSettings_SoundEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHome']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHome_LandingPagesTimeout']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHome_ReloadEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHome_ReloadPollerInterval']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHome_ReloadStaleInterval']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHome_RequireItemLoaded']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHovercard']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHovercard_Disabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuHovercard_RoleInfoEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLeagueSpectate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLeagueSpectate_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLevelUp']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLevelUp_EventEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLevelUp_ModalNotificationDisabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_AutoGrantInviteEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_GameInvitesEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_ObserverModeEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_PracticeGameEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_PracticeGameListEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_QueueEligibilityGateKeeperEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_QueueEligibilityV2Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_SendInventoryTokenMetricsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLobby_UseInventoryToken']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLoyalty']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLoyalty_LeagueUnlockedEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuLoyalty_LolcafeEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuNpe']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuNpe_HardMaxSummonerLevel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuNpe_MaxSummonerLevel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuNpe_RewardsChallengesEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuNpe_RewardsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuNpe_RewardsLoginEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments_BypassAccountIds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments_Host']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments_PmcEdgeHost']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments_PmcSessionsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments_RiotPayEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPayments_RiotPayThrottle']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuProfiles']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuProfiles_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuProfiles_ForceLayout']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPurchaseWidget']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPurchaseWidget_BaseUrl']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPurchaseWidget_CapOrdersUrl']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPurchaseWidget_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPurchaseWidget_NonRefundableDisclaimerEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuPurchaseWidget_PurchaseDisclaimerEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuReadyCheckUpdate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuReadyCheckUpdate_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuRevivals']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuRevivals_FoundationEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSentryJSErrors']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSentryJSErrors_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSentryJSErrors_SampleRate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSentryJSErrors_SentryDSN']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSettings']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSettings_FullRepairEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_AutoLinkEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_ChatWindowPopoutEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_ChatWindowResizeEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_ClearChatHistoryEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_DefaultGameQueues']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_DetachedChatWindowResizeDisabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_EnabledGameQueues']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_FriendRequestToastsDisabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_FriendsListGiftingEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_LcuSupportedGameQueues']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_MoreUnreadsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_NewChatButtonEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_RecentlyPlayedDisabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_SlashMeEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_SortConversationsByTimeEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_StatusesDisabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_VirtualizedMessagesEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSocial_VirtualizedRosterEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSummonerIconPicker']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuSummonerIconPicker_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_BattlepassHubEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_EligibilityInventoryTypes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_HubEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_MatchHistoryEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_OrbEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_PatchNotesUrl']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_PlayButtonEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_SeriesInternalName']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTft_TftHomeEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_CarouselChampIds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_GameModeSelectEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_IntroABTestPercentage']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_NewPlayerExperienceEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_PracticeToolEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_SkipTutorialPathAfterLevel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_StatsTimeout']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuTutorial_TutorialSummonerIcon']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuUiKit']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LcuUiKit_CelebrationModalsDisabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_ApexDemotionNotificationEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_ChallengerLaddersEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_ConfigRefreshIntervalSeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_CurrentSplit']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_CurrentYear']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_DefaultJwtTimeToLiveSeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationEndTime']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationSettingsName']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationSettingsSchemaVer']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationStartTime1']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationStartTime2']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationStartTime3']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationsConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosNotificationsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosRewardGroupsConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_EosRewardsConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_FlexRestrictionModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_IsGlobalNotificationsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_IsPreseason']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_IsSeasonMemorialModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_IsSplitStartModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_JWTEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_MasterTierEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_PreseasonName']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_PromoHelperEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_PromotionVignetteV2Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_Ranked2017Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_Ranked2019Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_RankedReferenceModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_RankedRewardConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_SeasonModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_SeasonName']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_SendSignedRankedOverview']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueConfig_TftSeasonNameLocKey']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClient']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_GSMv2']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_GameAgnosticMatchHistory']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_Leagues']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_MarketingPreferences']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_Missions']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_Parties']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_PlayerBehavior']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_PublishingContent']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_Summoner']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_Tastes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientEnabledServices_Teambuilder']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientLeagueSessionServicesEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientLeagueSessionServicesEnabled_Leagues']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientServiceTrafficBalanceRate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClientServiceTrafficBalanceRate_Parties']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClient_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueEdgeClient_LeagueSessionEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueSession_FailureRefreshTimeoutSeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueSession_RefreshTokenOverride']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeagueSession_UseSessionRefreshV2']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeaverBuster']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeaverBuster_IsLbsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LeaverBuster_IsLockoutModalEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_EnableStarShardsServices']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_EnableStarShardsUpgradeFlow']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_InventoryServiceUrl']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_LoadoutsServiceUrl']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_NewLoadoutPickerEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_UseV4LoadoutFlow']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Loadouts_ValidInventoryTypes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_bannedUntilDateMillis']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_broadcastNotification']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_coOpVsAiMinutesLeftToday']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_coOpVsAiMsecsUntilReset']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_competitiveRegion']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_customMinutesLeftToday']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_customMsecsUntilReset']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_displayPrimeReformCard']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_emailStatus']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_gameTypeConfigs']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_inGhostGame']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_languages']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_matchMakingEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_maxPracticeGameSize']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_minor']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_minorShutdownEnforced']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_minutesUntilMidnight']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_minutesUntilShutdown']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_minutesUntilShutdownEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_platformGameLifecycle']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_platformId']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_playerStatSummaries']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_restrictedChatGamesRemaining']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_restrictedGamesRemainingForRanked']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_showEmailVerificationPopup']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LoginDataPacket_simpleMessages']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestBundleDiscount1']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestBundleDiscount2']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestBundleDiscount3']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestBundleDiscount4']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestBundleDiscount5']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestsBundleId1']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestsBundleId2']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestsBundleId3']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestsBundleId4']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_ChestsBundleId5']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EnableMythicEssenceDisplay']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EventChestBundleId1']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EventChestBundleId2']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EventChestBundleId3']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EventChestBundleId4']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EventChestBundleId5']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_EventChestsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_InitializationGoalFlags']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_LEdgeAccessEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_LEdgeAccessPercentage']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_LcuEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_LootMilestonesEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_LootOddsQueryEvaluationEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_MATERIAL_112LearnMoreURL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_MinSummonerLevel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_NewPlayerChestEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_NoRefundConfirmationEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_PurchaseChestsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_Visible']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootConfig_WorldsTokensEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootService']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootService_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootService_NewPlayerChestEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootService_PurchaseChestsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_LootService_Visible']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Masteries']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Masteries_ShowPointsResetMessage']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_EligibilityInventoryTypes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsCompressed']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsCooldownPollingTime']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsFrontEndEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsPollingTime']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsTabTrackerEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_MissionsUseV4Api']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Missions_SendSimpleInventoryTokens']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_BasicTutorialMutators']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_BattleTrainingMutators']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_CustomGameMutators']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_EnabledAssetMutators']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_EnabledCustomModes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_EnabledModes']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Mutators_EnabledMutators']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Navigation']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Navigation_NavBarDisplayMode']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Navigation_UseEnhancedMenu']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Navigation_UseTextLabels']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory_MatchHistoryWebURL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory_PostIPXPToLegSEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory_RecentlyPlayedNumGames']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory_SharingEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewMatchHistory_TftMatchHistoryEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerIntro']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerIntro_IntroUrl']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerIntro_NewSummonerIconIds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerLandingPage']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerLandingPage_ChampDisplayList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerLandingPage_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerLandingPage_LikeUsURL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerLandingPage_MaxLevel']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerLandingPage_SubscribeURL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerRouter']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerRouter_ABDisablingOfTutorial']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_NewPlayerRouter_QueueID']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_CustomsInPartiesEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_EnableLobbyCreation']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_EnabledForTeamBuilderQueues']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_GameflowRegistrationStatusRequired']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_GameflowSamplingProbability']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_LoginRegistrationTimeout']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_NotificationDelaySamplingPercentage']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_OpenPartyEnable']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_PremadeEligibilityFromPartiesEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_PremadeEligibilityQueuesDelayedRefreshTimeoutSeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_RegistrationConfigurationChangedTimeout']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_RegistrationCredentialsRequired']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_RegistrationRetryInterval']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Parties_ServiceProxySamplingPercentage']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PartyRewards']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PartyRewards_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PartyRewards_GameFlowVisualUpdate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Perks']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Perks_MinSummonerLevelUnlockCustomPages']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Perks_PerksEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_BaseServiceURL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_HubEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_Port']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_PromotionEndTime']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_PromotionName']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_PromotionStartTime']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_Protocol']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_ServiceConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_ServicePath']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_ShowNavButton']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonalizedOffers_ThemedBackground']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers_BaseServiceURL']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers_HubEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers_Port']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers_Protocol']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers_ServiceConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PersonlizedOffers_ServicePath']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlatformShutdown']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlatformShutdown_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerBehavior']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerBehavior_CodeOfConductEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerBehavior_ReformCardV2Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerFeedbackTool']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerFeedbackTool_BackendUrl']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerFeedbackTool_EnableHomeTrigger']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerNotification']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerNotification_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerPreferences']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerPreferences_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerPreferences_EnforceHttps']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerPreferences_ServiceEndpoint']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PlayerPreferences_Version']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Postgame']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Postgame_ShowPositionDetectionEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_ACSLookup']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_ChampionMasteryLookup']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForBuddyPanelView']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForChatFriendsList']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForChatGroupChatParticipants']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForClubChatParticipants']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForCustomGameLobby']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForGameLobbySuggestedPlayers']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForGroupFinderCapViewSuggestedPlayers']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForSummonerQuickView']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_IsEnabledForTeamBuilderSuggestedPlayers']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ProfileHoverCard_LeagueLookup']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Profiles']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Profiles_EosIconEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Profiles_EosTooltipShowOnce']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Profiles_RankQueueOnCount']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Profiles_SkinsPickerEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PublishingContent']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PublishingContent_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PublishingContent_LocalePreferenceEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PublishingContent_LocalePreferenceOptions']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PublishingContent_TftGdsTest']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_PublishingContent_TftHubCardsUrl']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueImages']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueImages_OverrideQueueImage']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_AllowablePremadeSizesForQueueId440']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_KarmaEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndDivisionForPremadeSize2QueueId1100']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndDivisionForPremadeSize2QueueId420']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize1']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize1QueueId410']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize1QueueId420']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize1QueueId440']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize1QueueId470']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize1QueueId9']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize2']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize2QueueId4']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize2QueueId420']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize2QueueId440']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize2QueueId470']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize2QueueId9']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize3']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize3QueueId420']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize3QueueId440']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize3QueueId470']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize3QueueId9']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize4']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize4QueueId420']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize4QueueId440']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize4QueueId470']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize4QueueId9']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize5']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize5QueueId420']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize5QueueId440']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize5QueueId470']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_MaxTierAndRankForPremadeSize5QueueId9']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_QueuesRequiringTwentyChampions']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTier']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTierQueueId4']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTierQueueId410']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTierQueueId420']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTierQueueId440']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTierQueueId470']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueDefaultUnseededTierQueueId9']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueRestrictionMaxDelta']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedDuoQueueRestrictionMode']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighMmrPremadeMaxSize']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighMmrPremadeRank']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighMmrPremadeRestrictionEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighMmrPremadeTier']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTier']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTierQueueId4']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTierQueueId410']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTierQueueId420']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTierQueueId440']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTierQueueId470']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillLowestTierQueueId9']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDelta']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDeltaQueueId4']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDeltaQueueId410']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDeltaQueueId420']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDeltaQueueId440']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDeltaQueueId470']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMaxDeltaQueueId9']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionMode']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionModeQueueId4']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionModeQueueId410']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionModeQueueId420']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionModeQueueId440']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionModeQueueId470']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedHighSkillRestrictionModeQueueId9']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDelta']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDeltaQueueId4']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDeltaQueueId410']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDeltaQueueId420']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDeltaQueueId440']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDeltaQueueId470']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMaxDeltaQueueId9']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionMode']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionModeQueueId4']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionModeQueueId410']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionModeQueueId420']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionModeQueueId440']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionModeQueueId470']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_RankedLowSkillRestrictionModeQueueId9']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_QueueRestriction_ServiceEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Regalia']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Replays']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Replays_MinSupportedGameServerVersion']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Replays_ThirdPersonAccessibleGameQueues']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Rewards']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Rewards_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Sanitizer']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Sanitizer_Level1Unfilter']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_Maximum_team_reward_level']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_Minimum_points_per_reward_level']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_Minimum_win_team_reward_level_1']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_Minimum_win_team_reward_level_2']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_Minimum_win_team_reward_level_3']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_QualificationWarningEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SeasonReward_ServiceCallEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Sentry']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Sentry_SampleRate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ServiceStatusAPI']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ServiceStatusAPI_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_AdvancedGameDetailsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_AdvancedGameDetailsUrlTemplate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_MatchDetailsUrlTemplate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_MatchHistoryEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_MatchHistoryUrlTemplate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_ShareEndOfGameEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_ShareGameUrlTemplate']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ShareMatchHistory_ShareMatchHistory']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SkinRentals']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SkinRentals_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SkinsViewer']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SkinsViewer_VintageSkinSummonerIconConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SocialLeaderboard']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SocialLeaderboard_IsSocialLeaderboardEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SocialLeaderboard_LeaguesPuuidPageSize']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SocialLeaderboard_MinsTillCacheExpiry']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SocialLeaderboard_SecsTillAvailabilityCacheExpiry']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SocialLeaderboard_UseSocialLeaderboardLeaguesEndpoint']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Spectator']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Spectator_SaveReconnectInfoEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_String']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_String_String']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_FriendsOfFriendsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_FriendsOfFriendsLimit']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_HonoredPlayersLimit']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_MaxNumReplacements']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_MaxNumSuggestedPlayers']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_OnlineFriendsLimit']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_PreviousPremadesLimit']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_SuggestedPlayers_VictoriousComradesLimit']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Summoner_ConfigRefreshIntervalSeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Summoner_JWTMaxTimeoutSeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Summoner_JWTMinTimeoutSeconds']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Summoner_SummonerProfileCacheEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBoost']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBoost_AllSkinEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBoost_RandomSkinEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_ActionTimeoutRecoveryEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_EnableChampionSelectPreferences']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_EstimatedWaitAdjustmentEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_FillPrimaryWaitFactor']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_FillSecondaryWaitFactor']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_LogAllLCDSMessages']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_MidPrimaryWaitFactor']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_SendAfkCheckMetricsEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_ServiceCallTimeoutMillis']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_SkinPurchaseEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_SupportPrimaryWaitFactor']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_SupportSecondaryWaitFactor']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_TBRerollServiceEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_TakeoverEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TeamBuilderDraft_UnlockLockInButtonTimeoutEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_TencentAntiAddiction_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Testing']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Testing_Rcarter']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ThirdPartyVerification']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_ThirdPartyVerification_CAHServiceEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Trophies']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Trophies_IsEnabledOnProfile']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Trophies_IsOtherSummonersProfileEnabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Voice']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_Voice_Enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_WardSkinConfig']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_WardSkinConfig_UseLoadouts']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-platform-config_v1_namespaces_WardSkinConfig_WardSkinSelection']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-player-behavior_v1_config']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-player-behavior_v2_reporter-feedback']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-player-behavior_v3_reform-cards']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-player-preferences_v1_player-preferences-ready']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-pre-end-of-game_v1_currentSequenceEvent']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-premade-voice_v1_availability']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-premade-voice_v1_capturedevices']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-premade-voice_v1_first-experience']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-premade-voice_v1_participant-records']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-premade-voice_v1_settings']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-progression_v1_groups']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-progression_v1_ready']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-publishing-content_v1_listeners']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-publishing-content_v1_ready']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-publishing-content_v1_settings']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-purchase-widget_v1_configuration']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-purchase-widget_v3_purchase-offer-order-statuses']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-ranked_v1_challenger-ladders-enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-ranked_v1_current-ranked-stats']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-ranked_v1_eos-rewards']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-ranked_v1_global-notifications']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-ranked_v1_notifications']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-ranked_v1_ranked-stats']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-ranked_v1_signed-ranked-stats']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-ranked_v1_splits-config']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-ranked_v1_top-rated-ladders-enabled']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-regalia_v2_config']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-regalia_v2_summoners']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-replays_v1_configuration']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-replays_v1_metadata']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-replays_v1_rofls']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-rewards_v1_grants']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-rewards_v1_groups']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-rso-auth_configuration_v3']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-rso-auth_v1_authorization']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-settings_v1_account']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-settings_v1_local']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-settings_v2_account']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-settings_v2_config']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-settings_v2_local']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-settings_v2_ready']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-shutdown_v1_notification']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-spectator_v1_spectate']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-statstones_v2_player-summary-self']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-store_v1_getStoreUrl']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-store_v1_store-ready']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-suggested-players_v1_suggested-players']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-summoner_v1_current-alias-state']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-summoner_v1_current-summoner']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-summoner_v1_status']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-summoner_v1_summoner-requests-ready']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_lol-tastes_v1_ready']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-tft-pass_v1_enabled']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-tft-team-planner_v1_config']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-tft-team-planner_v1_team']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-tft-troves_v1_config']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-tft_v1_tft']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-tft_v2_tft']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-yourshop_v1_modal']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-yourshop_v1_ready']: Record<string, unknown>
+  ['OnJsonApiEvent_lol-yourshop_v1_status']: Record<string, unknown>
+  ['OnJsonApiEvent_memory_v1_fe-processes-ready']: Record<string, unknown>
+  ['OnJsonApiEvent_patcher_v1_notifications']: Record<string, unknown>
+  ['OnJsonApiEvent_patcher_v1_products']: Record<string, unknown>
+  ['OnJsonApiEvent_patcher_v1_status']: Record<string, unknown>
+  ['OnJsonApiEvent_player-notifications_v1_notifications']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_player-reporting_v1_reporter-feedback']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_plugin-manager_v1_external-plugins']: Record<string, unknown>
+  ['OnJsonApiEvent_plugin-manager_v1_status']: Record<string, unknown>
+  ['OnJsonApiEvent_process-control_v1_process']: Record<string, unknown>
+  ['OnJsonApiEvent_product-metadata_v2_products']: Record<string, unknown>
+  ['OnJsonApiEvent_product-session_v1_external-sessions']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_riot-messaging-service_v1_message']: Record<string, unknown>
+  ['OnJsonApiEvent_riot-messaging-service_v1_out-of-sync']: Record<
+    string,
+    unknown
+  >
+  ['OnJsonApiEvent_riot-messaging-service_v1_session']: Record<string, unknown>
+  ['OnJsonApiEvent_riot-messaging-service_v1_state']: Record<string, unknown>
+  ['OnJsonApiEvent_riotclient_affinity']: Record<string, unknown>
+  ['OnJsonApiEvent_riotclient_app-port']: Record<string, unknown>
+  ['OnJsonApiEvent_riotclient_get_region_locale']: Record<string, unknown>
+  ['OnJsonApiEvent_riotclient_new-args']: Record<string, unknown>
+  ['OnJsonApiEvent_riotclient_pre-shutdown_begin']: Record<string, unknown>
+  ['OnJsonApiEvent_riotclient_region-locale']: Record<string, unknown>
+  ['OnJsonApiEvent_riotclient_system-info_v1']: Record<string, unknown>
+  ['OnJsonApiEvent_riotclient_ux-crash-count']: Record<string, unknown>
+  ['OnJsonApiEvent_riotclient_ux-state_request']: Record<string, unknown>
+  ['OnJsonApiEvent_riotclient_v1_crash-reporting']: Record<string, unknown>
+  ['OnJsonApiEvent_riotclient_zoom-scale']: Record<string, unknown>
+  ['OnJsonApiEvent_rso-auth_configuration_v3']: Record<string, unknown>
+  ['OnJsonApiEvent_rso-auth_v1_auth-hints']: Record<string, unknown>
+  ['OnJsonApiEvent_rso-auth_v1_session']: Record<string, unknown>
+  ['OnJsonApiEvent_rso-auth_v2_authorizations']: Record<string, unknown>
+  ['OnJsonApiEvent_sanitizer_v1_status']: Record<string, unknown>
+  ['OnJsonApiEvent_scd_v1_cookies']: Record<string, unknown>
+  ['OnJsonApiEvent_system_v1_builds']: Record<string, unknown>
+  ['OnJsonApiEvent_voice-chat_v1_audio-properties']: Record<string, unknown>
+  ['OnJsonApiEvent_voice-chat_v2_devices']: Record<string, unknown>
+  ['OnJsonApiEvent_voice-chat_v2_state']: Record<string, unknown>
+  ['OnJsonApiEvent_voice-chat_v3_sessions']: Record<string, unknown>
+  ['OnJsonApiEvent_voice-chat_v3_settings']: Record<string, unknown>
   /**
    * Fired when a message is received over the LCDS connection.
    */
-  ["OnLcdsEvent"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_broadcast_BroadcastNotification"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_client_dynamic_configuration_ClientDynamicConfigurationNotification"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_game_GameDTO"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_game_PlayerCredentialsDto"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_game_TeamSkinRentalDTO"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_game_message_GameNotification"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_gameinvite_contract_InvitationRequest"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_gameinvite_contract_InvitePrivileges"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_gameinvite_contract_LobbyStatus"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_gameinvite_contract_RemovedFromLobbyNotification"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_leaverbuster_event_messaging_LeaverBusterLowPriorityQueueAbandoned"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_loyalty_message_LoyaltyStateChangeNotification"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_matchmaking_SearchingForMatchNotification"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_messaging_ForcedClientShutdown"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_messaging_RentalUpdateNotification"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_messaging_StoreFulfillmentNotification"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_messaging_persistence_SimpleDialogMessage"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_systemstate_ClientSystemStatesNotification"]: undefined
-  ["OnLcdsEvent_com_riotgames_platform_trade_api_contract_TradeContractDTO"]: undefined
+  ['OnLcdsEvent']: Record<string, unknown>
+  ['OnLcdsEvent_com_riotgames_platform_broadcast_BroadcastNotification']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_client_dynamic_configuration_ClientDynamicConfigurationNotification']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_game_GameDTO']: Record<string, unknown>
+  ['OnLcdsEvent_com_riotgames_platform_game_PlayerCredentialsDto']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_game_TeamSkinRentalDTO']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_game_message_GameNotification']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_gameinvite_contract_InvitationRequest']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_gameinvite_contract_InvitePrivileges']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_gameinvite_contract_LobbyStatus']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_gameinvite_contract_RemovedFromLobbyNotification']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_leaverbuster_event_messaging_LeaverBusterLowPriorityQueueAbandoned']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_loyalty_message_LoyaltyStateChangeNotification']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_matchmaking_SearchingForMatchNotification']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_messaging_ForcedClientShutdown']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_messaging_RentalUpdateNotification']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_messaging_StoreFulfillmentNotification']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_messaging_persistence_SimpleDialogMessage']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_systemstate_ClientSystemStatesNotification']: Record<
+    string,
+    unknown
+  >
+  ['OnLcdsEvent_com_riotgames_platform_trade_api_contract_TradeContractDTO']: Record<
+    string,
+    unknown
+  >
   /**
    * Fired when a entry of sufficient severity is logged.
    */
-  ["OnLog"]: undefined
-  ["OnRegionLocaleChanged"]: undefined
+  ['OnLog']: Record<string, unknown>
+  ['OnRegionLocaleChanged']: Record<string, unknown>
   /**
    * Fired when an async service proxy message is received.
    */
-  ["OnServiceProxyAsyncEvent"]: undefined
-  ["OnServiceProxyMethodEvent"]: undefined
+  ['OnServiceProxyAsyncEvent']: Record<string, unknown>
+  ['OnServiceProxyMethodEvent']: Record<string, unknown>
   /**
    * Fired when a uuid-based service proxy message is received.
    */
-  ["OnServiceProxyUuidEvent"]: undefined
+  ['OnServiceProxyUuidEvent']: Record<string, unknown>
 }
 
 export type LcuEvent = keyof LcuEventLookup

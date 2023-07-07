@@ -21,6 +21,9 @@ export {
 export { HttpsAgent } from './modules/https/agent.js'
 export { createRequestInit } from './modules/https/request-init.js'
 
+/// WebSocket
+export { LcuClient, createLcuClient } from './modules/websocket/index.js'
+
 /// Utilities
 export { extractData } from './utils/extract-data.js'
 export { identity } from './utils/identity.js'
