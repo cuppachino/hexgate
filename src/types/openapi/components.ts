@@ -2539,6 +2539,7 @@ export type LcuComponents = ExcludeNever<{
       freeToPlayReward?: boolean
       /** Format: int32 */
       id?: number
+      loyaltyReward?: boolean
       masteryChestGranted?: boolean
       /** Format: int32 */
       masteryLevel?: number
@@ -2551,6 +2552,7 @@ export type LcuComponents = ExcludeNever<{
       roles?: string[]
       selectionStatus?: LcuComponents['schemas']['LolChampSelectChampionSelection']
       squarePortraitPath?: string
+      xboxGPReward?: boolean
     }
     'LolChampSelectChampionQuestSkinInfo': {
       splashPath?: string
@@ -3109,9 +3111,11 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     'LolChampSelectMutedPlayerInfo': {
-      puuid?: string
+      obfuscatedPuuid: string
+      obfuscatedSummonerId: number
+      puuid: string
       /** Format: int64 */
-      summonerId?: number
+      summonerId: number
     }
     'LolChampSelectSettingsResource': {
       data?: {

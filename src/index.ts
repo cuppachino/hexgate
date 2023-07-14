@@ -21,6 +21,10 @@ export {
 export { HttpsAgent } from './modules/https/agent.js'
 export { createRequestInit } from './modules/https/request-init.js'
 
+/// WebSocket
+export { LcuClient, createLcuClient } from './modules/websocket/index.js'
+export type { ILcuClient } from './modules/websocket/index.js'
+
 /// Utilities
 export { extractData } from './utils/extract-data.js'
 export { identity } from './utils/identity.js'
@@ -62,6 +66,7 @@ export type * from './types/game-constants/seasons.js'
 /// DTO Types
 export type { GameServerRegion } from './types/dto/game-server-region.js'
 export type { LcuResponseCode } from './types/dto/lcu-response-code.js'
+export type { LcuEvent, LcuEventLookup } from './types/dto/lcu-event-lookup.js'
 
 /// OpenAPI Types
 export type { LcuComponents } from './types/openapi/components.js'
