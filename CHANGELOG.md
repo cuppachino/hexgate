@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.7.3
+
+### Patch Changes
+
+*   633ae12: add matchmaking types
+
 ## 0.7.2
 
 ### Patch Changes
