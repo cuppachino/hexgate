@@ -77,15 +77,19 @@ export interface LcuEventLookup {
     unknown
   >
   'OnJsonApiEvent_lol-champ-select_v1_current-champion': Record<string, unknown>
-  'OnJsonApiEvent_lol-champ-select_v1_grid-champions': Record<string, unknown>
-  'OnJsonApiEvent_lol-champ-select_v1_muted-players': Record<string, unknown>
+  /**
+   * The current summoner's selected champion in champ select.
+   */
+  'OnJsonApiEvent_lol-champ-select_v1_grid-champions': LcuComponents['schemas']['LolChampSelectChampGridChampion']
+  'OnJsonApiEvent_lol-champ-select_v1_muted-players': LcuComponents['schemas']['LolChampSelectMutedPlayerInfo'][]
   'OnJsonApiEvent_lol-champ-select_v1_session': LcuComponents['schemas']['LolChampSelectChampSelectSession']
-  'OnJsonApiEvent_lol-champ-select_v1_team-boost': Record<string, unknown>
-  'OnJsonApiEvent_lol-champions_v1_inventories': Record<string, unknown>
-  'OnJsonApiEvent_lol-champions_v1_owned-champions-minimal': Record<
-    string,
-    unknown
-  >
+  'OnJsonApiEvent_lol-champ-select_v1_team-boost': LcuComponents['schemas']['LolChampSelectTeamBoost']
+  'OnJsonApiEvent_lol-champions_v1_inventories':
+    | LcuComponents['schemas']['LolChampionsCollectionsChampion']
+    | LcuComponents['schemas']['LolChampionsCollectionsChampion'][]
+  'OnJsonApiEvent_lol-champions_v1_owned-champions-minimal':
+    | LcuComponents['schemas']['LolChampionsCollectionsChampionMinimal']
+    | LcuComponents['schemas']['LolChampionsCollectionsChampionMinimal'][]
   'OnJsonApiEvent_lol-chat_v1_blocked-players': Record<string, unknown>
   'OnJsonApiEvent_lol-chat_v1_config': Record<string, unknown>
   'OnJsonApiEvent_lol-chat_v1_conversations': Record<string, unknown>
