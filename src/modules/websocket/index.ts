@@ -14,7 +14,7 @@ type RecordToCallbacks<T> = {
     uri
   }: {
     data: T[K]
-    eventType: K
+    eventType: 'Update' | 'Create' | 'Delete'
     uri: string
   }) => void
 }
