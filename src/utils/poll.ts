@@ -9,24 +9,27 @@ import { PollTimeoutError } from '../errors/poll-timeout.js'
  *
  * @example
  * ```ts
- * const credentials = await poll(authenticate, 5000)
+ * const credentials = await poll(authenticate, 5000, 5, (n) => console.log(`attempt ${n}`))
  * ```
  */
 export async function poll<T>(
   fn: () => Promise<T>,
   interval = 5000,
-  max = 5,
-  onRetry?: () => void
+  max: number | undefined = undefined,
+  onRetry?: (n: number) => void,
+  _n = 0
 ): Promise<T> {
   try {
     return await fn()
   } catch {
     if (max !== undefined) {
-      if (max === 0) throw new PollTimeoutError()
+      if (max <= 0) {
+        throw new PollTimeoutError()
+      }
       max--
     }
-    onRetry?.()
+    onRetry?.(_n)
     await new Promise((resolve) => setTimeout(resolve, interval))
-    return poll(fn, interval, max, onRetry)
+    return poll(fn, interval, max, onRetry, _n + 1)
   }
 }
