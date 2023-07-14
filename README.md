@@ -65,13 +65,13 @@ import { auth } from "hexgate"
 const unsafeCredentials = await auth({ certificate: undefined })
 ```
 
-Once you have the credentials, you can create a new [`Hexgate`](./src/modules/hexgate/index.ts) instance. I've named mine `hexgate` or `hx` in the examples below.
+Once you have the credentials, you can create a new [`Hexgate`](./src/modules/hexgate/index.ts) and [`LcuClient`](./src/modules/websocket/index.ts).
 
 ```ts
-import { Hexgate, /* createHexgate */ } from "hexgate"
+import { Hexgate, LcuClient } from "hexgate"
 
 const hexgate = new Hexgate(credentials)
-// const hx = createHexgate(credentials)
+const client = new LcuClient(credentials)
 ```
 
 ## Builder API
@@ -79,7 +79,7 @@ const hexgate = new Hexgate(credentials)
 The simplest way of getting started is to "`.build`" a request function. The builder uses generics to infer the parameters and return type of the request.
 
 ```ts
-const hexgate = new Hexgate(await auth())
+const hexgate = new Hexgate(credentials)
 
 // (arg: string[], init?: any) => Promise<ApiResponse<{ ... }>>
 const getSummonersFromNames = hexgate
@@ -90,6 +90,27 @@ const getSummonersFromNames = hexgate
 const summoner = await getSummonersByName(['dubbleignite'])
 console.log(summoner)
 ```
+
+## Websocket Events
+
+Subscribe to LCU events through the client.
+
+```ts
+const client = createLcuClient(credentials)
+
+client.on('close', () => {
+  client.unsubscribeAll()
+})
+
+client.subscribe(
+  'OnJsonApiEvent_lol-champ-select_v1_session',
+  ({ data, eventType, uri }) => {
+    // side effects
+  }
+)
+```
+
+> Note: Since many endpoints will subscribe you to multiple uris, its difficult to provide meaningful type inference for the data property. Import `LcuComponents` type when necessary.
 
 ## Recipe API
 
