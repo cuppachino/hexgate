@@ -260,8 +260,10 @@ export interface LcuEventLookup {
     unknown
   >
   'OnJsonApiEvent_lol-marketing-preferences_v1_ready': Record<string, unknown>
-  'OnJsonApiEvent_lol-matchmaking_v1_ready-check': Record<string, unknown>
-  'OnJsonApiEvent_lol-matchmaking_v1_search': Record<string, unknown>
+  'OnJsonApiEvent_lol-matchmaking_v1_ready-check':
+    | LcuComponents['schemas']['LolMatchmakingMatchmakingReadyCheckResource']
+    | null
+  'OnJsonApiEvent_lol-matchmaking_v1_search': LcuComponents['schemas']['LolMatchmakingMatchmakingSearchResource']
   'OnJsonApiEvent_lol-missions_v1_missions': Record<string, unknown>
   'OnJsonApiEvent_lol-missions_v1_series': Record<string, unknown>
   'OnJsonApiEvent_lol-npe-rewards_v1_login-rewards': Record<string, unknown>
