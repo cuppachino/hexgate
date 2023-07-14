@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.7.2
+
+### Patch Changes
+
+*   5bd45c9: Add changeset to README. Patching so it appears on NPM.
+
 ## 0.7.1
 
 ### Patch Changes
