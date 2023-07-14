@@ -1,5 +1,12 @@
 # hexgate
 
+## 0.7.1
+
+### Patch Changes
+
+*   127ff15: Update README.md
+*   4447152: add `LcuEvent` and `LcuEventLookup` types
+
 ## 0.7.0
 
 ### Minor Changes
