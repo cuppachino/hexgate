@@ -21,7 +21,22 @@ type RecordToCallbacks<T> = {
 
 type LcuWebSocketEventCallbacks = RecordToCallbacks<LcuEventLookup>
 
-export class LcuClient extends WebSocket {
+export interface ILcuClient {
+  eventListeners: Partial<
+    Record<LcuEvent, Array<LcuWebSocketEventCallbacks[LcuEvent]>>
+  >
+  subscribe<T extends LcuEvent>(
+    event: T,
+    callback: LcuWebSocketEventCallbacks[T]
+  ): void
+  unsubscribe<T extends LcuEvent>(
+    event: T,
+    callback: LcuWebSocketEventCallbacks[T]
+  ): void
+  unsubscribeAll(event?: LcuEvent): void
+}
+
+export class LcuClient extends WebSocket implements ILcuClient {
   eventListeners: Partial<
     Record<LcuEvent, Array<LcuWebSocketEventCallbacks[LcuEvent]>>
   > = {}
