@@ -4325,7 +4325,7 @@ export interface LcuEventLookup {
     string,
     unknown
   >
-  'OnJsonApiEvent_lol-ranked_v1_current-ranked-stats': Record<string, unknown>
+  'OnJsonApiEvent_lol-ranked_v1_current-ranked-stats': LcuComponents['schemas']['LolRankedRankedStats']
   'OnJsonApiEvent_lol-ranked_v1_eos-rewards': Record<string, unknown>
   'OnJsonApiEvent_lol-ranked_v1_global-notifications': Record<string, unknown>
   'OnJsonApiEvent_lol-ranked_v1_notifications': Record<string, unknown>
