@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.7.5
+
+### Patch Changes
+
+*   9c652c3: Add 2v2v2v2 queue types
+
 ## 0.7.4
 
 ### Patch Changes
