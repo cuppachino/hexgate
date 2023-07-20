@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.7.4
+
+### Patch Changes
+
+*   df9f2b7: Add Emerald tier to rank type
+
 ## 0.7.3
 
 ### Patch Changes
