@@ -1600,6 +1600,7 @@ export type LcuComponents = ExcludeNever<{
       | 'SILVER'
       | 'GOLD'
       | 'PLATINUM'
+      | 'EMERALD'
       | 'DIAMOND'
       | 'MASTER'
       | 'GRANDMASTER'
@@ -3663,7 +3664,7 @@ export type LcuComponents = ExcludeNever<{
       SilenceChatWhileInGame?: boolean
     }
     /** @enum {string} */
-    'LolChatLeagueDivision': 'I' | 'II' | 'III' | 'IV' | 'V' | 'NA'
+    'LolChatLeagueDivision': 'I' | 'II' | 'III' | 'IV' | 'NA'
     /** @enum {string} */
     'LolChatLeagueQueueType':
       | 'NONE'
@@ -3679,6 +3680,7 @@ export type LcuComponents = ExcludeNever<{
       | 'SILVER'
       | 'GOLD'
       | 'PLATINUM'
+      | 'EMERALD'
       | 'DIAMOND'
       | 'MASTER'
       | 'GRANDMASTER'
@@ -5411,7 +5413,7 @@ export type LcuComponents = ExcludeNever<{
       | 'VersusAi'
       | 'Alpha'
     /** @enum {string} */
-    'LolContentTargetingRankedDivision': 'NA' | 'I' | 'II' | 'III' | 'IV' | 'V'
+    'LolContentTargetingRankedDivision': 'NA' | 'I' | 'II' | 'III' | 'IV'
     /** @enum {string} */
     'LolContentTargetingRankedQueue':
       | 'NONE'
@@ -5437,6 +5439,7 @@ export type LcuComponents = ExcludeNever<{
       | 'SILVER'
       | 'GOLD'
       | 'PLATINUM'
+      | 'EMERALD'
       | 'DIAMOND'
       | 'MASTER'
       | 'GRANDMASTER'
@@ -14043,7 +14046,7 @@ export type LcuComponents = ExcludeNever<{
       wasAfkOrLeaver?: boolean
     }
     /** @enum {string} */
-    'LolRankedLeagueDivision': 'I' | 'II' | 'III' | 'IV' | 'V' | 'NA'
+    'LolRankedLeagueDivision': 'I' | 'II' | 'III' | 'IV' | 'NA'
     'LolRankedLeagueDivisionInfo': {
       /** Format: int64 */
       apexUnlockTimeMillis?: number
@@ -14197,6 +14200,7 @@ export type LcuComponents = ExcludeNever<{
       | 'SILVER'
       | 'GOLD'
       | 'PLATINUM'
+      | 'EMERALD'
       | 'DIAMOND'
       | 'MASTER'
       | 'GRANDMASTER'
@@ -14594,7 +14598,7 @@ export type LcuComponents = ExcludeNever<{
       itemId?: number
     }
     /** @enum {string} */
-    'LolRegaliaLeagueDivision': 'I' | 'II' | 'III' | 'IV' | 'V' | 'NA'
+    'LolRegaliaLeagueDivision': 'I' | 'II' | 'III' | 'IV' | 'NA'
     /** @enum {string} */
     'LolRegaliaLeagueQueueType':
       | 'NONE'
@@ -14612,6 +14616,7 @@ export type LcuComponents = ExcludeNever<{
       | 'SILVER'
       | 'GOLD'
       | 'PLATINUM'
+      | 'EMERALD'
       | 'DIAMOND'
       | 'MASTER'
       | 'GRANDMASTER'
@@ -15248,7 +15253,7 @@ export type LcuComponents = ExcludeNever<{
       summonerId?: number
     }
     /** @enum {string} */
-    'LolSocialLeaderboardLeagueDivision': 'I' | 'II' | 'III' | 'IV' | 'V' | 'NA'
+    'LolSocialLeaderboardLeagueDivision': 'I' | 'II' | 'III' | 'IV' | 'NA'
     /** @enum {string} */
     'LolSocialLeaderboardLeagueQueueType':
       | 'NONE'
@@ -15266,6 +15271,7 @@ export type LcuComponents = ExcludeNever<{
       | 'SILVER'
       | 'GOLD'
       | 'PLATINUM'
+      | 'EMERALD'
       | 'DIAMOND'
       | 'MASTER'
       | 'GRANDMASTER'
