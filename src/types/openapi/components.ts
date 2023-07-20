@@ -3668,6 +3668,7 @@ export type LcuComponents = ExcludeNever<{
     /** @enum {string} */
     'LolChatLeagueQueueType':
       | 'NONE'
+      | 'CHERRY'
       | 'RANKED_SOLO_5x5'
       | 'RANKED_FLEX_SR'
       | 'RANKED_FLEX_TT'
@@ -5417,6 +5418,7 @@ export type LcuComponents = ExcludeNever<{
     /** @enum {string} */
     'LolContentTargetingRankedQueue':
       | 'NONE'
+      | 'CHERRY'
       | 'RANKED_SOLO_5x5'
       | 'RANKED_FLEX_SR'
       | 'RANKED_FLEX_TT'
@@ -14152,6 +14154,7 @@ export type LcuComponents = ExcludeNever<{
     /** @enum {string} */
     'LolRankedLeagueQueueType':
       | 'NONE'
+      | 'CHERRY'
       | 'RANKED_SOLO_5x5'
       | 'RANKED_FLEX_SR'
       | 'RANKED_FLEX_TT'
@@ -14321,9 +14324,10 @@ export type LcuComponents = ExcludeNever<{
       highestRankedEntry?: LcuComponents['schemas']['LolRankedRankedQueueStats']
       highestRankedEntrySR?: LcuComponents['schemas']['LolRankedRankedQueueStats']
       queueMap?: {
-        [key: string]:
-          | LcuComponents['schemas']['LolRankedRankedQueueStats']
-          | undefined
+        [K in Exclude<
+          LcuComponents['schemas']['LolRankedLeagueQueueType'],
+          'NONE'
+        >]: LcuComponents['schemas']['LolRankedRankedQueueStats'] | undefined
       }
       queues?: LcuComponents['schemas']['LolRankedRankedQueueStats'][]
       /** Format: int32 */
@@ -14602,6 +14606,7 @@ export type LcuComponents = ExcludeNever<{
     /** @enum {string} */
     'LolRegaliaLeagueQueueType':
       | 'NONE'
+      | 'CHERRY'
       | 'RANKED_SOLO_5x5'
       | 'RANKED_FLEX_SR'
       | 'RANKED_FLEX_TT'
@@ -15257,6 +15262,7 @@ export type LcuComponents = ExcludeNever<{
     /** @enum {string} */
     'LolSocialLeaderboardLeagueQueueType':
       | 'NONE'
+      | 'CHERRY'
       | 'RANKED_SOLO_5x5'
       | 'RANKED_FLEX_SR'
       | 'RANKED_FLEX_TT'
@@ -15290,7 +15296,10 @@ export type LcuComponents = ExcludeNever<{
     }
     'LolSocialLeaderboardRankedStats': {
       queueMap?: {
-        [key: string]:
+        [K in Exclude<
+          LcuComponents['schemas']['LolRankedLeagueQueueType'],
+          'NONE'
+        >]:
           | LcuComponents['schemas']['LolSocialLeaderboardRankedQueueStats']
           | undefined
       }
