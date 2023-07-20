@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.7.6
+
+### Patch Changes
+
+*   ec36ecf: link event type for current-ranked-stats
+
 ## 0.7.5
 
 ### Patch Changes
