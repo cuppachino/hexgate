@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.7.7
+
+### Patch Changes
+
+*   17798b9: Export better lobby dtos & add them to event lookup
+
 ## 0.7.6
 
 ### Patch Changes
