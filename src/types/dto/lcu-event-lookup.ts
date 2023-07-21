@@ -1,4 +1,5 @@
 import type { LcuComponents } from '../openapi/components.js'
+import type { LobbyEvent } from './lobby.js'
 
 export interface LcuEventLookup {
   /**
@@ -225,7 +226,7 @@ export interface LcuEventLookup {
   'OnJsonApiEvent_lol-lobby_v1_lobby': Record<string, unknown>
   'OnJsonApiEvent_lol-lobby_v2_comms': Record<string, unknown>
   'OnJsonApiEvent_lol-lobby_v2_eligibility': Record<string, unknown>
-  'OnJsonApiEvent_lol-lobby_v2_lobby': Record<string, unknown>
+  'OnJsonApiEvent_lol-lobby_v2_lobby': LobbyEvent
   'OnJsonApiEvent_lol-lobby_v2_party-active': Record<string, unknown>
   'OnJsonApiEvent_lol-login_v1_login-connection-state': Record<string, unknown>
   'OnJsonApiEvent_lol-login_v1_login-data-packet': Record<string, unknown>

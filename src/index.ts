@@ -68,6 +68,7 @@ export type * from './types/game-constants/ranked.js'
 export type { GameServerRegion } from './types/dto/game-server-region.js'
 export type { LcuResponseCode } from './types/dto/lcu-response-code.js'
 export type { LcuEvent, LcuEventLookup } from './types/dto/lcu-event-lookup.js'
+export type * from './types/dto/lobby.js'
 
 /// OpenAPI Types
 export type { LcuComponents } from './types/openapi/components.js'

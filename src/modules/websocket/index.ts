@@ -6,6 +6,7 @@ import type {
   LcuEvent,
   LcuEventLookup
 } from '../../types/dto/lcu-event-lookup.js'
+import type { LobbyEvent } from 'src/index.js'
 
 type RecordToCallbacks<T> = {
   [K in keyof T]: ({
@@ -19,7 +20,12 @@ type RecordToCallbacks<T> = {
   }) => void
 }
 
-type LcuWebSocketEventCallbacks = RecordToCallbacks<LcuEventLookup>
+type LcuWebSocketEventCallbacks = Omit<
+  RecordToCallbacks<LcuEventLookup>,
+  'OnJsonApiEvent_lol-lobby_v2_lobby'
+> & {
+  'OnJsonApiEvent_lol-lobby_v2_lobby': (event: LobbyEvent) => void
+}
 
 export interface ILcuClient {
   eventListeners: Partial<
