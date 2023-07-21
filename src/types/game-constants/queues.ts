@@ -391,6 +391,7 @@ export namespace Queue {
     Props<1200, 'Nexus Blitz', 'Nexus Blitz games', 'Deprecated in patch 9.2'>,
     Props<1300, 'Nexus Blitz', 'Nexus Blitz games', null>,
     Props<1400, "Summoner's Rift", 'Ultimate Spellbook games', null>,
+    Props<1700, 'CHERRY', 'Arena', null>,
     Props<1900, "Summoner's Rift", 'Pick URF games', null>,
     Props<2000, "Summoner's Rift", 'Tutorial 1', null>,
     Props<2010, "Summoner's Rift", 'Tutorial 2', null>,
