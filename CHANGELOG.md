@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.7.8
+
+### Patch Changes
+
+*   8bcf0a8: type game-input-settings
+
 ## 0.7.7
 
 ### Patch Changes
