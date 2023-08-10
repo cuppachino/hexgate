@@ -65,6 +65,13 @@ export type * from './types/game-constants/seasons.js'
 export type * from './types/game-constants/ranked.js'
 
 /// DTO Types
+export type {
+  GameInputSettings,
+  GameEvents,
+  HUDEvents,
+  Quickbinds,
+  ShopEvents
+} from './types/dto/game-input-settings.js'
 export type { GameServerRegion } from './types/dto/game-server-region.js'
 export type { LcuResponseCode } from './types/dto/lcu-response-code.js'
 export type { LcuEvent, LcuEventLookup } from './types/dto/lcu-event-lookup.js'
