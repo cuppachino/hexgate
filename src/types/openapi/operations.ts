@@ -1,3 +1,5 @@
+import type { DeepPartial } from '../deep-partial.js'
+import type { GameInputSettings } from '../dto/game-input-settings.js'
 import type { LcuComponents } from './components.js'
 
 export type LcuOperations = {
@@ -5103,9 +5105,7 @@ export type LcuOperations = {
       /** @description Successful response */
       200: {
         content: {
-          'application/json': {
-            [key: string]: unknown | undefined
-          }
+          'application/json': GameInputSettings
         }
       }
     }
@@ -5113,18 +5113,14 @@ export type LcuOperations = {
   PatchLolGameSettingsV1InputSettings: {
     requestBody?: {
       content: {
-        'application/json': {
-          [key: string]: unknown | undefined
-        }
+        'application/json': DeepPartial<GameInputSettings>
       }
     }
     responses: {
       /** @description Successful response */
       200: {
         content: {
-          'application/json': {
-            [key: string]: unknown | undefined
-          }
+          'application/json': GameInputSettings
         }
       }
     }
