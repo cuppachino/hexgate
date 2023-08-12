@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.7.9
+
+### Patch Changes
+
+*   13a1e68: Update ChampSelectChampSelectAction type
+
 ## 0.7.8
 
 ### Patch Changes
