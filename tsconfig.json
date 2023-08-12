@@ -22,7 +22,7 @@
     "noUnusedParameters": true,
     "baseUrl": ".",
     "rootDir": "src",
-    "outDir": "dist/esm",
+    "outDir": "dist/esm"
   },
   "include": [
     "src"
