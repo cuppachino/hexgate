@@ -1,4 +1,5 @@
 import type { ExcludeNever } from '../generic.js'
+import type { UnionLiteral } from '@cuppachino/type-space'
 
 export type LcuComponents = ExcludeNever<{
   schemas: {
@@ -2570,6 +2571,10 @@ export type LcuComponents = ExcludeNever<{
       pickIntentedPosition?: string
       selectedByMe?: boolean
     }
+    'LolChampSelectActionType': UnionLiteral<
+      'pick' | 'ban' | 'ten_bans_reveal',
+      string
+    >
     'LolChampSelectChampSelectAction': {
       /** Format: int64 */
       actorCellId?: number
@@ -2579,7 +2584,8 @@ export type LcuComponents = ExcludeNever<{
       /** Format: int64 */
       id?: number
       isAllyAction?: boolean
-      type?: string
+      isInProgress?: boolean
+      type?: LcuComponents['schemas']['LolChampSelectActionType']
     }
     'LolChampSelectChampSelectBannedChampions': {
       myTeamBans?: number[]
@@ -2638,9 +2644,7 @@ export type LcuComponents = ExcludeNever<{
       wardSkinId?: number
     }
     'LolChampSelectChampSelectSession': {
-      actions?: {
-        [key: string]: unknown | undefined
-      }[]
+      actions?: LcuComponents['schemas']['LolChampSelectChampSelectAction'][][]
       allowBattleBoost?: boolean
       allowDuplicatePicks?: boolean
       allowLockedEvents?: boolean
