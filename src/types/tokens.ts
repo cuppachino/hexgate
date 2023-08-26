@@ -1,5 +1,4 @@
 import type { PartialSome } from '@cuppachino/type-space'
-import type { CERTIFICATE } from '../constants/certificate.js'
 import type { AUTH_TOKENS } from '../constants/tokens.js'
 
 /**
@@ -21,19 +20,19 @@ export type AuthTokens = Omit<Credentials, 'certificate'>
  *
  * Alternatively, you can force "unsafe" authentication by explicitly setting `certificate` to `undefined`.
  */
-export type AuthOptions<Cert extends string | undefined = typeof CERTIFICATE> =
-  {
-    certificate?: Cert
-  }
+export type AuthOptions = {
+  certificate?: string | undefined
+}
 
 /**
  * Validated credentials ready to be used for authentication.
  *
  * Without a certificate, "unsafe" authentication will be used.
  */
-export type Credentials = PartialSome<
-  {
-    [Token in AuthToken]: Token extends 'appPid' | 'appPort' ? number : string
-  },
-  'certificate'
->
+export interface Credentials
+  extends PartialSome<
+    {
+      [Token in AuthToken]: Token extends 'appPid' | 'appPort' ? number : string
+    },
+    'certificate'
+  > {}
