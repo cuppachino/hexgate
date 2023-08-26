@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.8.0
+
+### Minor Changes
+
+*   3fc0e93: add AuthOption to get a list of all clients
+
 ## 0.7.9
 
 ### Patch Changes
