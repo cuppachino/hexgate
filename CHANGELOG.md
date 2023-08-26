@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.8.1
+
+### Patch Changes
+
+*   205508d: fix missing client error when tokens is undefined
+
 ## 0.8.0
 
 ### Minor Changes
