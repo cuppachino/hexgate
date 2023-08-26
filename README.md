@@ -8,10 +8,6 @@
 
 [Hexgate](https://www.npmjs.com/package/hexgate) is a work-in-progress LCU suite. It is **not** endorsed by Riot Games. You can find out more about what that means [here](https://www.riotgames.com/en/legal). Thank you Riot ❤️ for providing a public API for us to play with. If you have any questions, feel free to join the [cuppachino discord](https://discord.gg/HEd72YnzVq).
 
-## Scope
-
-*   As of #19, Hexgate can be used in both ESM and CJS node environments. If you have any problems, please open an issue. Thanks!
-
 Please refer to the [wiki](https://github.com/cuppachino/hexgate/wiki) for more info.
 
 <!-- todo: add more info -->
@@ -59,10 +55,14 @@ const credentials = await poll(auth)
 Opt-out of safe authentication by explicity passing an `undefined` certifcate.
 
 ```ts
-import { auth } from "hexgate"
-
-// This throws if the client isn't running.
 const unsafeCredentials = await auth({ certificate: undefined })
+```
+
+Working with multiple clients? Get get `all` credentials.
+
+```ts
+const credentials = await auth({ all: true })
+const primaryCredentials = creds[0]
 ```
 
 Once you have the credentials, you can create a new [`Hexgate`](./src/modules/hexgate/index.ts) and [`LcuClient`](./src/modules/websocket/index.ts).
