@@ -16,7 +16,7 @@ function assertTokens(
 ): asserts tokens is AuthTokens {
   for (const token of AUTH_TOKENS) {
     if (token === 'certificate') continue
-    if (!tokens[token]) throw new MissingClientError()
+    if (!tokens?.[token]) throw new MissingClientError()
   }
 }
 
