@@ -21,7 +21,7 @@ export async function auth(
   options?: AuthOptions & { all?: undefined }
 ): Promise<Credentials>
 /**
- * Execute a shell command and extract `AuthTokens` from the League of Legends client process.
+ * Execute a shell command and extract `AuthTokens` from all League of Legends client processes.
  * @throws `InvalidPlatformError` if the platform is not Windows, MacOS, or Linux.
  * @throws `MissingClientError` if any required token is missing from all found clients, which indicates that the client is not running, cannot be found, or is being modified by another process.
  *
