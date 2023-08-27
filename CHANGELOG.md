@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.8.2
+
+### Patch Changes
+
+*   1a364ba: fix `auth` overloads
+
 ## 0.8.1
 
 ### Patch Changes
