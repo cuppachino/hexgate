@@ -98,3 +98,6 @@ export type {
 
 export type { Phantom, PhantomError, PhantomSymbol } from './types/phantom.js'
 export type { Err, IntoResult, Ok, Result } from './types/result.js'
+
+/// Misc Types
+export type { BaseLogger, LogFn } from './types/base-logger.js'
