@@ -49,6 +49,7 @@
     "@types/node": "^18.15.10",
     "@types/prettier": "^2.7.2",
     "@types/ws": "^8.5.4",
+    "colorix": "^2.0.2",
     "prettier": "^2.8.7",
     "remark": "^14.0.2",
     "remark-cli": "^11.0.0",
@@ -67,7 +68,6 @@
     "@cuppachino/openapi-fetch": "^2.1.2",
     "@cuppachino/type-space": "^2.0.0",
     "@type-challenges/utils": "^0.1.1",
-    "colorix": "^2.0.2",
     "node-fetch-commonjs": "^3.2.4",
     "ws": "^8.13.0"
   },
