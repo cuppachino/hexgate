@@ -33,6 +33,7 @@ export { poll } from './utils/poll.js'
 export { proxyFunction } from './utils/proxy-function.js'
 export { proxyFlyweight } from './utils/proxy-flyweight.js'
 export { result } from './utils/result.js'
+export { Heartbeat } from './utils/heartbeat.js'
 
 /// Errors
 export { HexgateError } from './errors/index.js'
