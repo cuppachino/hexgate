@@ -1,4 +1,3 @@
-import type { PartialSome } from '@cuppachino/type-space'
 import type { AUTH_TOKENS } from '../constants/tokens.js'
 
 /**
@@ -11,7 +10,11 @@ export type AuthToken = (typeof AUTH_TOKENS)[number]
  *
  * The certificate is not extracted from the client. It is either provided by the user, or defaults to the public certificate.
  */
-export type AuthTokens = Omit<Credentials, 'certificate'>
+export interface AuthTokens {
+  appPid: number
+  appPort: number
+  remotingAuthToken: string
+}
 
 /**
  * Options for the `auth` function.
@@ -20,7 +23,7 @@ export type AuthTokens = Omit<Credentials, 'certificate'>
  *
  * Alternatively, you can force "unsafe" authentication by explicitly setting `certificate` to `undefined`.
  */
-export type AuthOptions = {
+export interface AuthOptions {
   certificate?: string | undefined
 }
 
@@ -29,10 +32,6 @@ export type AuthOptions = {
  *
  * Without a certificate, "unsafe" authentication will be used.
  */
-export interface Credentials
-  extends PartialSome<
-    {
-      [Token in AuthToken]: Token extends 'appPid' | 'appPort' ? number : string
-    },
-    'certificate'
-  > {}
+export interface Credentials extends AuthTokens {
+  certificate?: string | undefined
+}
