@@ -42,6 +42,7 @@
     "websocket",
     "typescript"
   ],
+  "homepage": "https://github.com/cuppachino/hexgate#readme",
   "author": "Jacob Bergholtz <cuppachino.dev@gmail.com>",
   "license": "GPL-3.0",
   "devDependencies": {
