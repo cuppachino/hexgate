@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.9.3
+
+### Patch Changes
+
+*   af60626: fix Connection options' createRecipe/recipe error
+
 ## 0.9.2
 
 ### Patch Changes
