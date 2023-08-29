@@ -29,7 +29,7 @@ export interface ConnectionOptions<Logger extends BaseLogger | undefined> {
 
 export type ConnectionMethods<Logger extends BaseLogger, Recipe> = {
   onConnect: (con: SafeConnection<Logger, Recipe>) => void
-  onDisconnect: (discon: Connection<Logger, Recipe>) => void
+  onDisconnect: (discon: UnsafeConnection<Logger, Recipe>) => void
   onStatusChange: (status: ConnectionStatus, prev: ConnectionStatus) => void
 } & (
   | ({
@@ -61,6 +61,14 @@ export interface SafeConnection<Logger extends BaseLogger | undefined, Recipe>
   https: NonNullable<Connection<Logger, Recipe>['https']>
   credentials: NonNullable<Connection<Logger, Recipe>['credentials']>
   recipe: NonNullable<Recipe>
+}
+
+export interface UnsafeConnection<Logger extends BaseLogger | undefined, Recipe>
+  extends Connection<Logger, Recipe> {
+  ws: null
+  https: null
+  credentials: null
+  recipe: null
 }
 
 export class Connection<Logger extends BaseLogger | undefined, Recipe = null> {
@@ -98,7 +106,7 @@ export class Connection<Logger extends BaseLogger | undefined, Recipe = null> {
         }
         if (status === 'disconnected' && prev !== 'disconnected') {
           this.#options.onDisconnect?.(
-            this as this & Connection<ResolveLogger<Logger>, Recipe>
+            this as this & UnsafeConnection<ResolveLogger<Logger>, Recipe>
           )
         }
       }

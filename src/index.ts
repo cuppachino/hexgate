@@ -29,6 +29,7 @@ export type { ILcuClient } from './modules/websocket/index.js'
 export {
   Connection,
   type SafeConnection,
+  type UnsafeConnection,
   type ConnectionConfig,
   type ConnectionMethods,
   type ConnectionOptions,
@@ -39,6 +40,7 @@ export {
 /// Utilities
 export { extractData } from './utils/extract-data.js'
 export { identity } from './utils/identity.js'
+export { extractDefined } from './utils/extract-defined.js'
 export { mapDefined } from './utils/map-defined.js'
 export { poll } from './utils/poll.js'
 export { proxyFunction } from './utils/proxy-function.js'
