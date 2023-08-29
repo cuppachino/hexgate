@@ -63,7 +63,7 @@ export interface SafeConnection<Logger extends BaseLogger | undefined, Recipe>
   recipe: NonNullable<Recipe>
 }
 
-export class Connection<Logger extends BaseLogger | undefined, Recipe = {}> {
+export class Connection<Logger extends BaseLogger | undefined, Recipe = null> {
   #options: ConnectionOptions<ResolveLogger<Logger>> &
     Partial<ConnectionMethods<ResolveLogger<Logger>, Recipe>> = {
     interval: 1500,
