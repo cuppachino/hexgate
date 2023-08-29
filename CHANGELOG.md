@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.9.2
+
+### Patch Changes
+
+*   43a3ee3: Add homepage to package.json so README appears on nmpjs
+
 ## 0.9.1
 
 ### Patch Changes
