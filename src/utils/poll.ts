@@ -14,22 +14,25 @@ import { PollTimeoutError } from '../errors/poll-timeout.js'
  */
 export async function poll<T>(
   fn: () => Promise<T>,
-  interval = 5000,
-  max: number | undefined = undefined,
-  onRetry?: (n: number) => void,
-  _n = 0
+  interval = 2000,
+  max?: number,
+  onRetry?: (n: number) => void
 ): Promise<T> {
-  try {
-    return await fn()
-  } catch {
-    if (max !== undefined) {
-      if (max <= 0) {
-        throw new PollTimeoutError()
+  let attempts = 0
+  let result: T | null = null
+  while (result === null) {
+    try {
+      result = await fn()
+    } catch (e) {
+      if (max !== undefined) {
+        if (max <= 0) {
+          throw new PollTimeoutError()
+        }
+        max--
       }
-      max--
+      onRetry?.(attempts)
+      await new Promise((resolve) => setTimeout(resolve, interval))
     }
-    onRetry?.(_n)
-    await new Promise((resolve) => setTimeout(resolve, interval))
-    return poll(fn, interval, max, onRetry, _n + 1)
   }
+  return result
 }
