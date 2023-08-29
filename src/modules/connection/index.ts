@@ -1,4 +1,3 @@
-import type { PhantomError } from 'src/types/phantom.js'
 import type { BaseLogger } from '../../types/base-logger.js'
 import type { RecipeApi, RecipeFn } from '../../types/hexgate/recipe.js'
 import type { Credentials } from '../../types/tokens.js'
@@ -32,22 +31,14 @@ export type ConnectionMethods<Logger extends BaseLogger, Recipe> = {
   onDisconnect: (discon: UnsafeConnection<Logger, Recipe>) => void
   onStatusChange: (status: ConnectionStatus, prev: ConnectionStatus) => void
 } & (
-  | ({
+  | {
       createRecipe({ build, wrap, unwrap, once, result }: RecipeApi): Recipe
-    } & {
-      recipe: PhantomError<
-        never,
-        'createRecipe is already defined. You may choose between createRecipe and recipe, but you cannot use both.'
-      >
-    })
-  | ({
+      recipe: 'createRecipe is already defined. You may choose between createRecipe and recipe, but you cannot use both.'
+    }
+  | {
       recipe: RecipeFn<Recipe>
-    } & {
-      createRecipe: PhantomError<
-        never,
-        'recipe is already defined. You may choose between createRecipe and recipe, but you cannot use both.'
-      >
-    })
+      createRecipe: 'recipe is already defined. You may choose between createRecipe and recipe, but you cannot use both.'
+    }
 )
 
 export type ConnectionConfig<
