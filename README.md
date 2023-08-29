@@ -112,6 +112,68 @@ client.subscribe(
 
 > Note: Since many endpoints will subscribe you to multiple uris, its difficult to provide meaningful type inference for the data property. Import `LcuComponents` type when necessary and/or open a PR to improve typings - which would be greatly appreciated!
 
+## ⚡️ Connection
+
+The [`Connection`](./src/modules/connection/index.ts) class further abstracts `Hexgate` & `LcuClient` and handles authentication between client shutdowns. Configuration is optional.
+
+```ts
+const client = new Connection({
+  // Recipe API (createRecipe or recipe)
+  createRecipe({ build, wrap, unwrap }) {
+    const to = unwrap('should never error!')
+    return {
+      getCurrentSummoner: wrap(
+        build('/lol-summoner/v1/current-summoner').method('get').create()
+      )({
+        to
+      })
+    }
+  },
+  // Propagate status to browser windows.
+  onStatusChange(status) {
+    emit('status', status)
+  },
+  // Init
+  async onConnect(con) {
+    con.ws.subscribe('OnJsonApiEvent_lol-champ-select_v1_session', handleChampSelect)
+    const summoner = await con.recipe.getCurrentSummoner()
+    con.logger.info(summoner, `Welcome, ${summoner.displayName}`)
+  },
+  // Automatically reconnect
+  async onDisconnect(discon) {
+    await sleep(4000)
+    discon.connect()
+  },
+  // Authentication interval
+  interval: 2000,
+  // Bring any logger
+  logger: pino({
+    name: 'main' as const
+  })
+})
+
+client.connect()
+```
+
+The `Connection`'s implementation of the Recipe API comes in two flavors:
+
+```ts
+const recipe = createRecipe(({ build }) => ({/*...*/}))
+const client = new Connection({
+  recipe
+})
+```
+
+```ts
+const client = new Connection({
+  createRecipe({ build }) { return {/*...*/} }
+})
+```
+
+<p align='center'>
+  <img src="connection.excalidraw.png" width=600/>
+</p>
+
 ## Recipe API
 
 [`createRecipe`](./src/modules/hexgate/recipe.ts) is a higher-order function for transforming a request's parameters and response. It is a useful tool for morphing the LCU's API into your own. There are several ways to use the functions provided by the callback, and we'll take a look at each one.

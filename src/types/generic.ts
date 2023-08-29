@@ -86,3 +86,13 @@ export type Anyhow<A extends any[] = any[], R = any> = (...args: A) => R
 export type AsyncFn<A extends any[] = any[], R = any> = (
   ...args: A
 ) => Promise<R>
+
+/**
+ * Extract all properties from T that are not `undefined`
+ */
+export type ExtractDefined<T> = Pick<
+  T,
+  {
+    [K in keyof T]: T[K] extends undefined ? never : K
+  }[keyof T]
+>

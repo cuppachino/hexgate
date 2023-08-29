@@ -25,6 +25,17 @@ export { createRequestInit } from './modules/https/request-init.js'
 export { LcuClient, createLcuClient } from './modules/websocket/index.js'
 export type { ILcuClient } from './modules/websocket/index.js'
 
+/// Connection
+export {
+  Connection,
+  type SafeConnection,
+  type ConnectionConfig,
+  type ConnectionMethods,
+  type ConnectionOptions,
+  type ConnectionStatus,
+  type ResolveLogger
+} from './modules/connection/index.js'
+
 /// Utilities
 export { extractData } from './utils/extract-data.js'
 export { identity } from './utils/identity.js'
