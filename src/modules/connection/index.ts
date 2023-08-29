@@ -60,6 +60,7 @@ export interface SafeConnection<Logger extends BaseLogger | undefined, Recipe>
   ws: NonNullable<Connection<Logger, Recipe>['ws']>
   https: NonNullable<Connection<Logger, Recipe>['https']>
   credentials: NonNullable<Connection<Logger, Recipe>['credentials']>
+  recipe: NonNullable<Recipe>
 }
 
 export class Connection<Logger extends BaseLogger | undefined, Recipe = {}> {
@@ -72,7 +73,7 @@ export class Connection<Logger extends BaseLogger | undefined, Recipe = {}> {
   credentials: Credentials | null = null
   https: HttpsClient | null = null
   ws: WsClient | null = null
-  recipe: Recipe = {} as Recipe
+  recipe: Recipe | null = null
 
   get #recipe() {
     return this.#options.recipe as RecipeFn<Recipe> | undefined
@@ -136,13 +137,14 @@ export class Connection<Logger extends BaseLogger | undefined, Recipe = {}> {
       this.status.value = 'connecting'
       this.credentials = credentials
       this.https = new HttpsClient(credentials)
-      this.recipe = this.#recipe?.(this.https) ?? ({} as Recipe)
+      this.recipe = this.#recipe?.(this.https) ?? null
       this.#ping = Connection.#pingWith(this.https)
       this.#heartbeat.start()
     } else {
       this.status.value = 'disconnected'
       this.credentials = null
       this.https = null
+      this.recipe = null
       this.#ping = null
       this.ws = null
       this.#heartbeat.stop()
