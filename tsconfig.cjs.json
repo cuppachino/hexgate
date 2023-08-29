@@ -8,7 +8,7 @@
     ],
     "verbatimModuleSyntax": false,
     "module": "commonjs",
-    "moduleResolution": "nodenext",
+    "moduleResolution": "Node",
     "outDir": "dist/cjs"
   }
 }
