@@ -117,6 +117,8 @@ client.subscribe(
 The [`Connection`](./src/modules/connection/index.ts) class further abstracts `Hexgate` & `LcuClient` and handles authentication between client shutdowns. Configuration is optional.
 
 ```ts
+import { Connection } from 'hexgate'
+
 const client = new Connection({
   // Recipe API (createRecipe or recipe)
   createRecipe({ build, wrap, unwrap }) {
@@ -158,6 +160,8 @@ client.connect()
 The `Connection`'s implementation of the Recipe API comes in two flavors:
 
 ```ts
+import { Connection, createRecipe } from 'hexgate'
+
 const recipe = createRecipe(({ build }) => ({/*...*/}))
 const client = new Connection({
   recipe
@@ -165,6 +169,8 @@ const client = new Connection({
 ```
 
 ```ts
+import { Connection } from 'hexgate'
+
 const client = new Connection({
   createRecipe({ build }) { return {/*...*/} }
 })
