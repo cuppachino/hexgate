@@ -1,6 +1,6 @@
 import type { PhantomError } from 'src/types/phantom.js'
 import type { BaseLogger } from '../../types/base-logger.js'
-import type { RecipeApi } from '../../types/hexgate/recipe.js'
+import type { RecipeApi, RecipeFn } from '../../types/hexgate/recipe.js'
 import type { Credentials } from '../../types/tokens.js'
 import { extractDefined } from '../../utils/extract-defined.js'
 import { Heartbeat } from '../../utils/heartbeat.js'
@@ -41,7 +41,7 @@ export type ConnectionMethods<Logger extends BaseLogger, Recipe> = {
       >
     })
   | ({
-      recipe: (hexgate: HttpsClient) => Recipe
+      recipe: RecipeFn<Recipe>
     } & {
       createRecipe: PhantomError<
         never,
@@ -75,9 +75,7 @@ export class Connection<Logger extends BaseLogger | undefined, Recipe = {}> {
   recipe: Recipe = {} as Recipe
 
   get #recipe() {
-    return this.#options.recipe as
-      | ((hexgate: HttpsClient) => Recipe)
-      | undefined
+    return this.#options.recipe as RecipeFn<Recipe> | undefined
   }
 
   get logger() {
@@ -151,10 +149,10 @@ export class Connection<Logger extends BaseLogger | undefined, Recipe = {}> {
     }
   }
 
-  static #pingWith: (hexgate: HttpsClient) => () => Promise<{ ok: boolean }> =
-    createRecipe(({ build }) =>
+  static #pingWith: RecipeFn<() => Promise<{ ok: boolean }>> = createRecipe(
+    ({ build }) =>
       build('/lol-summoner/v1/current-summoner').method('get').create()
-    )
+  )
   #ping: (() => Promise<{ ok: boolean }>) | null = null
   #heartbeat = new Heartbeat(async () => {
     try {

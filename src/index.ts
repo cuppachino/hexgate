@@ -114,3 +114,10 @@ export type { Err, IntoResult, Ok, Result } from './types/result.js'
 
 /// Misc Types
 export type { BaseLogger, LogFn } from './types/base-logger.js'
+
+/// Recipe Types
+export type {
+  RecipeApi,
+  RecipeFn,
+  RecipeUtils
+} from './types/hexgate/recipe.js'
