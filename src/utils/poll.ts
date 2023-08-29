@@ -3,13 +3,13 @@ import { PollTimeoutError } from '../errors/poll-timeout.js'
 /**
  * Retry a function until an error is not thrown.
  * @param fn - The function to retry.
- * @param interval - The interval in milliseconds to wait between retries.
+ * @param interval - The interval in milliseconds to wait between retries. Default is 2000 ms.
  * @param max - The maximum number of retries. If undefined, will retry indefinitely.
  * @param onRetry - A function to execute after each failed attempt.
  *
  * @example
  * ```ts
- * const credentials = await poll(authenticate, 5000, 5, (n) => console.log(`attempt ${n}`))
+ * const credentials = await poll(authenticate, 2000, 5, (n) => console.log(`attempt ${n}`))
  * ```
  */
 export async function poll<T>(
