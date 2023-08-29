@@ -1,5 +1,5 @@
 ---
-"hexgate": minor
+"hexgate": patch
 ---
 
 transpiler bug fix
