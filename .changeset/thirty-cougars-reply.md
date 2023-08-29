@@ -1,0 +1,5 @@
+---
+"hexgate": minor
+---
+
+Feat Connection
