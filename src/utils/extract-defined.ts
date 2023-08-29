@@ -5,6 +5,6 @@ export function extractDefined<T extends Record<PropertyKey, unknown>>(
 ) {
   if (!obj) return {}
   return Object.fromEntries(
-    Object.entries(obj).filter(([k, v]) => v !== undefined)
+    Object.entries(obj).filter(([_, v]) => v !== undefined)
   ) as ExtractDefined<T>
 }
