@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.9.1
+
+### Patch Changes
+
+*   9cc507e: transpiler bug fix
+
 ## 0.9.0
 
 ### Minor Changes
