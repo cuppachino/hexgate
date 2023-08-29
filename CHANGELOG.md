@@ -1,5 +1,15 @@
 # hexgate
 
+## 0.9.0
+
+### Minor Changes
+
+*   390f91c: Feat Connection
+
+### Patch Changes
+
+*   952e47a: fix default overload type when used as callback
+
 ## 0.8.2
 
 ### Patch Changes
