@@ -25,14 +25,29 @@ export { createRequestInit } from './modules/https/request-init.js'
 export { LcuClient, createLcuClient } from './modules/websocket/index.js'
 export type { ILcuClient } from './modules/websocket/index.js'
 
+/// Connection
+export {
+  Connection,
+  type SafeConnection,
+  type UnsafeConnection,
+  type ConnectionConfig,
+  type ConnectionMethods,
+  type ConnectionOptions,
+  type ConnectionStatus,
+  type ResolveLogger
+} from './modules/connection/index.js'
+
 /// Utilities
 export { extractData } from './utils/extract-data.js'
 export { identity } from './utils/identity.js'
+export { extractDefined } from './utils/extract-defined.js'
 export { mapDefined } from './utils/map-defined.js'
 export { poll } from './utils/poll.js'
 export { proxyFunction } from './utils/proxy-function.js'
 export { proxyFlyweight } from './utils/proxy-flyweight.js'
 export { result } from './utils/result.js'
+export { Observable, type Observer } from './utils/observable.js'
+export { Heartbeat } from './utils/heartbeat.js'
 
 /// Errors
 export { HexgateError } from './errors/index.js'
@@ -98,3 +113,13 @@ export type {
 
 export type { Phantom, PhantomError, PhantomSymbol } from './types/phantom.js'
 export type { Err, IntoResult, Ok, Result } from './types/result.js'
+
+/// Misc Types
+export type { BaseLogger, LogFn } from './types/base-logger.js'
+
+/// Recipe Types
+export type {
+  RecipeApi,
+  RecipeFn,
+  RecipeUtils
+} from './types/hexgate/recipe.js'

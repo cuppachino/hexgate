@@ -46,9 +46,10 @@
   "license": "GPL-3.0",
   "devDependencies": {
     "@changesets/cli": "^2.26.1",
-    "@types/node": "^18.15.10",
+    "@types/node": "^18.17.12",
     "@types/prettier": "^2.7.2",
     "@types/ws": "^8.5.4",
+    "colorix": "^2.0.2",
     "prettier": "^2.8.7",
     "remark": "^14.0.2",
     "remark-cli": "^11.0.0",
@@ -60,14 +61,13 @@
     "rimraf": "^4.4.1",
     "tslib": "^2.5.0",
     "tsx": "^3.12.6",
-    "typescript": "^5.0.2",
+    "typescript": "^5.2.2",
     "vitest": "^0.29.7"
   },
   "dependencies": {
     "@cuppachino/openapi-fetch": "^2.1.2",
     "@cuppachino/type-space": "^2.0.0",
     "@type-challenges/utils": "^0.1.1",
-    "colorix": "^2.0.2",
     "node-fetch-commonjs": "^3.2.4",
     "ws": "^8.13.0"
   },
