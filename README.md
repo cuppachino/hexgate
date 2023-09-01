@@ -58,13 +58,6 @@ Opt-out of safe authentication by explicity passing an `undefined` certifcate.
 const unsafeCredentials = await auth({ certificate: undefined })
 ```
 
-Working with multiple clients? Get get `all` credentials.
-
-```ts
-const credentials = await auth({ all: true })
-const primaryCredentials = creds[0]
-```
-
 Once you have the credentials, you can create a new [`Hexgate`](./src/modules/hexgate/index.ts) and [`LcuClient`](./src/modules/websocket/index.ts).
 
 ```ts
@@ -72,6 +65,22 @@ import { Hexgate, LcuClient } from "hexgate"
 
 const hexgate = new Hexgate(credentials)
 const client = new LcuClient(credentials)
+```
+
+Working with multiple clients? Get get `all` credentials.
+
+```ts
+import { auth, createHexgate, createLcuClient, poll, zip } from 'hexgate'
+
+const credentials = await poll(() => auth({ all: true }))
+
+// ~ some multi-connection interface
+const clients = new Set(
+  zip(
+    credentials.map(createHexgate),
+    credentials.map(createLcuClient)
+  )
+)
 ```
 
 ## Builder API
