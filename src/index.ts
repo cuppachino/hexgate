@@ -46,6 +46,7 @@ export { poll } from './utils/poll.js'
 export { proxyFunction } from './utils/proxy-function.js'
 export { proxyFlyweight } from './utils/proxy-flyweight.js'
 export { result } from './utils/result.js'
+export { zip, type Zip } from './utils/zip.js'
 export { Observable, type Observer } from './utils/observable.js'
 export { Heartbeat } from './utils/heartbeat.js'
 
