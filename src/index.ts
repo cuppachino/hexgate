@@ -51,6 +51,9 @@ export {
   type ResolveLogger
 } from './modules/connection/index.js'
 
+/// LcuValue
+export { LcuValue, type SafeLcuValue } from './modules/connection/lcu-value.js'
+
 /// Utilities
 export { extractData } from './utils/extract-data.js'
 export { identity } from './utils/identity.js'
