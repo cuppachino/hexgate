@@ -1,5 +1,15 @@
 # hexgate
 
+## 0.11.0
+
+### Minor Changes
+
+*   46f8371: Show how to export recipes
+
+### Patch Changes
+
+*   16a458c: Export LcuEventType
+
 ## 0.10.0
 
 ### Minor Changes
