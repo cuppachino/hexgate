@@ -24,6 +24,9 @@
     "rootDir": "src",
     "outDir": "dist/esm"
   },
+  "types": [
+    "@cuppachino/openapi-fetch", "node-fetch-commonjs"
+  ],
   "include": [
     "src"
   ],

@@ -307,6 +307,33 @@ const summonersRecipe = createRecipe(({ build, wrap, unwrap }) => ({
 }))
 ```
 
+### Exporting Recipes
+
+If you want to export a recipe, you might get a type error. This is because the return type of `createRecipe` is inferred with references to `@cuppachino/openapi-fetch` and `node-fetch-commonjs`. To fix this, install the packages as dev dependencies and apply one of the following solutions to your `tsconfig.json`:
+
+#### Map paths
+
+```json
+{
+  "compilerOptions": {
+    "paths": {
+      "@cuppachino/openapi-fetch": ["./node_modules/@cuppachino/openapi-fetch"],
+      "node-fetch-commonjs": ["./node_modules/node-fetch-commonjs"]
+    }
+  }
+}
+```
+
+#### Add types to the global scope
+
+```json
+{
+  "compilerOptions": {
+    "types": ["@cuppachino/openapi-fetch", "node-fetch-commonjs"]
+  }
+}
+```
+
 ## Development
 
 This package uses [pnpm](https://pnpm.io) to manage dependencies. If you don't have pnpm, it can be installed globally using `npm`, `yarn`, `brew`, or `scoop`, as well as some other options. Check out the [pnpm documentation](https://pnpm.io/installation) for more information.
