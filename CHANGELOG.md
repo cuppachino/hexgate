@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.11.1
+
+### Patch Changes
+
+*   29626dc: Update symbols
+
 ## 0.11.0
 
 ### Minor Changes
