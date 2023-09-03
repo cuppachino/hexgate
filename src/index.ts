@@ -90,7 +90,11 @@ export type {
 } from './types/dto/game-input-settings.js'
 export type { GameServerRegion } from './types/dto/game-server-region.js'
 export type { LcuResponseCode } from './types/dto/lcu-response-code.js'
-export type { LcuEvent, LcuEventLookup } from './types/dto/lcu-event-lookup.js'
+export type {
+  LcuEvent,
+  LcuEventType,
+  LcuEventLookup
+} from './types/dto/lcu-event-lookup.js'
 export type * from './types/dto/lobby.js'
 
 /// OpenAPI Types

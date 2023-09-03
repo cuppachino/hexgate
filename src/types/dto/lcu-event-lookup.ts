@@ -4522,3 +4522,5 @@ export interface LcuEventLookup {
 }
 
 export type LcuEvent = keyof LcuEventLookup
+
+export type LcuEventType = 'Create' | 'Update' | 'Delete'
