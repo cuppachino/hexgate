@@ -1,0 +1,5 @@
+---
+'hexgate': patch
+---
+
+Export LcuEventType
