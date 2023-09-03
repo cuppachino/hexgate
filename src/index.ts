@@ -15,11 +15,22 @@ export {
   extractHexgateSymbol,
   hexgateSymbol
 } from './modules/hexgate/symbol.js'
+
+/// Recipes
 export {
   createRecipe,
-  extractRecipeSymbol,
-  recipeSymbol
-} from './modules/hexgate/recipe.js'
+  type RecipeApiFn,
+  type RecipeCreator,
+  type RecipeConstructor,
+  type Recipe,
+  isRecipeFn
+} from './modules/recipe/index.js'
+export { recipeSymbol, extractRecipeSymbol } from './modules/recipe/symbol.js'
+export {
+  type FromDefaultArgs,
+  RecipeApi,
+  type RecipeUtils
+} from './modules/recipe/api.js'
 
 /// HTTPS
 export { HttpsAgent } from './modules/https/agent.js'
@@ -40,6 +51,9 @@ export {
   type ConnectionStatus,
   type ResolveLogger
 } from './modules/connection/index.js'
+
+/// LcuValue
+export { LcuValue, type SafeLcuValue } from './modules/connection/lcu-value.js'
 
 /// Utilities
 export { extractData } from './utils/extract-data.js'
@@ -125,10 +139,4 @@ export type { Err, IntoResult, Ok, Result } from './types/result.js'
 
 /// Misc Types
 export type { BaseLogger, LogFn } from './types/base-logger.js'
-
-/// Recipe Types
-export type {
-  RecipeApi,
-  RecipeFn,
-  RecipeUtils
-} from './types/hexgate/recipe.js'
+export type { Update } from './types/update.js'

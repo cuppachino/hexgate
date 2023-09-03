@@ -307,7 +307,7 @@ const summonersRecipe = createRecipe(({ build, wrap, unwrap }) => ({
 }))
 ```
 
-### Exporting Recipes
+### Exporting recipes
 
 If you want to export a recipe, you might get a type error. This is because the return type of `createRecipe` is inferred with references to `@cuppachino/openapi-fetch` and `node-fetch-commonjs`. To fix this, install the packages as dev dependencies and apply one of the following solutions to your `tsconfig.json`:
 
@@ -332,6 +332,47 @@ If you want to export a recipe, you might get a type error. This is because the 
     "types": ["@cuppachino/openapi-fetch", "node-fetch-commonjs"]
   }
 }
+```
+
+## Additional features
+
+### LcuValue
+
+The [`LcuValue`](./src/modules/lcu-value/index.ts) class implements [`Update`](./src/types/update.ts) and [`RecipeConstructor`](./src/modules/recipe/index.ts#L41). It's useful for caching data retrieved from the LCU.
+
+```ts
+import { Connection, LcuValue, type OperationResponses } from 'hexgate'
+
+type LolOwnedChampionsMinimal =
+  OperationResponses<'GetLolChampionsV1OwnedChampionsMinimal'>
+
+class ChampionLookup extends LcuValue<LolOwnedChampionsMinimal> {
+  constructor() {
+    super(({ build, unwrap }) =>
+      unwrap(
+        build('/lol-champions/v1/owned-champions-minimal')
+          .method('get')
+          .create()
+      )
+    )
+  }
+
+  championById(id: string | number | undefined) {
+    return this.inner?.find((c) => c.id === Number(id ?? 0))
+  }
+}
+
+const champions = new ChampionLookup()
+
+const client = new Connection({
+  async onConnect(con) {
+    await champions.update(con.https)
+    con.logger.info(
+    champions.championById(1) satisfies
+        | Partial<LolOwnedChampionsMinimal>[number]
+    )
+  }
+})
 ```
 
 ## Development
