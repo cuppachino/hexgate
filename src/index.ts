@@ -15,11 +15,21 @@ export {
   extractHexgateSymbol,
   hexgateSymbol
 } from './modules/hexgate/symbol.js'
+
+/// Recipes
 export {
   createRecipe,
-  extractRecipeSymbol,
-  recipeSymbol
-} from './modules/hexgate/recipe.js'
+  type RecipeApiFn,
+  type RecipeCreator,
+  type Recipe,
+  isRecipeFn
+} from './modules/recipe/index.js'
+export { recipeSymbol, extractRecipeSymbol } from './modules/recipe/symbol.js'
+export {
+  type FromDefaultArgs,
+  RecipeApi,
+  type RecipeUtils
+} from './modules/recipe/api.js'
 
 /// HTTPS
 export { HttpsAgent } from './modules/https/agent.js'
