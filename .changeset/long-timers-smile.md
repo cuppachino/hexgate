@@ -1,0 +1,5 @@
+---
+"hexgate": patch
+---
+
+Update symbols
