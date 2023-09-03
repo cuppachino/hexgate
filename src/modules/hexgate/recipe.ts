@@ -22,7 +22,7 @@ import type { Hexgate } from './index.js'
 export function createRecipe<T extends Hexgate, U>(
   api: ({ build, wrap, unwrap, once, result }: RecipeApi) => U
 ) {
-  return (hexgate: T): U =>
+  const recipeFn = (hexgate: T): U =>
     api({
       build: hexgate['build'],
       wrap,
@@ -30,4 +30,19 @@ export function createRecipe<T extends Hexgate, U>(
       once,
       result
     })
+  recipeFn[recipeSymbol] = Symbol('unique identifier for recipe')
+  return recipeFn
 }
+
+export const recipeSymbol: unique symbol = Symbol(
+  'internal identifier for recipes created with createRecipe'
+)
+
+export const extractRecipeSymbol = <T extends Record<PropertyKey, any>>(
+  value: T
+) =>
+  Reflect.get(value, recipeSymbol, value) as T extends {
+    [recipeSymbol]: infer U
+  }
+    ? U
+    : unknown
