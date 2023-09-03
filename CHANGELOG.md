@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.12.0
+
+### Minor Changes
+
+*   fc6677e: Refactor Recipes, add LcuValue, improve typings in IDE
+
 ## 0.11.1
 
 ### Patch Changes
