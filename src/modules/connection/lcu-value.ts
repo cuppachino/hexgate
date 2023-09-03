@@ -40,13 +40,14 @@ export class LcuValue<T>
   /**
    * Update the value.
    */
-  async update(httpsClient: Hexgate | null): Promise<void> {
+  async update(httpsClient: Hexgate | null) {
     if (httpsClient === null) {
       this.inner = null
     } else {
       const inner = await this.recipe(httpsClient)()
       this.inner = inner
     }
+    return this
   }
 
   /**
