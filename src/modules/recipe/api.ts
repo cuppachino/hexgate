@@ -21,16 +21,16 @@ export type FromDefaultArgs = [
 export interface RecipeUtils {
   build: HexgateBuild
   wrap: typeof wrap
-  unwrap<T extends (...args: any[]) => Promise<ApiResponse<any>>>(
-    fn: T
-  ): (...args: Parameters<T>) => Promise<T>
+  unwrap<T, A extends any[]>(
+    fn: (...args: A) => Promise<ApiResponse<T>>
+  ): (...args: Parameters<typeof fn>) => Promise<T>
   once: typeof once
   result: typeof result
   from(): FromDefaultArgs
   to<T>(response: Promise<ApiResponse<T>>): Promise<T>
 }
 
-export class RecipeApi implements RecipeUtils {
+export class RecipeApi {
   /**
    * The build method of a Hexgate instance.
    */
@@ -50,8 +50,8 @@ export class RecipeApi implements RecipeUtils {
   /**
    * Create a new function that extracts the data from the response of the supplied function.
    */
-  unwrap<T extends (...args: any[]) => Promise<ApiResponse<any>>>(fn: T) {
-    return async (...args: Parameters<T>): Promise<T> => {
+  unwrap<T, A extends any[]>(fn: (...args: A) => Promise<ApiResponse<T>>) {
+    return async (...args: Parameters<typeof fn>): Promise<T> => {
       const response = await fn(...args)
       return response.data
     }
