@@ -21,6 +21,7 @@ export {
   createRecipe,
   type RecipeApiFn,
   type RecipeCreator,
+  type RecipeConstructor,
   type Recipe,
   isRecipeFn
 } from './modules/recipe/index.js'

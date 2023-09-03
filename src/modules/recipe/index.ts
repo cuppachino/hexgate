@@ -21,6 +21,30 @@ export type RecipeApiFn<T> = (api: RecipeUtils) => T
 export type RecipeCreator<T> = (api: RecipeUtils) => Recipe<T>
 
 /**
+ * Example constructor for accepting either a recipe or a recipe api function.
+ * @example
+ * ```ts
+ * class LcuValue<T> implements RecipeConstructor<T> {
+ *   protected recipe: Recipe<() => Promise<T>>
+ *   constructor(recipe: Recipe<() => Promise<T>>)
+ *   constructor(api: RecipeApiFn<() => Promise<T>>)
+ *   constructor(recipe: Recipe<() => Promise<T>> | RecipeApiFn<() => Promise<T>>) {
+ *     if (!isRecipeFn<() => Promise<T>>(recipe)) {
+ *       recipe = createRecipe(recipe)
+ *     }
+ *     this.recipe = recipe
+ *   }
+ * }
+ * ```
+ * @see [LcuValue](../connection/lcu-value.ts)
+ */
+export declare abstract class RecipeConstructor<T> {
+  constructor(recipe: Recipe<() => Promise<T>>)
+  constructor(api: RecipeApiFn<() => Promise<T>>)
+  constructor(recipe: Recipe<() => Promise<T>> | RecipeApiFn<() => Promise<T>>)
+}
+
+/**
  * Check if a function is a recipe created with `createRecipe`.
  */
 export function isRecipeFn<T>(fn: unknown): fn is Recipe<T> {
