@@ -1,5 +1,10 @@
-import type { UnknownFunction } from '../types/generic.js'
-import { identity } from './identity.js'
+import type { Assert } from '@cuppachino/type-space'
+type MaybeAsync<T> = T | Promise<T>
+type MaybeAwaited<T> = T extends Promise<infer U> ? Awaited<U> : T
+type Fallback<T, U> = [undefined] extends [T] ? U : T
+type Fn<From, FromShouldBe, To> = (
+  ...args: Assert<Fallback<MaybeAwaited<From>, FromShouldBe>, any[]>
+) => To
 
 /**
  * Proxy a function, and optionally transform its parameters and/or return types by supplying `from` and `to` functions.
@@ -26,52 +31,60 @@ import { identity } from './identity.js'
  * ) => string
  * ```
  */
-export function proxyFunction<Fn extends UnknownFunction>(fn: Fn) {
-  return <
-    FromParams extends undefined | ((...args: any) => Parameters<Fn>) = (
-      ...args: Parameters<Fn>
-    ) => Parameters<Fn>,
-    ToReturn = ReturnType<Fn>
-  >(
-    {
-      from,
-      to = identity
-    }: {
-      from?: FromParams extends (...args: Parameters<Fn>) => Parameters<Fn>
-        ? FromParams
-        : FromParams extends (...args: any[]) => Parameters<Fn>
-        ? FromParams
-        : never
-      to?: (result: ReturnType<Fn>) => ToReturn
-    } = {
-      to: identity
-    }
-  ) => {
-    return new Proxy(
-      fn as FromParams extends undefined
-        ? (...args: Parameters<Fn>) => ToReturn
-        : FromParams extends (...args: Parameters<Fn>) => Parameters<Fn>
-        ? (...args: Parameters<FromParams>) => ToReturn
-        : FromParams extends (...args: any[]) => Parameters<Fn>
-        ? (...args: Parameters<FromParams>) => ToReturn
-        : Fn,
-
-      {
-        apply: (
-          target,
-          thisArg,
-          args: FromParams extends undefined
-            ? Parameters<Fn>
-            : FromParams extends (...args: Parameters<Fn>) => Parameters<Fn>
-            ? Parameters<FromParams>
-            : FromParams extends (...args: any[]) => Parameters<Fn>
-            ? Parameters<FromParams>
-            : Parameters<Fn>
-        ) =>
-          Reflect.apply(to, thisArg, [
-            Reflect.apply(target, thisArg, from?.(...(args as any[])) ?? args)
+export function proxyFunction<T, A extends any[]>(fn: (...args: A) => T) {
+  return function <From extends MaybeAsync<any[]> | undefined, To>({
+    from,
+    to
+  }: Partial<{
+    from(...args: Parameters<Fn<From, A, To>>): A | Promise<A>
+    to(response: T): To
+  }>): (...args: Parameters<Fn<From, A, To>>) => To {
+    if (from && to) {
+      return new Proxy(fn, {
+        async apply(target, thisArg, argArray) {
+          return Reflect.apply(to, thisArg, [
+            Reflect.apply(
+              target,
+              thisArg,
+              await from(
+                ...((await Promise.resolve(argArray)) as Assert<
+                  Fallback<MaybeAwaited<From>, A>,
+                  any[]
+                >)
+              )
+            )
           ])
-      }
-    )
+        }
+      }) as unknown as Fn<From, A, To>
+    } else if (from && !to) {
+      return new Proxy(fn, {
+        async apply(target, thisArg, argArray) {
+          return Reflect.apply(
+            target,
+            thisArg,
+            await Promise.resolve(
+              from(
+                ...((await Promise.resolve(argArray)) as Assert<
+                  Fallback<MaybeAwaited<From>, A>,
+                  any[]
+                >)
+              )
+            )
+          )
+        }
+      }) as unknown as Fn<From, A, To>
+    } else if (!from && to) {
+      return new Proxy(fn, {
+        apply(target, thisArg, argArray) {
+          return Reflect.apply(
+            to,
+            thisArg,
+            Reflect.apply(target, thisArg, argArray)
+          )
+        }
+      }) as unknown as Fn<From, A, To>
+    } else {
+      return fn as unknown as Fn<From, A, To>
+    }
   }
 }
