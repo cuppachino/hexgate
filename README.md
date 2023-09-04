@@ -188,7 +188,7 @@ const client = new Connection({
 
 ## Recipe API
 
-[`createRecipe`](./src/modules/hexgate/recipe.ts) is a higher-order function for transforming a request's parameters and response. It is a useful tool for morphing the LCU's API into your own. There are several ways to use the functions provided by the callback, and we'll take a look at each one.
+[`createRecipe`](./src/modules/recipe/index.ts#L78) is a higher-order function for transforming a request's parameters and response. It is a useful tool for morphing the LCU's API into your own. There are several ways to use the functions provided by the callback, and we'll take a look at each one.
 
 ### Intro
 
@@ -261,7 +261,7 @@ const summonersRecipe = createRecipe(({ build, wrap, from, to, unwrap }) => ({
 
 ### ⚒️ `Recipe`, `RecipeApiFn`, and `CreateWithRecipe`
 
-Some features have options that accept a `Recipe`, the product of `createRecipe`, or a `RecipeApiFn`, the api argument expected by `createRecipe`. You can achieve similar functionality in your own code by extending `CreateWithRecipe` or implementing its overloaded constructor signature.
+Some features have options that accept a [`Recipe`](./src/modules/recipe/index.ts#L8), the product of `createRecipe`, or a [`RecipeApiFn`](./src/modules/recipe/index.ts#16), the api argument expected by `createRecipe`. You can achieve similar functionality in your own code by extending [`CreateWithRecipe`](./src/modules/recipe/index.ts#L40) or implementing its overloaded constructor signature.
 
 ```ts
 import type { CreateWithRecipe } from 'hexgate'
@@ -302,7 +302,7 @@ If you want to export a recipe, you might get a type error. This is because the 
 
 ### LcuValue
 
-The [`LcuValue`](./src/modules/lcu-value/index.ts) class implements [`Update`](./src/types/update.ts) and [`RecipeConstructor`](./src/modules/recipe/index.ts#L41). It's useful for caching data retrieved from the LCU.
+The [`LcuValue`](./src/modules/lcu-value/index.ts) class implements [`Update`](./src/types/update.ts) and [`CreateWithRecipe`](./src/modules/recipe/index.ts#L40). It's useful for caching data retrieved from the LCU.
 
 ```ts
 import { Connection, LcuValue, type OperationResponses } from 'hexgate'
