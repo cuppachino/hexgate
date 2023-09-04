@@ -21,9 +21,9 @@ export {
   createRecipe,
   type RecipeApiFn,
   type RecipeCreator,
-  type RecipeConstructor,
   type Recipe,
-  isRecipeFn
+  isRecipeFn,
+  CreateWithRecipe
 } from './modules/recipe/index.js'
 export { recipeSymbol, extractRecipeSymbol } from './modules/recipe/symbol.js'
 export {
