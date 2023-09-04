@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.13.6
+
+### Patch Changes
+
+*   f376a10: fix commonjs polyfill
+
 ## 0.13.5
 
 ### Patch Changes
