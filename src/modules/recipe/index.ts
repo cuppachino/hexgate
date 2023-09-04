@@ -21,10 +21,10 @@ export type RecipeApiFn<T> = (api: RecipeUtils) => T
 export type RecipeCreator<T> = (api: RecipeUtils) => Recipe<T>
 
 /**
- * Example constructor for accepting either a recipe or a recipe api function.
+ * Base class that can be constructed with either a recipe or a recipe api function.
  * @example
  * ```ts
- * class LcuValue<T> implements RecipeConstructor<T> {
+ * class CreateWithRecipe<T> {
  *   protected recipe: Recipe<() => Promise<T>>
  *   constructor(recipe: Recipe<() => Promise<T>>)
  *   constructor(api: RecipeApiFn<() => Promise<T>>)
@@ -36,12 +36,20 @@ export type RecipeCreator<T> = (api: RecipeUtils) => Recipe<T>
  *   }
  * }
  * ```
- * @see [LcuValue](../connection/lcu-value.ts)
  */
-export declare abstract class RecipeConstructor<T> {
+export class CreateWithRecipe<T> {
+  protected recipe: Recipe<() => Promise<T>>
   constructor(recipe: Recipe<() => Promise<T>>)
   constructor(api: RecipeApiFn<() => Promise<T>>)
   constructor(recipe: Recipe<() => Promise<T>> | RecipeApiFn<() => Promise<T>>)
+  constructor(
+    recipe: Recipe<() => Promise<T>> | RecipeApiFn<() => Promise<T>>
+  ) {
+    if (!isRecipeFn<() => Promise<T>>(recipe)) {
+      recipe = createRecipe(recipe)
+    }
+    this.recipe = recipe
+  }
 }
 
 /**
@@ -71,7 +79,7 @@ export function createRecipe<T>(
   api:
     | (({ build, wrap, from, to, unwrap, once, result }: RecipeUtils) => T)
     | RecipeApiFn<T>
-) {
+): Recipe<T> {
   const recipeFn = (hexgate: Hexgate) => api(new RecipeApi(hexgate))
   recipeFn[recipeSymbol] = Symbol('unique identifier for recipe')
   return recipeFn

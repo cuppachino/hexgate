@@ -1,12 +1,6 @@
-import {
-  createRecipe,
-  isRecipeFn,
-  type RecipeApiFn,
-  type Recipe,
-  RecipeConstructor
-} from '../recipe/index.js'
 import type { Update } from '../../types/update.js'
 import type { Hexgate } from '../hexgate/index.js'
+import { CreateWithRecipe } from '../recipe/index.js'
 
 /**
  * Non-nullable version of `LcuValue`. This means that the `inner` property is guaranteed to be non-null.
@@ -21,21 +15,10 @@ export interface SafeLcuValue<T> extends LcuValue<T> {
  * @method `update` - Either fetches the value from the LCU, or nullifies the `inner` value.
  */
 export class LcuValue<T>
-  implements Update<SafeLcuValue<T>, Hexgate>, RecipeConstructor<T>
+  extends CreateWithRecipe<T>
+  implements Update<SafeLcuValue<T>, Hexgate>
 {
-  protected recipe: Recipe<() => Promise<T>>
   public inner: T | null = null
-
-  constructor(recipe: Recipe<() => Promise<T>>)
-  constructor(api: RecipeApiFn<() => Promise<T>>)
-  constructor(
-    recipe: Recipe<() => Promise<T>> | RecipeApiFn<() => Promise<T>>
-  ) {
-    if (!isRecipeFn<() => Promise<T>>(recipe)) {
-      recipe = createRecipe(recipe)
-    }
-    this.recipe = recipe
-  }
 
   /**
    * Update the value.
@@ -78,9 +61,3 @@ export class LcuValue<T>
     return undefined
   }
 }
-
-new LcuValue(({ build, unwrap }) =>
-  unwrap(
-    build('/lol-champions/v1/owned-champions-minimal').method('get').create()
-  )
-)
