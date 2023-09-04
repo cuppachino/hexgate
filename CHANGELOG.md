@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.14.0
+
+### Minor Changes
+
+*   64c9bf7: Support cjs for real this time
+
 ## 0.13.7
 
 ### Patch Changes
