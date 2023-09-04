@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.13.5
+
+### Patch Changes
+
+*   fcd5fdd: don't pollute global scope
+
 ## 0.13.4
 
 ### Patch Changes
