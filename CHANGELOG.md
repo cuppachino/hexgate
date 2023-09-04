@@ -1,5 +1,15 @@
 # hexgate
 
+## 0.13.0
+
+### Minor Changes
+
+*   5dcaded: feat CreateWithRecipe remove RecipeConstructor
+
+### Patch Changes
+
+*   6b2d3fa: Update README.md
+
 ## 0.12.1
 
 ### Patch Changes
