@@ -1,4 +1,4 @@
-import { HexgateError } from './index.js'
+import { HexgateError } from './base-error.js'
 
 /**
  * If the client credentials cannot be found, this error is thrown.

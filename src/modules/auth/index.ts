@@ -43,6 +43,6 @@ export async function auth(
   if (options?.all) {
     return tokenList
   } else {
-    return tokenList[0]
+    return tokenList[0]!
   }
 }

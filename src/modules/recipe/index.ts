@@ -84,3 +84,8 @@ export function createRecipe<T>(
   recipeFn[recipeSymbol] = Symbol('unique identifier for recipe')
   return recipeFn
 }
+
+export default createRecipe
+
+export * from './api.js'
+export * from './symbol.js'

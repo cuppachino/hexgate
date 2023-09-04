@@ -1,6 +1,6 @@
 import nodeFetch, { Headers, Request, Response } from 'node-fetch-commonjs'
 
-globalThis.fetch = nodeFetch.default
+globalThis.fetch = nodeFetch
 globalThis.Headers = Headers
 globalThis.Request = Request
 globalThis.Response = Response
@@ -11,7 +11,7 @@ declare global {
      * `node-fetch-commonjs` pollyfill.
      * @see {@link fetch | fetch}
      */
-    var fetch: typeof nodeFetch.default
+    var fetch: typeof nodeFetch
     /**
      * `node-fetch-commonjs` pollyfill.
      * @see {@link Headers | Headers}

@@ -1,4 +1,4 @@
-import { HexgateError } from './index.js'
+import { HexgateError } from './base-error.js'
 
 /**
  * Thrown when the maximum number of retries is exceeded.

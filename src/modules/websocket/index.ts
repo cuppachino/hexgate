@@ -1,5 +1,5 @@
 import type { ClientRequestArgs } from 'http'
-import WebSocket from 'ws'
+import { WebSocket, type RawData, type ClientOptions } from 'ws'
 import type { Credentials } from '../../types/tokens.js'
 import { createHeaders } from '../auth/headers.js'
 import type {
@@ -53,25 +53,19 @@ export class LcuClient extends WebSocket implements ILcuClient {
       headers: createHeaders(credentials),
       rejectUnauthorized: credentials.certificate ? true : false,
       ca: credentials.certificate
-    } satisfies WebSocket.ClientOptions | ClientRequestArgs | undefined
+    } satisfies ClientOptions | ClientRequestArgs | undefined
     super(url, options)
 
     this.eventListeners = {}
     this.addListener('message', this.publish.bind(this))
   }
 
-  private publish(data: WebSocket.RawData) {
+  private publish(data: RawData) {
     const [eventCode, eventType, eventData] = (() => {
       try {
         const json = JSON.parse(data.toString())
         if (json[0] === 8) {
-          return json as any as [
-            8,
-            LcuEvent,
-            any
-            // ! This is looks like a bug with TypeScript. The type collapses to `never` and locks up the TS server, so I'm using `any` instead.
-            // ! I noticed this speeds up inference for `data` in `subscribe` by a lot.
-          ]
+          return json as any as [8, LcuEvent, any]
         }
       } catch (error) {
         // console.error(error)

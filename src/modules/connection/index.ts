@@ -173,3 +173,7 @@ export class Connection<Logger extends BaseLogger | undefined, R = null>
     }
   }, this.#options.interval)
 }
+
+export default Connection
+
+export * from './lcu-value.js'
