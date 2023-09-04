@@ -77,7 +77,7 @@ export function isRecipeFn<T>(fn: unknown): fn is Recipe<T> {
  */
 export function createRecipe<T>(
   api:
-    | (({ build, wrap, from, to, unwrap, once, result }: RecipeUtils) => T)
+    | (({ build, wrap, to, unwrap, ...api }: RecipeUtils) => T)
     | RecipeApiFn<T>
 ): Recipe<T> {
   const recipeFn = (hexgate: Hexgate) => api(new RecipeApi(hexgate))

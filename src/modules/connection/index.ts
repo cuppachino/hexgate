@@ -34,7 +34,7 @@ export type ConnectionMethods<Logger extends BaseLogger, R> = {
   onStatusChange: (status: ConnectionStatus, prev: ConnectionStatus) => void
 } & (
   | {
-      createRecipe({ build, wrap, unwrap, once, result }: RecipeApi): R
+      createRecipe({ build, wrap, to, unwrap, ...api }: RecipeApi): R
       recipe: 'createRecipe is already defined. You may choose between createRecipe and recipe, but you cannot use both.'
     }
   | {
