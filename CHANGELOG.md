@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.13.1
+
+### Patch Changes
+
+*   a74ffb4: Replace absolute import paths
+
 ## 0.13.0
 
 ### Minor Changes
