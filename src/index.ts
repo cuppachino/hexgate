@@ -69,7 +69,7 @@ export { Observable, type Observer } from './utils/observable.js'
 export { Heartbeat } from './utils/heartbeat.js'
 
 /// Errors
-export { HexgateError } from './errors/index.js'
+export { HexgateError } from './errors/base-error.js'
 export { InvalidPlatformError } from './errors/invalid-platform.js'
 export { MissingClientError } from './errors/missing-client.js'
 export { PollTimeoutError } from './errors/poll-timeout.js'

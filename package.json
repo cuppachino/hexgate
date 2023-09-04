@@ -8,17 +8,74 @@
   },
   "description": "API wrapper for the League of Legends LCU",
   "type": "module",
-  "main": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "main": "dist/cjs/index.js",
   "exports": {
-    "types": "./dist/esm/index.d.ts",
-    "import": "./dist/esm/index.js",
-    "require": "./dist/cjs/index.cjs",
-    "default": "./dist/cjs/index.cjs"
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./utils": {
+      "import": "./dist/esm/utils/index.js",
+      "require": "./dist/cjs/utils/index.js"
+    },
+    "./utils/*": {
+      "import": "./dist/esm/utils/*",
+      "require": "./dist/cjs/utils/*"
+    },
+    "./auth": {
+      "import": "./dist/esm/modules/auth/index.js",
+      "require": "./dist/cjs/modules/auth/index.js"
+    },
+    "./auth/*": {
+      "import": "./dist/esm/modules/auth/*",
+      "require": "./dist/cjs/modules/auth/*"
+    },
+    "./connection": {
+      "import": "./dist/esm/modules/connection/index.js",
+      "require": "./dist/cjs/modules/connection/index.js"
+    },
+    "./connection/*": {
+      "import": "./dist/esm/modules/connection/*",
+      "require": "./dist/cjs/modules/connection/*"
+    },
+    "./hexgate": {
+      "import": "./dist/esm/modules/hexgate/index.js",
+      "require": "./dist/cjs/modules/hexgate/index.js"
+    },
+    "./https": {
+      "import": "./dist/esm/modules/https/index.js",
+      "require": "./dist/cjs/modules/https/index.js"
+    },
+    "./ws": {
+      "import": "./dist/esm/modules/websocket/index.js",
+      "require": "./dist/cjs/modules/websocket/index.js"
+    },
+    "./ws/*": {
+      "import": "./dist/esm/modules/websocket/*",
+      "require": "./dist/cjs/modules/websocket/*"
+    },
+    "./recipe": {
+      "import": "./dist/esm/modules/recipe/index.js",
+      "require": "./dist/cjs/modules/recipe/index.js"
+    },
+    "./recipe/*": {
+      "import": "./dist/esm/modules/recipe/*",
+      "require": "./dist/cjs/modules/recipe/*"
+    },
+    "./errors": {
+      "import": "./dist/esm/errors/index.js",
+      "require": "./dist/cjs/errors/index.js"
+    },
+    "./constants/*": {
+      "import": "./dist/esm/constants/*",
+      "require": "./dist/cjs/constants/*"
+    }
   },
   "scripts": {
-    "build": "pnpm test && pnpm format && pnpm clean && pnpm tsc -p ./tsconfig.json && pnpm tsc -p ./tsconfig.cjs.json && pnpm postbuild",
-    "postbuild": "tsx ./scripts/cjs-resolver.ts -d && pnpm tsx ./scripts/polyfill-resolver.ts",
+    "build:cjs": "tsc -p . --outDir ./dist/cjs --module commonjs --moduleResolution node --verbatimModuleSyntax false",
+    "build:esm": "tsc -p . --outDir ./dist/esm",
+    "build": "pnpm test && pnpm format && pnpm clean && pnpm build:cjs && pnpm build:esm && pnpm postbuild",
+    "postbuild": "tsx ./scripts/copy-json.ts",
     "dev": "tsx watch src/index.ts",
     "test": "tsc --noEmit",
     "format": "prettier -w ./src && remark . --quiet --output",

@@ -12,7 +12,7 @@ import { stripWhitespace } from '../../utils/strip-whitespace.js'
  * @throws An error if any required token is missing.
  */
 function assertTokens(
-  tokens: Partial<AuthTokens>
+  tokens: Partial<AuthTokens> | undefined
 ): asserts tokens is AuthTokens {
   for (const token of AUTH_TOKENS) {
     if (token === 'certificate') continue

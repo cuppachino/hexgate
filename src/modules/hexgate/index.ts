@@ -88,3 +88,8 @@ export class Hexgate {
    */
   protected lcu: HexgateFetcher
 }
+
+export default Hexgate
+
+export * from './create.js'
+export * from './symbol.js'

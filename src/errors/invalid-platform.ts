@@ -1,4 +1,4 @@
-import { HexgateError } from './index.js'
+import { HexgateError } from './base-error.js'
 
 /**
  * League of Legends only runs on Windows and macOS officially, and linux through

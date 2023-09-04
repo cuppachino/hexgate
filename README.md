@@ -37,9 +37,8 @@ import { ... } from "hexgate"
 ### CJS
 
 ```ts
-(async () => {
-  const { ... } = await import("hexgate")
-})()
+import hexgate = require("hexgate")
+const { ... } = hexgate
 ```
 
 ## Authentication
@@ -61,10 +60,10 @@ const unsafeCredentials = await auth({ certificate: undefined })
 Once you have the credentials, you can create a new [`Hexgate`](./src/modules/hexgate/index.ts) and [`LcuClient`](./src/modules/websocket/index.ts).
 
 ```ts
-import { Hexgate, LcuClient } from "hexgate"
+import { Hexgate as HttpsClient, LcuClient as WsClient } from "hexgate"
 
-const hexgate = new Hexgate(credentials)
-const client = new LcuClient(credentials)
+const httpsClient = new HttpsClient(credentials)
+const websocketClient = new WsClient(credentials)
 ```
 
 Working with multiple clients? Get get `all` credentials.
@@ -88,16 +87,18 @@ const clients = new Set(
 The simplest way of getting started is to "`.build`" a request function. The builder uses generics to infer the parameters and return type of the request.
 
 ```ts
-const hexgate = new Hexgate(credentials)
+import { Hexgate as HttpsClient } from 'hexgate'
+
+const https = new HttpsClient(credentials)
 
 // (arg: string[], init?: any) => Promise<ApiResponse<{ ... }>>
-const getSummonersFromNames = hexgate
+const getSummonersFromNames = https
   .build('/lol-summoner/v2/summoners/names')
   .method('post')
   .create()
 
 const summoner = await getSummonersByName(['dubbleignite'])
-console.log(summoner)
+console.log(summoner.data)
 ```
 
 ## Websocket Events
@@ -105,13 +106,11 @@ console.log(summoner)
 Subscribe to LCU events through the client.
 
 ```ts
-const client = createLcuClient(credentials)
+import { LcuClient as WsClient } from 'hexgate'
 
-client.on('close', () => {
-  client.unsubscribeAll()
-})
+const ws = new WsClient(credentials)
 
-client.subscribe(
+ws.subscribe(
   'OnJsonApiEvent_lol-champ-select_v1_session',
   ({ data, eventType, uri }) => {
     // side effects
@@ -119,7 +118,7 @@ client.subscribe(
 )
 ```
 
-> Note: Since many endpoints will subscribe you to multiple uris, its difficult to provide meaningful type inference for the data property. Import `LcuComponents` type when necessary and/or open a PR to improve typings - which would be greatly appreciated!
+> Note: Since many endpoints will subscribe you to multiple uris, its difficult to provide meaningful type inference for the data property. Import `LcuComponents` type when necessary and/or open a PR to improve typings - which would be greatly appreciated! I'm just improving types as I need them.
 
 ## ⚡️ Connection
 
@@ -163,7 +162,7 @@ const client = new Connection({
 client.connect()
 ```
 
-The `Connection`'s implementation of the Recipe API comes in two flavors:
+The `Connection` class supports recipes, define a `recipe: Recipe` or a `createRecipe: RecipeApiFn` method in the `ConnectionConfig` constructor argument.
 
 ```ts
 import { Connection, createRecipe } from 'hexgate'
@@ -200,7 +199,9 @@ This is identical to the builder API, except the request function isn't built un
 import { createRecipe } from "hexgate"
 
 /**
- * (hexgate: T) => (arg: string[], init?: RequestInit) => Promise<ApiResponse<{...}>>
+ * <T extends HttpsClient>(httpsClient: T) => 
+ *   (arg: string[], init?: RequestInit) => 
+ *     Promise<ApiResponse<{...}>>
  */
 const getSummonersFromNamesRecipe = createRecipe(({ build }) =>
   build('/lol-summoner/v2/summoners/names')
@@ -209,10 +210,10 @@ const getSummonersFromNamesRecipe = createRecipe(({ build }) =>
 )
 ```
 
-#### Step 2: Once you have a recipe, you just need to pass it a `Hexgate` instance.
+#### Step 2: Once you have a recipe, you just need to pass it a `Hexgate`.
 
 ```ts
-const getSummonersFromNames = getSummonersFromNamesRecipe(hexgate)
+const getSummonersFromNames = getSummonersFromNamesRecipe(httpsClient)
 
 const summoners = await getSummonersFromNames(['dubbleignite'])
 console.table(summoners.data)
@@ -273,9 +274,11 @@ new Foo((recipeApi) => "your recipe" as const)
 
 ### Exporting recipes
 
-If you want to export a recipe, you might get a type error. This is because the return type of `createRecipe` is inferred with references to `@cuppachino/openapi-fetch` and `node-fetch-commonjs`. To fix this, install the packages as dev dependencies and apply one of the following solutions to your `tsconfig.json`:
+If you want to export a recipe, you *might* get a type error. This is because the return type of `createRecipe` is inferred with references to `@cuppachino/openapi-fetch` and `node-fetch-commonjs`. To fix this, install the packages as dev dependencies and apply one of the following solutions to your `tsconfig.json`:
 
-#### Map paths
+#### Map paths (Recommended)
+
+Use this option if you are making a library.
 
 ```json
 {
@@ -288,7 +291,9 @@ If you want to export a recipe, you might get a type error. This is because the 
 }
 ```
 
-#### Add types to the global scope
+#### Add types to the global scope (apps)
+
+This *can* be used in applications, but it's not recommended.
 
 ```json
 {
@@ -337,6 +342,8 @@ const client = new Connection({
     )
   }
 })
+
+client.connect()
 ```
 
 ## Development

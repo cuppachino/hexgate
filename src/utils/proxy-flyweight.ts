@@ -16,8 +16,8 @@ export const proxyFlyweight = <T extends Record<string, AsyncFn>>(
     {
       get(target, prop: keyof T & string) {
         console.log('get', prop)
-        if (!Reflect.has(target, prop)) {
-          Reflect.set(target, prop, handlers[prop]())
+        if (!Reflect.has(target, prop) && prop in handlers) {
+          Reflect.set(target, prop, handlers[prop]!())
           return Reflect.get(target, prop)
         } else {
           return Reflect.get(target, prop)
