@@ -79,7 +79,8 @@ export class Hexgate {
    * Internal wrapper for `Fetcher.for<LcuPaths>`
    * @internal
    */
-  protected static forLcu = Fetcher.for<LcuPaths> as () => HexgateFetcher
+  protected static forLcu =
+    Fetcher.for<LcuPaths> as unknown as () => HexgateFetcher
 
   /**
    * Internal fetcher
