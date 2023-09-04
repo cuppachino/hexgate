@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.13.4
+
+### Patch Changes
+
+*   f1366d3: Update README.md
+
 ## 0.13.3
 
 ### Patch Changes
