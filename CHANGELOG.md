@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.13.2
+
+### Patch Changes
+
+*   aecb770: Refactor proxyFunction (no breaking changes)
+
 ## 0.13.1
 
 ### Patch Changes
