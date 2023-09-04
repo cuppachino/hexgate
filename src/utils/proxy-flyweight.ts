@@ -1,4 +1,4 @@
-import type { AsyncFn } from 'src/types/generic.js'
+import type { AsyncFn } from '../types/generic.js'
 
 /**
  * Create a flyweight proxy by supplying a record of async handlers.

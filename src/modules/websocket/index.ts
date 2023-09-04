@@ -6,7 +6,7 @@ import type {
   LcuEvent,
   LcuEventLookup
 } from '../../types/dto/lcu-event-lookup.js'
-import type { LobbyEvent } from 'src/index.js'
+import type { LobbyEvent } from '../../types/dto/lobby.js'
 
 type RecordToCallbacks<T> = {
   [K in keyof T]: ({

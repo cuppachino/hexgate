@@ -1,4 +1,4 @@
-import type { UnknownFunction } from 'src/types/generic.js'
+import type { UnknownFunction } from '../types/generic.js'
 import { identity } from './identity.js'
 
 /**
