@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "pnpm test && pnpm format && pnpm clean && pnpm tsc -p ./tsconfig.json && pnpm tsc -p ./tsconfig.cjs.json && pnpm postbuild",
-    "postbuild": "tsx ./scripts/cjs-resolver.ts -d",
+    "postbuild": "tsx ./scripts/cjs-resolver.ts -d && pnpm tsx ./scripts/polyfill-resolver.ts",
     "dev": "tsx watch src/index.ts",
     "test": "tsc --noEmit",
     "format": "prettier -w ./src && remark . --quiet --output",
