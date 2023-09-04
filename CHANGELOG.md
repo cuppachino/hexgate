@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.12.1
+
+### Patch Changes
+
+*   160c302: fix fetcher type-err
+
 ## 0.12.0
 
 ### Minor Changes
