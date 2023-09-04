@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.13.7
+
+### Patch Changes
+
+*   6fe23f5: Add postbuild step that removes polyfills from esm build
+
 ## 0.13.6
 
 ### Patch Changes
