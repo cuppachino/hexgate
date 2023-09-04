@@ -130,14 +130,11 @@ import { Connection } from 'hexgate'
 
 const client = new Connection({
   // Recipe API (createRecipe or recipe)
-  createRecipe({ build, wrap, unwrap }) {
-    const to = unwrap('should never error!')
+  createRecipe({ build, unwrap }) {
     return {
-      getCurrentSummoner: wrap(
+      getCurrentSummoner: unwrap(
         build('/lol-summoner/v1/current-summoner').method('get').create()
-      )({
-        to
-      })
+      )
     }
   },
   // Propagate status to browser windows.
