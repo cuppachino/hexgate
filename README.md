@@ -197,7 +197,7 @@ const client = new Connection({
 
 #### Step 1: Create a recipe
 
-This is identical to the builder API, except the request won't be built until a hexgate instance is passed to the recipe. This is useful for defining requests ahead of time or in another file.
+This is identical to the builder API, except the request function isn't built until a hexgate instance is given to the recipe. This is useful for modeling requests ahead of time for usage in other places.
 
 ```ts
 import { createRecipe } from "hexgate"
@@ -221,90 +221,57 @@ const summoners = await getSummonersFromNames(['dubbleignite'])
 console.table(summoners.data)
 ```
 
-### Transforming requests
+### 🦋 Transforming requests
 
-#### Wrap
-
-Calling `wrap` without any arguments will default to the request function returned by `build`. The following cases are all equivalent:
+Use `wrap`, `from`, `to`, and `unwrap` to design your api.
 
 ```ts
-const summonersRecipe = createRecipe(({ build, wrap, unwrap }) => ({
-  /**
-  * (arg: { ids?: string; }, init?: RequestInit) => Promise<ApiResponse<{...}>>
-  */
-  fromIds_basic: build('/lol-summoner/v2/summoners')
-    .method('get')
-    .create(),
+const summonersRecipe = createRecipe(({ build, wrap, from, to, unwrap }) => ({
+  getSummoners: {
+    /**
+     * Default for reference.
+     * (arg: { ids?: string; }, init?: RequestInit) => Promise<ApiResponse<{...}>>
+     */
+    v2SummonersDefault: build('/lol-summoner/v2/summoners')
+      .method('get')
+      .create(),
 
-  /**
-  * (arg: { ids?: string; }, init?: RequestInit) => Promise<ApiResponse<{...}>>
-  */  
-  fromIds_inferParams_noArg: wrap(
-    build('/lol-summoner/v2/summoners').method('get').create()
-  )(),
+    /**
+     * unwrap extracts the data property from an ApiResponse.
+     * (arg: { ids?: string }, init?: RequestInit) => Promise<{...}>
+     */
+    v2SummonersAwaited: unwrap(
+      build('/lol-summoner/v2/summoners').method('get').create(),
+    ),
 
-  /**
-  * (arg: { ids?: string; }, init?: RequestInit) => Promise<ApiResponse<{...}>>
-  */  
-  fromIds_inferParams_undefinedMethods_0: wrap(
-    build('/lol-summoner/v2/summoners').method('get').create()
-  )({}),
-
-  /**
-  * (arg: { ids?: string; }, init?: RequestInit) => Promise<ApiResponse<{...}>>
-  */  
-  fromIds_inferParams_undefinedMethods_1: wrap(
-    build('/lol-summoner/v2/summoners').method('get').create()
-  )({
-    from: undefined,
-    to: undefined,
-  })
-}))
+    /**
+     * wrap let's us overwrite the parameters type by supplying conversion functions.
+     * (summonerIds: (number | `${number}`)[], init?: RequestInit | undefined) => Promise<{...}>
+     */
+    fromSummonerIds: wrap(
+      build('/lol-summoner/v2/summoners').method('get').create(),
+    )({
+      // The return type of `from` is constrained by the expected return type of the function being wrapped.
+      from(summonerIds: Array<`${number}` | number>, init?) {
+        return [{ ids: JSON.stringify(summonerIds) }, init];
+      },
+      // awaits data similarly to `unwrap`
+      to,
+    }),
+  },
+}));
 ```
 
-But really you probably want to use `wrap` to define transformations.
+### ⚒️ `Recipe`, `RecipeApiFn`, and `CreateWithRecipe`
+
+Some features have options that accept a `Recipe`, the product of `createRecipe`, or a `RecipeApiFn`, the api argument expected by `createRecipe`. You can achieve similar functionality in your own code by extending `CreateWithRecipe` or implementing its overloaded constructor signature.
 
 ```ts
-const summonersRecipe = createRecipe(({ build, wrap, unwrap }) => ({
-  /**
-   * (summonerIds: (number | `${number}`)[], init?: RequestInit | undefined) => Promise<ApiResponse<{...}>>
-   */
-  fromIds_parameters_can_be_overwritten: wrap(
-    build('/lol-summoner/v2/summoners').method('get').create()
-  )({
-    // The return type is constrained by the request function.
-    // Here it must extend [{ ids?: string }, RequestInit | undefined]
-    from(summonerIds: Array<`${number}` | number>, init?) {
-      return [{ ids: JSON.stringify(summonerIds) }, init]
-    }
-  }),
+import type { CreateWithRecipe } from 'hexgate'
 
-  /**
-   * (arg: { ids?: string }, init?: RequestInit) => Promise<{...}>
-   */
-  fromIds_response_can_be_transformed: wrap(
-    build('/lol-summoner/v2/summoners').method('get').create()
-  )({
-    // The response type is inferred from the request function.
-    // here we are extracting the data property from the response.
-    async to(response) {
-      return (await response).data
-    }
-  }),
-
-  /**
-   * (summonerIds: (number | `${number}`)[], init?: RequestInit | undefined) => Promise<{...}>
-   */
-  fromIds_response_can_be_unwrapped: wrap(
-    build('/lol-summoner/v2/summoners').method('get').create()
-  )({
-    from(summonerIds: Array<`${number}` | number>, init?) {
-      return [{ ids: JSON.stringify(summonerIds) }, init]
-    },
-    // shorthand for the previous example with optional error message argument
-    to: unwrap()
-  }),
-}))
+class Foo<T> extends CreateWithRecipe<T> {}
+new Foo(recipe)
+new Foo((recipeApi) => "your recipe" as const)
 ```
 
 ### Exporting recipes
