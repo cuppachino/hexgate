@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.13.3
+
+### Patch Changes
+
+*   6aacc80: Update README.md
+
 ## 0.13.2
 
 ### Patch Changes
