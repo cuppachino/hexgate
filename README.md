@@ -43,7 +43,7 @@ const { ... } = hexgate
 
 ## Authentication
 
-Wait for the client by passing the [`auth`](https://github.com/cuppachino/hexgate/blob/main/src/modules/auth/index.ts) function to the [`poll`](https://github.com/cuppachino/hexgate/blob/1e35a420382523bf1b0bf60267aa8314fce7a457/src/utils/poll.ts) utility.
+Wait for the client by passing the [`auth`](https://github.com/cuppachino/hexgate/blob/main/src/modules/auth/index.ts) function to the [`poll`](https://github.com/cuppachino/hexgate/blob/main/src/utils/poll.ts) utility.
 
 ```ts
 import { auth, poll } from "hexgate"
@@ -122,7 +122,7 @@ ws.subscribe(
 
 ## ⚡️ Connection
 
-The [`Connection`](./src/modules/connection/index.ts) class further abstracts `Hexgate` & `LcuClient` and handles authentication between client shutdowns. Configuration is optional.
+The [`Connection`](https://github.com/cuppachino/hexgate/blob/main/src/modules/connection/index.ts) class further abstracts `Hexgate` & `LcuClient` and handles authentication between client shutdowns. Configuration is optional.
 
 ```ts
 import { Connection } from 'hexgate'
@@ -187,7 +187,7 @@ const client = new Connection({
 
 ## Recipe API
 
-[`createRecipe`](./src/modules/recipe/index.ts#L78) is a higher-order function for transforming a request's parameters and response. It is a useful tool for morphing the LCU's API into your own. There are several ways to use the functions provided by the callback, and we'll take a look at each one.
+[`createRecipe`](https://github.com/cuppachino/hexgate/blob/main/src/modules/recipe/index.ts#L78) is a higher-order function for transforming a request's parameters and response. It is a useful tool for morphing the LCU's API into your own. There are several ways to use the functions provided by the callback, and we'll take a look at each one.
 
 ### Intro
 
@@ -221,7 +221,7 @@ console.table(summoners.data)
 
 ### 🦋 Transforming requests
 
-Use `wrap`, `from`, `to`, and `unwrap` to design your api.
+Use [`wrap`](https://github.com/cuppachino/hexgate/blob/main/src/utils/proxy-function.ts#L51), `from`, `to`, and `unwrap` to design your api.
 
 ```ts
 const summonersRecipe = createRecipe(({ build, wrap, from, to, unwrap }) => ({
@@ -262,7 +262,7 @@ const summonersRecipe = createRecipe(({ build, wrap, from, to, unwrap }) => ({
 
 ### ⚒️ `Recipe`, `RecipeApiFn`, and `CreateWithRecipe`
 
-Some features have options that accept a [`Recipe`](./src/modules/recipe/index.ts#L8), the product of `createRecipe`, or a [`RecipeApiFn`](./src/modules/recipe/index.ts#16), the api argument expected by `createRecipe`. You can achieve similar functionality in your own code by extending [`CreateWithRecipe`](./src/modules/recipe/index.ts#L40) or implementing its overloaded constructor signature.
+Some features have options that accept a [`Recipe`](https://github.com/cuppachino/hexgate/blob/main/src/modules/recipe/index.ts#L8), the product of `createRecipe`, or a [`RecipeApiFn`](https://github.com/cuppachino/hexgate/blob/main/src/modules/recipe/index.ts#16), the api argument expected by `createRecipe`. You can achieve similar functionality in your own code by extending [`CreateWithRecipe`](https://github.com/cuppachino/hexgate/blob/main/src/modules/recipe/index.ts#L40) or implementing its overloaded constructor signature.
 
 ```ts
 import type { CreateWithRecipe } from 'hexgate'
@@ -307,7 +307,7 @@ This *can* be used in applications, but it's not recommended.
 
 ### LcuValue
 
-The [`LcuValue`](./src/modules/lcu-value/index.ts) class implements [`Update`](./src/types/update.ts) and [`CreateWithRecipe`](./src/modules/recipe/index.ts#L40). It's useful for caching data retrieved from the LCU.
+The [`LcuValue`](https://github.com/cuppachino/hexgate/blob/main/src/modules/lcu-value/index.ts) class implements [`Update`](https://github.com/cuppachino/hexgate/blob/main/src/types/update.ts) and [`CreateWithRecipe`](https://github.com/cuppachino/hexgate/blob/main/src/modules/recipe/index.ts#L40). It's useful for caching data retrieved from the LCU.
 
 ```ts
 import { Connection, LcuValue, type OperationResponses } from 'hexgate'
