@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.14.1
+
+### Patch Changes
+
+*   d7b5563: Fixes a bug in proxyFunction when `from` returns a promise
+
 ## 0.14.0
 
 ### Minor Changes
