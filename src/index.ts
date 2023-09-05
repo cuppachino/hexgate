@@ -61,7 +61,12 @@ export { identity } from './utils/identity.js'
 export { extractDefined } from './utils/extract-defined.js'
 export { mapDefined } from './utils/map-defined.js'
 export { poll } from './utils/poll.js'
-export { proxyFunction } from './utils/proxy-function.js'
+export { proxyFunction, isPromise } from './utils/proxy-function.js'
+export type {
+  DefinitelyAwaited,
+  IfAsync,
+  ProxyFn
+} from './utils/proxy-function.js'
 export { proxyFlyweight } from './utils/proxy-flyweight.js'
 export { result } from './utils/result.js'
 export { zip, type Zip } from './utils/zip.js'
