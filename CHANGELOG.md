@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.14.4
+
+### Patch Changes
+
+*   95f73da: move proxy-function to separate lib
+
 ## 0.14.3
 
 ### Patch Changes
