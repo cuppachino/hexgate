@@ -3,7 +3,7 @@ import type { RequestInit } from 'node-fetch-commonjs'
 import type { HexgateBuild } from '../../types/hexgate/fetcher.js'
 import { extractData } from '../../utils/extract-data.js'
 import { proxyFlyweight as once } from '../../utils/proxy-flyweight.js'
-import { proxyFunction as wrap } from '../../utils/proxy-function.js'
+import { proxyFn as wrap } from '@cuppachino/proxy-fn'
 import { result } from '../../utils/result.js'
 import type { Hexgate } from '../hexgate/index.js'
 
