@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.14.3
+
+### Patch Changes
+
+*   bd3fad5: Update README.md
+
 ## 0.14.2
 
 ### Patch Changes
