@@ -1,5 +1,12 @@
 # hexgate
 
+## 0.14.2
+
+### Patch Changes
+
+*   7315fb9: Bump vite from 4.2.1 to 4.4.9
+*   26144b8: export `proxyFunction` companion types
+
 ## 0.14.1
 
 ### Patch Changes
