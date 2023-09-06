@@ -124,7 +124,7 @@
   },
   "dependencies": {
     "@cuppachino/openapi-fetch": "^2.1.2",
-    "@cuppachino/proxy-fn": "^1.0.1",
+    "@cuppachino/proxy-fn": "^1.0.3",
     "@cuppachino/type-space": "^2.0.0",
     "@type-challenges/utils": "^0.1.1",
     "node-fetch-commonjs": "^3.2.4",

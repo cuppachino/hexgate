@@ -9,8 +9,8 @@ dependencies:
     specifier: ^2.1.2
     version: 2.1.2
   '@cuppachino/proxy-fn':
-    specifier: ^1.0.1
-    version: 1.0.1
+    specifier: ^1.0.3
+    version: 1.0.3
   '@cuppachino/type-space':
     specifier: ^2.0.0
     version: 2.0.0
@@ -304,8 +304,8 @@ packages:
     engines: {node: '>= 12.0.0', npm: '>= 7.0.0'}
     dev: false
 
-  /@cuppachino/proxy-fn@1.0.1:
-    resolution: {integrity: sha512-7We3EIPNEF3TopI15WoA/4p0lA60OuR02VxMrdd/RuBI9f3hqzdP1MPR0HEm2zAP3CQycg9o6uyQBBV3knUuxA==}
+  /@cuppachino/proxy-fn@1.0.3:
+    resolution: {integrity: sha512-3nj51zuUjK2QdpzqcOfvkylnItoNelgvOf7qvWyEWZe9fdejFcNoU8rgOppW7i7Wm8tI41WJvUGf3JEtWKVM4w==}
     dev: false
 
   /@cuppachino/type-space@1.17.1:
