@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.14.5
+
+### Patch Changes
+
+*   2ac3501: deps: update @cuppachino/proxy-fn
+
 ## 0.14.4
 
 ### Patch Changes
