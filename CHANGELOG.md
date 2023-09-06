@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.14.6
+
+### Patch Changes
+
+*   c2785c3: deps: update proxy-fn
+
 ## 0.14.5
 
 ### Patch Changes
