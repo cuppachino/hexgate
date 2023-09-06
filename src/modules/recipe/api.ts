@@ -1,7 +1,6 @@
 import type { ApiResponse } from '@cuppachino/openapi-fetch'
 import type { RequestInit } from 'node-fetch-commonjs'
 import type { HexgateBuild } from '../../types/hexgate/fetcher.js'
-import { extractData } from '../../utils/extract-data.js'
 import { proxyFlyweight as once } from '../../utils/proxy-flyweight.js'
 import { proxyFn as wrap } from '@cuppachino/proxy-fn'
 import { result } from '../../utils/result.js'
@@ -75,7 +74,10 @@ export class RecipeApi {
     return []
   }
   /**
-   * Create a new function that extracts the data from the response of the supplied function.
+   * Extract the data from the response of the supplied function.
    */
-  to = extractData()
+  async to<T>(response: Promise<ApiResponse<T>>) {
+    const res = await response
+    return res.data
+  }
 }
