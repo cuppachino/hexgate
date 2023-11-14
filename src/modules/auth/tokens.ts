@@ -31,11 +31,10 @@ function assertTokens(
  * ```
  */
 async function execTokens() {
-  const BASH = `ps -A | grep LeagueClientUx`
-  // const PS1 = `Get-CimInstance -className Win32_Process | Where-Object Name -Like "LeagueClientUx*" | Select-Object CommandLine -First 1 | Format-List`
   const PS1 = `Get-CimInstance -className Win32_Process | Where-Object Name -Like "LeagueClientUx*" | Select-Object CommandLine | Format-List`
-  const args: Parameters<typeof execPromise> =
-    process.platform === 'win32' ? [PS1, { shell: 'powershell' }] : [BASH]
+  const DARWIN = `ps -A | grep LeagueClientUx`
+  const BASH = `ps -Af | grep LeagueClient.ex`
+  const args: Parameters<typeof execPromise> = process.platform === 'win32' ? [PS1, { shell: 'powershell' }] : process.platform === 'darwin' ? [DARWIN] : [BASH]
 
   try {
     return (await execPromise(...args)).stdout
@@ -53,7 +52,9 @@ function parseTokens(
   processArgs: Buffer | string
 ): Combine<Partial<Omit<Credentials, 'certificate'>>>[] {
   return stripWhitespace(String(processArgs))
-    .split(process.platform === 'win32' ? 'CommandLine' : '??')
+    .split(
+      process.platform === 'win32' ? 'CommandLine' : process.platform === 'darwin' ? '??' : '?'
+    )
     .filter(Boolean)
     .map((args) => ({
       appPid: Number(args.match(/--app-pid=([0-9]+)/)?.[1]),
@@ -73,7 +74,7 @@ export async function getTokens() {
     try {
       assertTokens(tokens)
       acc.push(tokens)
-    } catch {}
+    } catch { }
     return acc
   }, [] as AuthTokens[])
   assertTokens(authTokens[0])
