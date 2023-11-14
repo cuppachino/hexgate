@@ -1,5 +1,11 @@
 # hexgate
 
+## 0.14.7
+
+### Patch Changes
+
+*   badb5ac: fix authentication on linux
+
 ## 0.14.6
 
 ### Patch Changes
