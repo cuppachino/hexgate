@@ -1,5 +1,13 @@
 # hexgate
 
+## 0.14.8
+
+### Patch Changes
+
+*   a046e72: fix poll onRetry: pass count to callback
+
+    The function was polling correctly, but not incrementing the attempt variable intended for debugging.
+
 ## 0.14.7
 
 ### Patch Changes
