@@ -21,6 +21,7 @@ export async function poll<T>(
   let attempts = 0
   let result: T | null = null
   while (result === null) {
+    attempts++
     try {
       result = await fn()
     } catch (e) {
